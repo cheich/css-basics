@@ -36,6 +36,6 @@ Just include **basics.min.css** before all other stylesheets and javascripts.
     Affects: All responsive utilities<br/>
     Solution: Include [respond.js](https://github.com/scottjehl/Respond)
   * 2D Transform<br/>
-    Affects Positioning<br/>
+    Affects: Positioning<br/>
     Solution: Include [basics.ie.css](/src/bascics.ie.css) - Requires to set width/height
 * Chrome, Firefox, Safari and all other major browsers
