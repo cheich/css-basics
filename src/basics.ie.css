@@ -1,0 +1,60 @@
+/*!
+ * basics.ie.css v1.0 - 2015-02-26
+ * Copyright 2014 Christoph Heich | http://cheich.github.io/CSS-Basics/
+ * Released under the MIT license | https://github.com/cheich/CSS-Basics/blob/gh-pages/LICENSE.md
+ *
+ * Fixes for IE <= 8
+ */
+
+/**
+ * Fix not supported `transform` for positioning
+ * Requires to set width/height
+ */
+.center-top,
+.center-outertop,
+.center-bottom,
+.center-outerbottom {
+	left: 0;
+	right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.left-center,
+.outerleft-center,
+.right-center,
+.outerright-center {
+	top: 0;
+	bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+.center-center,
+.center {
+    left: 0;
+    right: 0;
+	top: 0;
+	bottom: 0;
+    margin: auto;
+}
+@media (max-width: 767px) {
+	.position-reset-xs {
+		margin: 0;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.position-reset-sm {
+		margin: 0;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.position-reset-md {
+		margin: 0;
+	}
+}
+@media (min-width: 1200px) {
+	.position-reset-lg {
+		margin: 0;
+	}
+}
