@@ -15,7 +15,7 @@ CSS Basics is built to start styling your page without worry about any position 
 ## Setup
 Just include **basics.min.css** before all other stylesheets and javascripts.
 
-## Include
+## Included
 * Menus
   * Horizontal
   * Vertical
@@ -30,11 +30,12 @@ Just include **basics.min.css** before all other stylesheets and javascripts.
 
 ## Browser Support
 
-* IE >= 9 - IE < 9 doesn't support these requirements:
-  * Media Queries
-    Affects: All responsive utilities
+* IE >= 9<br/>
+  IE < 9 doesn't support these requirements:
+  * Media Queries<br/>
+    Affects: All responsive utilities<br/>
     Solution: Include [respond.js](https://github.com/scottjehl/Respond)
-  * 2D Transform
-    Affects Positioning
+  * 2D Transform<br/>
+    Affects Positioning<br/>
     Solution: Include [basics.ie.css](/src/bascics.ie.css) - Requires to set width/height
 * Chrome, Firefox, Safari and all other major browsers
