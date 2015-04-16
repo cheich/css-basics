@@ -1,5 +1,5 @@
 /*!
- * basics.css v2.1.4 - 2015-03-25
+ * basics.css v2.1.5 - 2015-04-16
  * Copyright 2014 Christoph Heich | http://cheich.github.io/CSS-Basics/
  * Released under the MIT license | https://github.com/cheich/CSS-Basics/blob/gh-pages/LICENSE.md
  */
@@ -1332,13 +1332,24 @@ td[dir="rtl"] {
 label,
 button,
 .button,
+.submit-button,
+[role="button"],
 select,
 input,
 textarea {
+	line-height: normal; /* Same line-height for button and input-button */
+}
+form label,
+form button,
+form .button,
+form .submit-button,
+form [role="button"],
+form select,
+form input,
+form textarea {
 	width: 100%;
 	display: block;
 	max-width: 100%;
-	line-height: normal; /* Same line-height for button and input-button */
 }
 input[type="color"] {
 	min-width: 3em; /* Prevent very small input[type="color"] */
@@ -1380,8 +1391,10 @@ input[type="week"] {
 .form-inline-xs select,
 .form-inline-xs input,
 .form-inline-xs button,
-.form-inline-xs label,
 .form-inline-xs .button,
+.form-inline-xs .submit-button,
+.form-inline-xs [role="button"],
+.form-inline-xs label,
 label.form-inline-xs {
 	width: auto;
 	display: inline;
@@ -1391,8 +1404,10 @@ label.form-inline-xs {
 	.form-inline-sm select,
 	.form-inline-sm input,
 	.form-inline-sm button,
+    .form-inline-sm .button,
+    .form-inline-sm .submit-button,
+    .form-inline-sm [role="button"],
 	.form-inline-sm label,
-	.form-inline-sm .button,
 	label.form-inline-sm {
 		width: auto;
 		display: inline;
@@ -1403,8 +1418,10 @@ label.form-inline-xs {
 	.form-inline-md select,
 	.form-inline-md input,
 	.form-inline-md button,
+    .form-inline-md .button,
+    .form-inline-md .submit-button,
+    .form-inline-md [role="button"],
 	.form-inline-md label,
-	.form-inline-md .button,
 	label.form-inline-md {
 		width: auto;
 		display: inline;
@@ -1415,8 +1432,10 @@ label.form-inline-xs {
 	.form-inline-lg select,
 	.form-inline-lg input,
 	.form-inline-lg button,
+    .form-inline-lg .button,
+    .form-inline-lg .submit-button,
+    .form-inline-lg [role="button"],
 	.form-inline-lg label,
-	.form-inline-lg .button,
 	label.form-inline-lg {
 		width: auto;
 		display: inline;
