@@ -1,0 +1,151 @@
+/**
+ * Helpers
+ *
+ * Just a few helper classes
+ *
+ * - Text helpers
+ * - Alignments
+ * - Image caption
+ * - Hidden
+ * - Invisible
+ * - Clearfix
+ */ 
+
+@import "mixins/clearfix.less";
+
+// Text helpers
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
+// Alignments for images etc. (floating)
+@media (min-width: @screen-sm-min) {
+	.alignright {
+		float: right;
+        margin-right: 0;
+	}
+    
+	.alignleft {
+		float: left;
+        margin-left: 0;
+	}
+    
+	.aligncenter {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+    
+	.alignnone {
+		float: none;
+	}
+}
+
+// Image captions
+.caption {
+	max-width: 100%;
+    
+    img {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .caption-text {
+        font-size: smaller;
+        margin: 0;
+    }
+    
+    @media (max-width: @screen-xs-max) {
+        & {
+            width: 100%; // Mobile
+        }
+    }
+}
+
+// Hide elements completely from the screen
+// Still not enough for some screen-readers; additional use [aria-hidden="true"]
+// 
+// - collapse: yes
+// - screen-readers: no
+// - events: no
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+} 
+
+// Access-able for screen-readers
+// `visibility: hidden` isn't read by some screen-readers
+// @see http://a11yproject.com/posts/how-to-hide-content/
+// 
+// - collapse: yes
+// - screen-readers: yes
+// - events: no
+.invisible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+// Same as `.invisible` but focus-able
+// @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// 
+// - collapse: yes
+// - screen-readers: yes
+// - events: only when focus/active
+.invisible-focusable {
+    .invisible;
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+    }
+}
+
+// Hide element but preserve space
+// `visibility: hidden` isn't read by some screen-readers
+// 
+// - collapse: no
+// - screen-readers: yes
+// - events: yes
+.invisible-preserve {
+   opacity: 0;
+}
+
+// Clearfix
+.clearfix {
+    .clearfix();
+}

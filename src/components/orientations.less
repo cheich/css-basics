@@ -1,0 +1,76 @@
+/** 
+ * Orientations
+ * 
+ * Orientate elements horizontally or vertically.
+ */
+ 
+@import "mixins/horizontal.less";
+@import "mixins/vertical.less";
+@import "mixins/clearfix.less";
+
+.vertical-xs,
+.vertical-sm,
+.vertical-md,
+.vertical-lg {
+    .clearfix();
+}
+
+.vertical-xs {
+    > * {
+        .vertical();
+    }
+}
+
+.vertical-sm {
+    @media (min-width: @screen-sm-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.vertical-md {
+    @media (min-width: @screen-md-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.vertical-lg {
+    @media (min-width: @screen-lg-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.horizontal-xs {
+    > * {
+        .horizontal();
+    }
+}
+
+.horizontal-sm {
+    @media (min-width: @screen-sm-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}
+
+.horizontal-md {
+    @media (min-width: @screen-md-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}
+
+.horizontal-lg {
+    @media (min-width: @screen-lg-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}

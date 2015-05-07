@@ -1,0 +1,179 @@
+/** 
+ * Menus
+ * 
+ * Build simple menus/navigations with unordered lists.
+ * Ready for multi-dimensional menus with `:hover` effect.
+ * 
+ * @requires orientations.less
+ */
+ 
+@import "orientations.less";
+
+@import "mixins/horizontal-submenus.less";
+@import "mixins/vertical-submenus.less";
+ 
+ul.menu {
+    list-style: none;
+    padding-left: 0;
+    
+    li {
+        .vertical();
+        
+        ul { 
+            display: none;
+            
+            li {
+                .horizontal();
+            }
+        }
+    
+        a,
+        &:hover > ul { 
+            display: block; // Show child on hover - this does the trick
+        }
+    }
+    
+    &.horizontal-xs {
+        ul {
+            .horizontal-submenu();
+            
+            ul {
+                &:extend(ul.menu.vertical-xs ul);
+            }
+        }
+    }      
+    
+    &.vertical-xs {
+        ul {
+            .vertical-submenu;
+        }
+    }
+    
+    @media (min-width: @screen-sm-min) {
+        &.horizontal-sm {
+            ul {
+                .horizontal-submenu();
+            
+                ul {
+                    &:extend(ul.menu.vertical-sm ul);
+                }
+            }
+        }
+        
+        &.vertical-sm {
+            ul {
+                .vertical-submenu();
+            }
+        }
+    }
+    
+    @media (min-width: @screen-md-min) {
+        &.horizontal-md {
+            ul {
+                .horizontal-submenu();
+                
+                ul {
+                    &:extend(ul.menu.vertical-md ul);
+                }
+            }
+        }
+        
+        &.vertical-md {
+            ul {
+                .vertical-submenu();
+            }
+        }
+    }
+    
+    @media (min-width: @screen-lg-min) {
+        &.horizontal-lg {
+            ul {
+                .horizontal-submenu();
+                
+                ul {
+                    &:extend(ul.menu.vertical-lg ul);
+                }
+            }
+        }
+        
+        &.vertical-lg {
+            ul {
+                .vertical-submenu();
+            }
+        }
+    }
+}
+
+[dir="rtl"] {
+    ul.menu {
+        &.horizontal-xs {
+            ul {
+                .horizontal-submenu-rtl();
+                
+                ul {
+                    &:extend([dir="rtl"] ul.menu.vertical-xs ul);
+                }
+            }
+        } 
+        
+        &.vertical-xs {
+            ul {
+                .vertical-submenu-rtl();
+            }
+        }
+
+        @media (min-width: @screen-sm-min) {
+            &.horizontal-sm {
+                ul {
+                    .horizontal-submenu-rtl();
+                    
+                    ul {
+                        &:extend([dir="rtl"] ul.menu.vertical-sm ul);
+                    }
+                }
+            } 
+            
+            &.vertical-sm {
+                ul {
+                    .vertical-submenu-rtl();
+                }
+            }
+        }
+        
+        @media (min-width: @screen-md-min) {
+            &.horizontal-md {
+                ul {
+                    .horizontal-submenu-rtl();
+                    
+                    ul {
+                        &:extend([dir="rtl"] ul.menu.vertical-md ul);
+                    }
+                }
+            } 
+            
+            &.vertical-md {
+                ul {
+                    .vertical-submenu-rtl();
+                }
+            }
+        }
+        
+        @media (min-width: @screen-lg-min) {
+            &.horizontal-lg {
+                ul {
+                    .horizontal-submenu-rtl();
+                    
+                    ul {
+                        &:extend([dir="rtl"] ul.menu.vertical-lg ul);
+                    }
+                }
+            } 
+            
+            &.vertical-lg {
+                ul {
+                    .vertical-submenu-rtl();
+                }
+            }
+        }
+    }
+}

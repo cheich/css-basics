@@ -1,0 +1,28 @@
+/** 
+ * WordPress
+ *
+ * WordPress Core w/o style.
+ * CSS Basics alignments already ready for WordPress.
+ *
+ * @see https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ * @requires helpers.less
+ */
+
+@import "helpers.less";
+
+.wp-caption {
+	&:extend(.caption all);
+    
+    .wp-caption-text {
+        &:extend(.caption .caption-text);
+    }
+}
+
+.screen-reader-text {
+    &:extend(.invisible all);
+
+    &:focus {
+        text-decoration: none;
+        z-index: 100000; // Above WP toolbar
+    }
+}

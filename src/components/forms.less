@@ -1,0 +1,154 @@
+/** 
+ * Form elements
+ *
+ * Make forms responsive and mobile first.
+ * Label-Tags should surround the input field and it's label (no ID's needed).
+ */ 
+
+.button,
+.submit-button,
+[role="button"],
+button,
+label,
+output,
+button,
+select,
+input,
+textarea {
+    line-height: normal; // Same line-height for all form elements
+}
+
+.button,
+.submit-button,
+[role="button"] {
+    text-align: center;
+}
+
+// Fix Chrome's and FF's `min-width: min-content;`
+fieldset {
+    min-width: 0; 
+}
+
+// Force IE8 to wrap long content
+label {
+    max-width: 100%;
+}
+
+legend {
+    display: block;
+    padding: 0;
+    line-height: inherit;
+    border: 0;
+}
+
+textarea {
+    vertical-align: top;
+    min-height: 1.5em;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+// Fix FF opacity settings (so only color have to be set in the theme)
+/* autoprefixer: off */
+:-moz-placeholder { // FF 4-18 */
+    opacity: 1;
+    color: #757575;
+}
+::-moz-placeholder { // FF 19+
+    opacity: 1;
+    color: #757575;
+}
+/* autoprefixer: on */
+
+input {
+    &[type="color"] {
+        min-width: 3em; // Prevent very small input[type="color"] in FF
+    }
+
+    // Remove iOS rounded corners on [type="search"]
+    // Fix unexpected ::placeholder rendering 
+    &[type="email"],
+    &[type="search"] {
+        /* autoprefixer: off */
+        -webkit-appearance: textfield;
+           -moz-appearance: textfield;
+                appearance: textfield;
+    }
+    
+    // Force check-box and radio-button in-line
+    // This way there is no need to set `!important`
+    &[type="checkbox"],
+    &[type="radio"] {
+        display: inline;
+        width: auto;
+    }
+}
+
+form {
+    // .button,
+    // .submit-button,
+    // [role="button"],
+    // button,
+    label,
+    output,
+    select,
+    textarea {
+        display: block;
+        width: 100%; // Make all form elements 100% width (mobile first)
+    }
+
+    input {
+        &[type="color"],
+        &[type="date"],
+        &[type="datetime"],
+        &[type="datetime-local"],
+        &[type="email"],
+        &[type="file"],
+        &[type="month"],
+        &[type="number"],
+        &[type="password"],
+        &[type="range"],
+        &[type="search"],
+        &[type="tel"],
+        &[type="text"],
+        &[type="time"],
+        &[type="url"],
+        &[type="week"] {
+            &:extend(form label);
+        }
+    }  
+}
+
+// Enable labels as grid row
+label.row {
+    max-width: 150%; // Rows are greater than 100% (gutter left and right)
+    width: auto;
+    display: block;
+}
+
+// Make input[type="file"] invisible but still functional
+// @see http://www.quirksmode.org/dom/inputfile.html
+.hidden-input-file {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    
+    .fake-file {
+        position: relative;
+        z-index: 1;
+    }    
+    
+    input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }    
+}

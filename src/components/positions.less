@@ -1,0 +1,164 @@
+/** 
+ * Positions
+ * 
+ * Position an element relative to it's parent
+ * Doesn't work properly with IE<9 (property: transform)
+ */
+
+.position-container {
+    position: relative;
+}
+
+.center-top,
+.center-outertop,
+.center-bottom,
+.center-outerbottom,
+.center-center,
+.center, // Shorthand of .center-center
+.left-top,
+.left-outertop,
+.left-bottom,
+.left-outerbottom,
+.left-center,
+.outerleft-top,
+.outerleft-outertop,
+.outerleft-bottom,
+.outerleft-outerbottom,
+.outerleft-center,
+.right-top,
+.right-outertop,
+.right-bottom,
+.right-outerbottom,
+.right-center,
+.outerright-top,
+.outerright-outertop,
+.outerright-bottom,
+.outerright-outerbottom,
+.outerright-center {
+    position: absolute;
+}
+
+// X-Positions
+.left-top,
+.left-outertop,
+.left-bottom,
+.left-outerbottom,
+.left-center {
+    left: 0;
+    right: auto;
+}
+
+.outerleft-top,
+.outerleft-outertop,
+.outerleft-bottom,
+.outerleft-outerbottom,
+.outerleft-center {
+    left: auto;
+    right: 100%;
+}
+
+.right-top,
+.right-outertop,
+.right-bottom,
+.right-outerbottom,
+.right-center {
+    left: auto;
+    right: 0;
+}
+
+.outerright-top,
+.outerright-outertop,
+.outerright-bottom,
+.outerright-outerbottom,
+.outerright-center {
+    left: 100%;
+    right: auto;
+}
+
+.center-top,
+.center-outertop,
+.center-bottom,
+.center-outerbottom {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 0);
+}
+
+// Y-Positions
+.center-top,
+.left-top,
+.outerleft-top,
+.right-top,
+.outerright-top {
+    top: 0;
+    bottom: auto;
+}
+
+.center-outertop,
+.left-outertop,
+.outerleft-outertop,
+.right-outertop,
+.outerright-outertop,
+.outerright-bottom {
+    top: auto;
+    bottom: 100%;
+}
+
+.center-bottom,
+.left-bottom,
+.outerleft-bottom,
+.right-bottom,
+.outerright-bottom  {
+    top: auto;
+    bottom: 0;
+}
+
+.center-outerbottom,
+.left-outerbottom,
+.outerleft-outerbottom,
+.right-outerbottom,
+.outerright-outerbottom {
+    top: 100%;
+    bottom: auto;
+}
+
+.left-center,
+.outerleft-center,
+.right-center,
+.outerright-center {
+    top: 50%;
+    bottom: auto;
+    transform: translate(0, -50%);
+}
+
+// Center center
+.center-center,
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: @screen-xs-max) {
+    .position-reset-xs {
+        .position-reset();
+    }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .position-reset-sm {
+        .position-reset();
+    }
+}
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .position-reset-md {
+        .position-reset();
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .position-reset-lg {
+        .position-reset();
+    }
+}
