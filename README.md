@@ -58,3 +58,11 @@ _CSS Basics_ is compiled with default [`browserlist`](https://github.com/ai/brow
     Affects: Positioning<br/>
     Solution: Include [positions.ie.css](/build/positions.ie.css) - Requires to set width/height
 * Chrome, Firefox, Safari and all other major browsers
+
+
+## Release notes
+Each main version is mostly backward-compatible.
+See the [history](https://github.com/cheich/CSS-Basics/blob/master/HISTORY.md) to see all changes and fixes.
+    
+## License
+*CSS Basics* is released under the [MIT license](https://github.com/cheich/CSS-Basics/blob/master/LICENSE.md)
