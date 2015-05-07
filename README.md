@@ -27,8 +27,8 @@ It's still to heavy? No problem!<br />
 Since v3, you can compile your custom _CSS Basics_ easily:
 
 1. Setup your custom build with [`setup.less`](/src/setup.less)
-2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)<br />
-   `lessc basics.less basics.custom.min.css --autoprefix --clean-css`<br />
+2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)
+   `lessc basics.less basics.custom.min.css --autoprefix --clean-css`
    *Note:* `--autoprefix` and `--clean-css` requires additional less-plugins. 
 3. Link your new custom build
 
