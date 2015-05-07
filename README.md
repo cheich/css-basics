@@ -19,12 +19,13 @@ Take a look at the [project page](https://cheich.github.io/CSS-Basics/) to see f
 ## Setup
 Just include [**basics.min.css**](/build/basics.min.css) before all other stylesheets and javascripts.
 ```html
-   <link rel="stylesheet" type="text/css" href="path/to/basics.min.css" />
+<link rel="stylesheet" type="text/css" href="path/to/basics.min.css" />
 ```
 
 ## Custom build
 It's still to heavy? No problem!<br />
 Since v3, you can compile your custom _CSS Basics_ easily:
+
 1. Setup your custom build with [`setup.less`](/src/setup.less)
 2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)<br />
    `lessc basics.less basics.custom.min.css --autoprefix --clean-css`<br />
