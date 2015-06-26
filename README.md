@@ -1,10 +1,12 @@
-# [CSS Basics](http://cheich.github.io/CSS-Basics/)
+# [CSS Basics](http://christoph-heich.de/css-basics)
 
 You're the web artist. So... why should a CSS framework restrict your artistry?
 
 CSS Basics is built to start styling your page without worry about any position and behaviour problems. It's mobile first and scales up to large displays.
 
 If you have suggestions of improvements or bug reports, please feel free to create a new issue via the [issue tracker](https://github.com/cheich/CSS-Basics/issues).
+
+Take a look at the [project page](http://christoph-heich.de/css-basics) to see full documentation.
 
 ## Features
 * No styles - just basics
