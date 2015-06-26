@@ -2,7 +2,9 @@
 
 You're the web artist. So... why should a CSS framework restrict your artistry?
 
-CSS Basics is built to start styling your page without worry about any position and behaviour problems. It's mobile first and scales up to large displays with Twitters incredible Bootstrap [grid system](http://getbootstrap.com/css/#grid) and [responsive utilities](http://getbootstrap.com/css/#responsive-utilities).
+CSS Basics is built to start styling your page without worry about any position and behaviour problems. It's mobile first and scales up to large displays.
+
+If you have suggestions of improvements or bug reports, please feel free to create a new issue via the [issue tracker](https://github.com/cheich/CSS-Basics/issues).
 
 ## Features
 * No styles - just basics
@@ -22,8 +24,8 @@ Just include [**basics.min.css**](/build/basics.min.css) before all other styles
 It's still to heavy? No problem!<br />
 Since version 3.0, you can compile your custom _CSS Basics_ easily with all components that you need:
  1. Setup your custom build via [`setup.less`](/src/setup.less)
- 2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)
-    `lessc basics.less basics.custom.min.css --autoprefix --clean-css`
+ 2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)<br />
+    `lessc basics.less basics.custom.min.css --autoprefix --clean-css`<br />
     *Note:* `--autoprefix` and `--clean-css` requires additional less-plugins. 
  3. Link your new custom build
 
@@ -50,8 +52,8 @@ IE < 9 doesn't support this requirements:
   *Affects:* All responsive utilities<br />
   *Solution:* Include [respond.js](https://github.com/scottjehl/Respond)
  * 2D Transform<br />
-  *Affects:* Positioning<br />
-  *Solution:* Include [positions.ie.css](/build/positions.ie.css) - Requires to set width/height
+  *Affects:* Component _Positions_<br />
+  *Solution:* Include positions.ie.less while compiling - Requires to set width/height
 
 ## Release notes
 Each main version is mostly backward-compatible.

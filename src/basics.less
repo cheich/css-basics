@@ -1,14 +1,18 @@
 /*!
- * basics.css v3.0.0b1 - 2015-05-07
+ * basics.css v3.0.0b2 - 2015-06-26
  * Copyright 2014 Christoph Heich | http://cheich.github.io/CSS-Basics/
  * Released under the MIT license | https://github.com/cheich/CSS-Basics/blob/gh-pages/LICENSE.md
  */
+ 
+ 
+ // TODO: Visibility: add `.noprint` and `.print` 
 
 //
 // Basics
 // 
 
 // (Re-)set everthing to border-box, 'cause border-box rockz!
+// 
 *,
 *:before,
 *:after {
@@ -16,23 +20,8 @@
 }
 
 html, body {
-    font-size: 100%;
-    height: 100%;
-    width: 100%;
+    font-size: 100%; // Init reset to set child's relative font-size relative to this one
+    height: 100%; // Set to full height of the browser window
 }
-
-// Images should not overflow it's parent
-img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto; // Proportional scaling. Now, we only have to set the width
-    -ms-interpolation-mode: bicubic; // Prettify IE image scaling
-}
-
-a {
-    img {
-        border: 0; // Prevent IE border on click-able images 
-    }
-}
-
+ 
 @import "setup.less";

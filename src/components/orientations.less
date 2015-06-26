@@ -1,18 +1,28 @@
-/** 
+/**
  * Orientations
- * 
+ *
  * Orientate elements horizontally or vertically.
+ * All child elements will be orientated to the expected way with variable width (if not set).
  */
- 
+
 @import "mixins/horizontal.less";
 @import "mixins/vertical.less";
-@import "mixins/clearfix.less";
+@import "mixins/no-list.less";
 
+.horizontal-xs,
+.horizontal-sm,
+.horizontal-md,
+.horizontal-lg,
 .vertical-xs,
 .vertical-sm,
 .vertical-md,
 .vertical-lg {
-    .clearfix();
+    display: inline-block;
+    
+    ul&,
+    ul {
+        .no-list();
+    }
 }
 
 .vertical-xs {

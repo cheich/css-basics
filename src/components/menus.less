@@ -4,48 +4,60 @@
  * Build simple menus/navigations with unordered lists.
  * Ready for multi-dimensional menus with `:hover` effect.
  * 
- * @requires orientations.less
+ * @requires orientations.less (for non-mobile devices)
  */
  
 @import "orientations.less";
 
-@import "mixins/horizontal-submenus.less";
-@import "mixins/vertical-submenus.less";
+@import "mixins/horizontal-submenu.less";
+@import "mixins/vertical-submenu.less";
+@import "mixins/no-list.less";
  
-ul.menu {
-    list-style: none;
-    padding-left: 0;
+.menu {
+
+    &,
+    ul {
+        .no-list();
+    }
     
     li {
-        .vertical();
+        position: relative;
         
         ul { 
             display: none;
-            
-            li {
-                .horizontal();
-            }
+            list-style: none;
+            padding-left: 0;
         }
     
         a,
         &:hover > ul { 
-            display: block; // Show child on hover - this does the trick
+            display: block; // Show sub-menu
+        }
+        
+        &.active > ul {
+            display: block !important;
         }
     }
     
+    &.unbind-hover {
+        li:hover > ul {
+            display: none; // Unbind hover effect (use js instead)
+        }
+    }    
+        
     &.horizontal-xs {
         ul {
             .horizontal-submenu();
             
             ul {
-                &:extend(ul.menu.vertical-xs ul);
+                &:extend(.menu.vertical-xs ul);
             }
         }
     }      
     
     &.vertical-xs {
         ul {
-            .vertical-submenu;
+            .vertical-submenu();
         }
     }
     
@@ -55,7 +67,7 @@ ul.menu {
                 .horizontal-submenu();
             
                 ul {
-                    &:extend(ul.menu.vertical-sm ul);
+                    &:extend(.menu.vertical-sm ul);
                 }
             }
         }
@@ -73,7 +85,7 @@ ul.menu {
                 .horizontal-submenu();
                 
                 ul {
-                    &:extend(ul.menu.vertical-md ul);
+                    &:extend(.menu.vertical-md ul);
                 }
             }
         }
@@ -91,7 +103,7 @@ ul.menu {
                 .horizontal-submenu();
                 
                 ul {
-                    &:extend(ul.menu.vertical-lg ul);
+                    &:extend(.menu.vertical-lg ul);
                 }
             }
         }
@@ -128,7 +140,7 @@ ul.menu {
                     .horizontal-submenu-rtl();
                     
                     ul {
-                        &:extend([dir="rtl"] ul.menu.vertical-sm ul);
+                        &:extend([dir="rtl"] .menu.vertical-sm ul);
                     }
                 }
             } 
@@ -146,7 +158,7 @@ ul.menu {
                     .horizontal-submenu-rtl();
                     
                     ul {
-                        &:extend([dir="rtl"] ul.menu.vertical-md ul);
+                        &:extend([dir="rtl"] .menu.vertical-md ul);
                     }
                 }
             } 
@@ -164,7 +176,7 @@ ul.menu {
                     .horizontal-submenu-rtl();
                     
                     ul {
-                        &:extend([dir="rtl"] ul.menu.vertical-lg ul);
+                        &:extend([dir="rtl"] .menu.vertical-lg ul);
                     }
                 }
             } 

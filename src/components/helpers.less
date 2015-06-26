@@ -2,18 +2,16 @@
  * Helpers
  *
  * Just a few helper classes
- *
  * - Text helpers
- * - Alignments
- * - Image caption
- * - Hidden
- * - Invisible
+ * - Floatings
  * - Clearfix
+ * - Alignments
+ * - Hide helpers
  */ 
 
 @import "mixins/clearfix.less";
 
-// Text helpers
+// Text transformations
 .uppercase {
     text-transform: uppercase;
 }
@@ -26,65 +24,121 @@
     text-transform: capitalize;
 }
 
-.right {
+.small-caps {
+    font-variant: small-caps;
+}
+
+// Text sizing
+.smaller {
+    font-size: 80%;
+}
+
+.larger {
+    font-size: 120%; // Fixed value to apply in all browsers the same value
+}
+
+// Text effects
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.italic {
+    font-style: italic;
+}
+
+// Text wrap
+.pre {
+    white-space: pre;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+// Text alignments
+.text-align-right {
     text-align: right;
 }
 
-.left {
+.text-align-left {
     text-align: left;
 }
 
-.center {
+.text-align-center {
     text-align: center;
 }
 
-.justify {
+.text-align-justify {
     text-align: justify;
 }
 
-// Alignments for images etc. (floating)
-@media (min-width: @screen-sm-min) {
-	.alignright {
-		float: right;
-        margin-right: 0;
-	}
-    
-	.alignleft {
-		float: left;
-        margin-left: 0;
-	}
-    
-	.aligncenter {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-    
-	.alignnone {
-		float: none;
-	}
+// Floatings
+.float-right {
+    float: right;
+    margin-right: 0 !important;
 }
 
-// Image captions
-.caption {
-	max-width: 100%;
-    
-    img {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-    
-    .caption-text {
-        font-size: smaller;
-        margin: 0;
-    }
-    
-    @media (max-width: @screen-xs-max) {
-        & {
-            width: 100%; // Mobile
-        }
-    }
+.float-left {
+    float: left;
+    margin-left: 0 !important;
+}
+
+.float-center {
+    // ?
+}
+
+.float-none {
+    float: none;
+}
+
+// Clearfix
+.clearfix {
+    .clearfix();
+}
+
+// Alignments
+.align-center,
+.align-left,
+.align-right {
+    display: block;
+}
+
+.align-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.align-left {
+    margin-left: 0;
+    margin-right: auto !important;
+}
+
+.align-right {
+    margin-left: auto !important;
+    margin-right: 0;
+}
+
+// Wrap
+// Wrap a element to the full size of it's parent
+.wrap {
+    position: relative;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 // Hide elements completely from the screen
@@ -116,7 +170,7 @@
     clip: rect(0, 0, 0, 0);
 }
 
-// Same as `.invisible` but focus-able
+// Same as `.invisible` but shown while active/focused
 // @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
 // 
 // - collapse: yes
@@ -142,10 +196,31 @@
 // - screen-readers: yes
 // - events: yes
 .invisible-preserve {
-   opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; // IE 8
+    filter: alpha(opacity=0); // IE 5-7
+    opacity: 0;
 }
 
-// Clearfix
-.clearfix {
-    .clearfix();
+// Hide on all screen devices
+// Only set it to affected devices, so we don't have to reset anything
+// 
+// - collapse: yes
+// - screen-readers: no
+// - events: no
+@media handheld, projection, screen, tv {
+    .print {
+        .hidden;
+    }
+}
+
+// Hide on print devices
+// Only set it to affected devices, so we don't have to reset anything
+// 
+// - collapse: yes
+// - screen-readers: no
+// - events: no
+@media embossed, print {
+    .noprint {
+        .hidden;
+    }
 }

@@ -1,11 +1,10 @@
 
-// Components
-@import "components/forms.less";
-@import "components/helpers.less";
-@import "components/menus.less";
-@import "components/orientations.less";
-@import "components/tables.less";
-@import "components/wordpress.less";
+//
+// Set up your custom build
+// 
+// Don't change the components order.
+// To remove one or more components, just comment it out where it's imported.
+//
 
 // Vendor components
 @import "vendor/normalize.less";
@@ -14,7 +13,29 @@
 @import "vendor/responsive-utilities.less";
 @import "vendor/responsive-embed.less";
 
+// Components
+@import "components/wordpress.less";
+@import "components/tables.less";
+@import "components/positions.less";
+// @import "components/positions.ie.less"; // Requires to set width/height
+@import "components/orientations.less";
+@import "components/menus.less";
+@import "components/images.less";
+@import "components/helpers.less";
+@import "components/forms.less";
+
+// 
+// Form gutters
+//
+// Gutter between form input fields
+@input-gutter-height: 1em; 
+@input-gutter-width: .5em; // Only applied on horizontal form layouts
+
+//
 // Media queries breakpoints
+// 
+// Note: This is NOT just used by the grid system. 
+//
 @screen-sm-min: 768px;
 @screen-md-min: 992px;
 @screen-lg-min: 1200px;
@@ -22,15 +43,26 @@
 @screen-sm-max: (@screen-md-min - 1);
 @screen-md-max: (@screen-lg-min - 1);
 
+//
 // Grid system
+//
 @grid-columns: 12;          // Number of columns in the grid.
-@grid-gutter-width: 30px;   // Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width: 15px;   // Padding between columns. Gets divided in half for the left and right.
 
+//
 // Container sizes
+// 
 // Define the maximum width of `.container` for different screen sizes.
-@container-tablet: (720px + @grid-gutter-width);    // Small screen / tablet
-@container-sm: @container-tablet;                   // For `@screen-sm-min` and up.
-@container-desktop: (940px + @grid-gutter-width);   // Medium screen / desktop
-@container-md: @container-desktop;                  // For `@screen-md-min` and up.
-@container-large-desktop: (1140px + @grid-gutter-width); // Large screen / wide desktop
-@container-lg: @container-large-desktop;            // For `@screen-lg-min` and up.
+//
+
+// Small screen / tablet
+// For `@screen-sm-min` and up.
+@container-sm: (720px + @grid-gutter-width);    
+
+// Medium screen / desktop
+// For `@screen-md-min` and up.
+@container-md: (940px + @grid-gutter-width); 
+
+// Large screen / wide desktop
+// For `@screen-lg-min` and up.
+@container-lg: (1140px + @grid-gutter-width);                   

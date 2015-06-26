@@ -1,141 +1,147 @@
 /** 
  * Positions
  * 
- * Position an element relative to it's parent
- * Doesn't work properly with IE<9 (property: transform)
+ * Position an element relative to it's parent.
+ * Doesn't work properly with IE<9 (property: transform), only on center elements.
  */
 
+@import "mixins/position-reset.less";
+ 
 .position-container {
     position: relative;
 }
 
-.center-top,
+.outerleft-outertop,
+.outerleft-top,
+.outerleft-center,
+.outerleft-bottom,
+.outerleft-outerbottom,
+.left-outertop,
+.left-top,
+.left-center,
+.left-bottom,
+.left-outerbottom,
 .center-outertop,
+.center-top,
+.center-center,
+.center,
 .center-bottom,
 .center-outerbottom,
-.center-center,
-.center, // Shorthand of .center-center
-.left-top,
-.left-outertop,
-.left-bottom,
-.left-outerbottom,
-.left-center,
-.outerleft-top,
-.outerleft-outertop,
-.outerleft-bottom,
-.outerleft-outerbottom,
-.outerleft-center,
-.right-top,
 .right-outertop,
-.right-bottom,
-.right-outerbottom,
+.right-top,
 .right-center,
-.outerright-top,
-.outerright-outertop,
-.outerright-bottom,
-.outerright-outerbottom,
-.outerright-center {
-    position: absolute;
-}
-
-// X-Positions
-.left-top,
-.left-outertop,
-.left-bottom,
-.left-outerbottom,
-.left-center {
-    left: 0;
-    right: auto;
-}
-
-.outerleft-top,
-.outerleft-outertop,
-.outerleft-bottom,
-.outerleft-outerbottom,
-.outerleft-center {
-    left: auto;
-    right: 100%;
-}
-
-.right-top,
-.right-outertop,
 .right-bottom,
 .right-outerbottom,
-.right-center {
-    left: auto;
-    right: 0;
-}
-
+.outerright-outertop,
 .outerright-top,
-.outerright-outertop,
+.outerright-center,
 .outerright-bottom,
-.outerright-outerbottom,
-.outerright-center {
-    left: 100%;
-    right: auto;
+.outerright-outerbottom {
+    position: absolute;
+    display: block;
 }
 
-.center-top,
-.center-outertop,
-.center-bottom,
-.center-outerbottom {
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, 0);
-}
-
-// Y-Positions
-.center-top,
-.left-top,
-.outerleft-top,
-.right-top,
-.outerright-top {
-    top: 0;
-    bottom: auto;
-}
-
-.center-outertop,
-.left-outertop,
+// Outer-top
 .outerleft-outertop,
+.left-outertop,
+.center-outertop,
 .right-outertop,
-.outerright-outertop,
-.outerright-bottom {
+.outerright-outertop {
     top: auto;
     bottom: 100%;
 }
 
-.center-bottom,
-.left-bottom,
+// Top
+.outerleft-top,
+.left-top,
+.center-top,
+.right-top,
+.outerright-top {
+    top: 0;
+}
+
+// Outer-bottom
+.outerleft-outerbottom,
+.left-outerbottom,
+.center-outerbottom,
+.right-outerbottom,
+.outerright-outerbottom {
+    top: 100%;
+}
+
+// Bottom
 .outerleft-bottom,
+.left-bottom,
+.center-bottom,
 .right-bottom,
-.outerright-bottom  {
+.outerright-bottom {
     top: auto;
     bottom: 0;
 }
 
-.center-outerbottom,
-.left-outerbottom,
-.outerleft-outerbottom,
-.right-outerbottom,
-.outerright-outerbottom {
-    top: 100%;
-    bottom: auto;
+// Outer-left
+.outerleft-outertop,
+.outerleft-top,
+.outerleft-center,
+.outerleft-bottom,
+.outerleft-outerbottom {
+    left: auto;
+    right: 100%;
 }
 
+// Left
+.left-outertop,
+.left-top,
 .left-center,
+.left-bottom,
+.left {
+    left: 0;
+}
+
+// Right
+.right-outertop,
+.right-top,
+.right-center,
+.right-bottom,
+.right-outerbottom {
+    left: auto;
+    right: 0;
+}
+
+// Outer-right
+.outerright-outertop,
+.outerright-top,
+.outerright-center,
+.outerright-bottom,
+.outerright-outerbottom {
+    left: 100%;
+}
+
+// Horizontal center
+.center-outertop,
+.center-top,
+.center-center,
+.center,
+.center-bottom,
+.center-outerbottom {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// Vertical center
 .outerleft-center,
+.left-center,
+.center-center,
+.center,
 .right-center,
 .outerright-center {
     top: 50%;
-    bottom: auto;
-    transform: translate(0, -50%);
+    transform: translateY(-50%);
 }
 
 // Center center
 .center-center,
 .center {
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
 }
 
