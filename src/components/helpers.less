@@ -1,15 +1,14 @@
-/**
- * Helpers
- *
- * Just a few helper classes
- * - Text helpers
- * - Floatings
- * - Clearfix
- * - Alignments
- * - Hide helpers
- */ 
-
-@import "mixins/clearfix.less";
+// 
+// Helpers
+// --------------------------------------------------
+// 
+// Just a few helper classes
+// - Text helpers
+// - Floatings
+// - Clearfix
+// - Alignments
+// - Hide helpers
+//  
 
 // Text transformations
 .uppercase {
@@ -199,28 +198,4 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; // IE 8
     filter: alpha(opacity=0); // IE 5-7
     opacity: 0;
-}
-
-// Hide on all screen devices
-// Only set it to affected devices, so we don't have to reset anything
-// 
-// - collapse: yes
-// - screen-readers: no
-// - events: no
-@media handheld, projection, screen, tv {
-    .print {
-        .hidden;
-    }
-}
-
-// Hide on print devices
-// Only set it to affected devices, so we don't have to reset anything
-// 
-// - collapse: yes
-// - screen-readers: no
-// - events: no
-@media embossed, print {
-    .noprint {
-        .hidden;
-    }
 }

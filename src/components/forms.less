@@ -1,9 +1,10 @@
-/** 
- * Form elements
- *
- * Make forms responsive and mobile first.
- * Label-Tags should surround the input field and it's label (no ID's needed).
- */ 
+//  
+// Form elements
+// --------------------------------------------------
+// 
+// Make forms responsive and mobile first.
+// Label-Tags should surround the input field and it's label (no ID's needed).
+//  
 
 .button,
 .submit-button,
@@ -25,6 +26,7 @@ textarea {
 [type="reset"],
 button {
     text-align: center;
+    cursor: pointer;
 }
 
 // Fix Chrome's and FF's `min-width: min-content;`
@@ -239,14 +241,15 @@ label.row {
 // @see http://www.quirksmode.org/dom/inputfile.html
 .hidden-file-upload {
     position: relative;
+    overflow: hidden;
     
     input[type="file"] {
         position: absolute;
         opacity: 0;
         top: 0;
-        right: 0;
-        bottom: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
         z-index: 2;
     }    
 }
