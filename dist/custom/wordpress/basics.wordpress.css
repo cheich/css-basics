@@ -411,22 +411,26 @@ figure {
   margin: 0;
 }
 .figure,
-figure {
+figure,
+.wp-caption {
   max-width: 100%;
 }
 .figure img,
-figure img {
+figure img,
+.wp-caption img {
   margin: 0;
   padding: 0;
   display: block;
 }
 .figure .caption,
-figure figcaption {
+figure figcaption,
+.wp-caption .wp-caption-text {
   margin: 0;
 }
 @media (max-width: 767px) {
   .figure,
-  figure {
+  figure,
+  .wp-caption {
     width: 100%;
   }
 }
@@ -481,15 +485,18 @@ figure figcaption {
 .text-align-justify {
   text-align: justify;
 }
-.float-right {
+.float-right,
+.alignright {
   float: right;
   margin-right: 0 !important;
 }
-.float-left {
+.float-left,
+.alignleft {
   float: left;
   margin-left: 0 !important;
 }
-.float-none {
+.float-none,
+.alignnone {
   float: none;
 }
 .clearfix:before,
@@ -511,10 +518,12 @@ figure figcaption {
 }
 .align-center,
 .align-left,
-.align-right {
+.align-right,
+.aligncenter {
   display: block;
 }
-.align-center {
+.align-center,
+.aligncenter {
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -538,7 +547,8 @@ figure figcaption {
   display: none !important;
   visibility: hidden !important;
 }
-.invisible {
+.invisible,
+.screen-reader-text {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -768,51 +778,9 @@ label.row [type="week"] {
   height: 100%;
   z-index: 2;
 }
-.center-top,
-.center-outertop,
-.center-bottom,
-.center-outerbottom {
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-.left-center,
-.outerleft-center,
-.right-center,
-.outerright-center {
-  top: 0;
-  bottom: 0;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.center-center,
-.center {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-@media (max-width: 767px) {
-  .position-reset-xs {
-    margin: 0;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .position-reset-sm {
-    margin: 0;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  .position-reset-md {
-    margin: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .position-reset-lg {
-    margin: 0;
-  }
+.screen-reader-text:focus {
+  text-decoration: none;
+  z-index: 100000;
 }
 /** normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**

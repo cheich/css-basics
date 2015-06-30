@@ -24,38 +24,42 @@ Just include [**basics.min.css**](/build/basics.min.css) before all other styles
 
 ## Custom build
 It's still to heavy? No problem!<br />
-Since version 3.0, you can compile your custom _CSS Basics_ easily with all components that you need:
+Check out the [custom dist](/dist/custom). Maybe there is a compiled version for your needs.<br />
+If not, you can compile your custom _CSS Basics_ easily with all components that you need:
  1. Setup your custom build via [`setup.less`](/src/setup.less)
  2. Compile [`basics.less`](/src/basics.less) with [{less}](http://lesscss.org/)<br />
     `lessc basics.less basics.custom.min.css --autoprefix --clean-css`<br />
-    *Note:* `--autoprefix` and `--clean-css` requires additional less-plugins. 
+    *Note:* [`--autoprefix`](https://github.com/less/less-plugin-autoprefix) and
+    [`--clean-css`](https://github.com/less/less-plugin-clean-css) requires additional less-plugins.
  3. Link your new custom build
 
 ## Included
- * WordPress core
+ * [Normalize](https://necolas.github.io/normalize.css/)
  * Tables
- * Positioning
- * Orientations
  * Menus
  * Images
  * Helpers
  * Forms
- * Externals
-   * [Normalize.css](https://necolas.github.io/normalize.css/)
-   * Bootstrap [grid system](http://getbootstrap.com/css/#grid), [responsive utilities](http://getbootstrap.com/css/#responsive-utilities), [responsive embed](http://getbootstrap.com/components/#responsive-embed) and [media object](http://getbootstrap.com/components/#media) - that components from Bootstrap doesn't include any style/theme
+ * Positions
+ * Orientations
+ * [Grid system](http://getbootstrap.com/css/#grid)
+ * [Responsive utilities](http://getbootstrap.com/css/#responsive-utilities)
+ * [Responsive embed](http://getbootstrap.com/components/#responsive-embed) 
+ * [Media object](http://getbootstrap.com/components/#media)
+ * WordPress Core (optional)
 
 ## Browser Support
-All major browsers like Chrome, Firefox and Safara are supported.<br />
+All major browsers like Chrome, Firefox and Safari are supported.<br />
 _CSS Basics_ is compiled with default [`browserlist`](https://github.com/ai/browserslist) configurations:<br />
 `> 1%, last 2 versions, Firefox ESR, Opera 12.1`
 
 IE < 9 doesn't support this requirements:
  * Media Queries<br />
-  *Affects:* All responsive utilities<br />
-  *Solution:* Include [respond.js](https://github.com/scottjehl/Respond)
+  **Affects:** All responsive utilities<br />
+  **Solution:** Include [respond.js](https://github.com/scottjehl/Respond)
  * 2D Transform<br />
-  *Affects:* Component _Positions_<br />
-  *Solution:* Include positions.ie.less while compiling - Requires to set width/height
+  **Affects:** Component _Positions_ (only centered elements)<br />
+  **Solution:** Include [positions-ie.less](/scr/components/positions-ie.less) while compiling or just the compiled [basics-ie.css](/dist/basics-ie.css). Now it's required to set width and height to the element
 
 ## Release notes
 Each main version is mostly backward-compatible.

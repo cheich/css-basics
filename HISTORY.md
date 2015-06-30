@@ -1,5 +1,11 @@
 # History
 
+## 3.0.0
+ * Removed new print classes (it's included in bootstraps responsive utilities - my bad xD)
+ * New file structure (to not repeat mixins)
+ * WordPress is not included by default (use the custom compiled versions or compile your own version instead)
+ * Removed keyword `!important` in the base reset to `box-sizing: border-box;`, it's no longer necessary
+
 ## v3.0.0b2
  * Image styles separated 
  * New helpers
@@ -13,7 +19,6 @@
      `.aligncenter` renamed to `.align-center` (name convention; further see new _alignments_ helpers)
    * Image caption classes renamed: `.caption` to `.figure` and `.caption-text` to `.caption` (name convention; just like `<figure>` and `<figcaption>`)
    * Text alignments helper classes renamed: `.right` to `.text-align-right`, `.center` to `.text-align-center` etc.
-   * Positions renamed entirely to get smaller file size and easier handling
  * Removed style `font-size: smaller;` on caption text
  * Removed table style
 

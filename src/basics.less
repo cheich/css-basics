@@ -1,24 +1,37 @@
 /*!
- * basics.css v3.0.0b2 - 2015-06-26
+ * basics.css v3.0.0 - 2015-06-30
  * Copyright 2014 Christoph Heich | http://cheich.github.io/CSS-Basics/
  * Released under the MIT license | https://github.com/cheich/CSS-Basics/blob/gh-pages/LICENSE.md
  */
-
-//
-// Basics
-// 
-
-// (Re-)set everthing to border-box, 'cause border-box rockz!
-// 
-*,
-*:before,
-*:after {
-    box-sizing: border-box !important;
-}
-
+ 
 html, body {
     font-size: 100%; // Init reset to set child's relative font-size relative to this one
     height: 100%; // Set to full height of the browser window
 }
- 
+
+// Import _CSS Basics_ mixins
+@import "mixins/horizontal-submenu.less";
+@import "mixins/horizontal.less";
+@import "mixins/no-list.less";
+@import "mixins/position-reset.less";
+@import "mixins/vertical-submenu.less";
+@import "mixins/vertical.less";
+
+// Import vendor mixins
+@import "mixins/vendor/clearfix.less";
+@import "mixins/vendor/grid-framework.less";
+@import "mixins/vendor/grid.less";
+@import "mixins/vendor/responsive-visibility.less";
+
+// Start set-up
 @import "setup.less";
+
+// (Re-)set everthing to border-box, 'cause border-box rockz!
+// `input[type="search"]` and `hr` is set in normalize.css, so we have to define it here to not use `!important`
+input[type="search"],
+hr,
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
