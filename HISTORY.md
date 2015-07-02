@@ -1,5 +1,9 @@
 # History
 
+## 3.0.1
+ * Fixed sub-menus z-index
+ * Fixed compiled version (options were included)
+
 ## 3.0.0
  * Removed new print classes (it's included in bootstraps responsive utilities - my bad xD)
  * New file structure (to not repeat mixins)
