@@ -17,7 +17,7 @@ Take a look at the [project page](http://christoph-heich.de/css-basics) to see f
 * Very lightweight
 
 ## Setup
-Just include [**basics.min.css**](/build/basics.min.css) before all other stylesheets and javascripts.
+Just include [**basics.min.css**](/dist/basics.min.css) before all other stylesheets and javascripts.
 ```html
 <link rel="stylesheet" type="text/css" href="path/to/basics.min.css" />
 ```
@@ -34,6 +34,7 @@ If not, you can compile your custom _CSS Basics_ easily with all components that
  3. Link your new custom build
 
 ## Included
+Note that all components are optional. See the [custom dist](/dist/custom) or compile a new custom build.
  * [Normalize](https://necolas.github.io/normalize.css/)
  * Tables
  * Menus
@@ -46,7 +47,7 @@ If not, you can compile your custom _CSS Basics_ easily with all components that
  * [Responsive utilities](http://getbootstrap.com/css/#responsive-utilities)
  * [Responsive embed](http://getbootstrap.com/components/#responsive-embed) 
  * [Media object](http://getbootstrap.com/components/#media)
- * WordPress Core (optional)
+ * WordPress Core
 
 ## Browser Support
 All major browsers like Chrome, Firefox and Safari are supported.<br />
