@@ -1,0 +1,86 @@
+//
+// Layouts
+// --------------------------------------------------
+// 
+// Simple layout your page.
+// Uses some basic resets and adds classes to easily bulid your web-page.
+// 
+
+html,
+body {
+    // Set to full height of the browser window
+    height: 100%;
+    
+    // (Re-)set everything to border-box, 'cause border-box rockz!
+    box-sizing: border-box;
+    
+    // Remove gray highlight when tapping links in Webkit browsers.
+    // @see https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Double colon since IE8 support is dropped.
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+// Layout container
+
+.layout-container {
+    @include layout-container();
+}
+
+.layout-container-fluid {
+    @include layout-container-fluid();
+}
+
+.layout-header {
+    @include header();
+}
+
+.layout-main {
+    @include main();
+}
+
+.layout-footer {
+    @include footer();
+}
+
+
+// Force a canvas to cover the full page (width/height) on the current view.
+
+.full-page-width {
+    @include full-page-width();
+}
+
+.full-page-height {
+    @include full-page-height();
+}
+
+.full-page {
+    @include full-page();
+}
+
+// Overlay
+#{$overlay} {
+    @include overlay();
+}
+
+// Sticky top/bottom and 100% width.
+
+.sticky-top {
+    @include sticky-top();
+}
+
+.sticky-bottom {
+    @include sticky-bottom();
+}
+
+// Add support for equal height columns on Bootstraps grid system.
+// Add this class to the `.row`.
+    
+.row-eq-height {
+    @include row-eq-height();
+}

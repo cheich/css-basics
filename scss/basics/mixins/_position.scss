@@ -1,0 +1,55 @@
+//
+// Position
+//
+
+@mixin position($x: map-get($x-positions, 'center'), $y: map-get($y-positions, 'center')) {
+    @include x-position($x);
+    @include y-position($y);
+    
+    @if ($x == 'center') and ($y == 'center') {
+        transform: translate(-50%, -50%);     
+    }
+}
+
+@mixin x-position($x: map-get($x-positions, 'center')) {
+    @if $x == 'outerleft' {
+        left: auto;
+        right: 100%;        
+    } @else if $x == 'left' {
+        left: 0;    
+    } @else if $x == 'right' {
+        left: auto;
+        right: 0;    
+    } @else if $x == 'outerright' {
+        left: 100%;    
+    } @else if $x == 'center' {
+        left: 50%;
+        transform: translateX(-50%);    
+    }
+}
+
+@mixin y-position($y: map-get($y-positions, 'center')) {   
+    @if $y == 'outertop' {
+        top: auto;
+        bottom: 100%;       
+    } @else if $y == 'top' {
+        top: 0;    
+    } @else if $y == 'bottom' {
+        top: auto;
+        bottom: 0;   
+    } @else if $y == 'outerbottom' {
+        top: 100%   
+    } @else if $y == 'center' {
+        top: 50%;
+        transform: translateY(-50%);  
+    }
+}
+
+@mixin position-reset() {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;    
+    transform: none;
+}

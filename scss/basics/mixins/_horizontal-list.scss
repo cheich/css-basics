@@ -1,0 +1,29 @@
+// 
+// Horizontal list
+// 
+
+@mixin horizontal-list() {
+    display: inline-block;
+    
+    @include clearfix();
+        
+    > * {
+        display: block !important;
+        width: auto !important;
+        float: left;   
+    }    
+}
+
+// Sub list
+
+@mixin horizontal-sublist() {
+    position: absolute;
+    top: 100%;
+    left: 0; 
+}
+
+@mixin horizontal-sublist-rtl() {
+    left: auto;
+    right: 0;
+}
+

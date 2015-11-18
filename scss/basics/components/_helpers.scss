@@ -1,0 +1,103 @@
+// 
+// Helpers
+// --------------------------------------------------
+// 
+// Just a few helper classes
+// 
+// Table of contents
+// - Floatings
+// - Clearfix
+// - Block alignments
+// - Hide helpers
+//  
+
+// Floatings
+
+.float-right {
+    @include float-right();
+}
+
+.float-left {
+    @include float-left();
+}
+
+.float-none {
+    @include float-none();
+}
+
+
+// Clearfix
+.clearfix {
+    @include clearfix();
+}
+
+// Block level alignments
+
+.align-center {
+    @include align-center();
+}
+
+.align-left {
+    @include align-left();
+}
+
+.align-right {
+    @include align-right();
+}
+
+
+// Visibility
+
+// Screen-reader only
+//
+// Previous: .invisible
+//
+// This is a copy from bootstrap.
+// 
+// - Collapse:       yep
+// - Screen-readers: yep
+// - Events:         nope
+.sr-only {
+    @include sr-only();
+}
+
+// Screen-reader only and focusable
+//
+// Previous: .invisible-focusable
+//
+// Same as .sr-only, but focusable
+// This is a copy from bootstrap but now `.sr-only` isn't required since it extends it here.
+// 
+// - Collapse:       yep
+// - Screen-readers: yep
+// - Events:         yep - when focused/activated
+.sr-only-focusable {
+    @extend .sr-only;
+    @include sr-only-focusable();
+}
+
+// Hidden
+//
+// All hide helpers are now come from bootstrap.
+// Nothing to do here...
+
+// Invisible
+//
+// Hide element but preserve space
+// `visibility: hidden` isn't read by some screen-readers
+// 
+// - Collapse:       nope
+// - Screen-readers: yep
+// - Events:         yep
+@each $bp in map-keys($grid-breakpoints) {
+    .invisible-#{$bp}-up {
+        @include media-breakpoint-up($bp) {
+            opacity: 0 !important;
+        }
+    }
+    .invisible-#{$bp}-down {
+        @include media-breakpoint-down($bp) {
+            opacity: 0 !important;
+        }
+    }
+}

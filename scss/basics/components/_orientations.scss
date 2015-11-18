@@ -1,0 +1,22 @@
+// 
+// Orientations
+// --------------------------------------------------
+// 
+// Orientate list items / children horizontally or vertically.
+// Still work without lists (e.g. `<span>`s and `<div>`s).
+// 
+
+@include vertical('', false) {
+    @include vertical-list();
+}
+
+@include horizontal('', false) {
+    @include horizontal-list();
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    .horizontal-#{$breakpoint},
+    .vertical-#{$breakpoint} {
+        @include remove-list-appearance();
+    }
+}

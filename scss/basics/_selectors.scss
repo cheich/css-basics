@@ -1,0 +1,132 @@
+//
+// Selectors
+// --------------------------------------------------
+// 
+// Some selectors used within the framework.
+// Not all selectors are used in the framework,
+// but there are very helpful to start styling your theme.
+//
+
+// Layout
+// --------------------------------------------------
+
+// Overlay
+$overlay: '.overlay' !default;
+
+// Typography
+// --------------------------------------------------
+
+// All single headers
+
+$h1: 'h1, .h1' !default;
+
+$h2: 'h2, .h2' !default;
+
+$h3: 'h3, .h3' !default;
+
+$h4: 'h4, .h4' !default;
+
+$h5: 'h5, .h5' !default;
+
+$h6: 'h6, .h6' !default;
+
+// All headers (`<h1>` - `<h6>` and classes)
+$headers: ($h1, $h2, $h3, $h4, $h5, $h6) !default;
+
+// Links
+//
+// Exclude all button classes.
+$links: 'a:not(.button):not(.submit-button):not(.reset-button):not([role="button"])' !default;
+
+// All lists (`<ul>` and `<ol>`)
+$lists: 'ul, ol' !default;
+
+
+// Images
+// --------------------------------------------------
+
+// Figures
+$figure: (
+    '.figure',
+    'figure',
+) !default;
+
+// Caption of figure
+$figure-caption: (
+    '.figure .figure-caption',
+    'figure figcaption',
+) !default;
+
+// Image in figure
+$figure-image: (
+    '.figure img',
+    'figure img',
+) !default;
+
+
+// Menus
+// --------------------------------------------------
+
+// Select all menus.
+$menus: '.menu' !default;
+
+
+// Forms
+// --------------------------------------------------
+
+// All buttons
+$buttons: (
+    '.button',
+    '.submit-button',
+    '.reset-button',
+    '[role="button"]',
+    '[type="button"]',
+    '[type="submit"]',
+    '[type="reset"]',
+    '[type="image"]',
+    'button',
+) !default;
+
+// Only submit buttons
+$submit-buttons: (
+    '.submit-button',
+    '[type="submit"]',
+) !default;
+
+// Only reset buttons
+$reset-buttons: (
+    '.reset-button',
+    '[type="reset"]',
+) !default;
+
+// Text fields
+//
+// All text input fields (only with _realy_ text input), includes `<textarea>`.
+$text-fields: (
+    'textarea',
+    '[type="email"]',
+    '[type="number"]',
+    '[type="password"]',
+    '[type="search"]',
+    '[type="tel"]',
+    '[type="text"]',
+    '[type="url"]',
+) !default;
+
+// Input fields
+//
+// Input fields without buttons and without check-boxes/radio-buttons, includes `<textarea>`.
+$input-fields: (
+    '#{$text-fields}',
+    '.hidden-file-upload',
+    '[type="color"]',
+    '[type="date"]',
+    '[type="datetime"]',
+    '[type="datetime-local"]',
+    '[type="file"]',
+    '[type="month"]',
+    '[type="range"]',
+    '[type="time"]',
+    '[type="week"]',
+    'select',
+) !default;

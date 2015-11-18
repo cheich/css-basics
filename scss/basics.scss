@@ -1,0 +1,41 @@
+ 
+// Bootstrap the CSS Basics framework
+@import 'basics/bootstrap';
+
+
+// Set up your custom build.
+// --------------------------------------------------
+
+// Variables
+// 
+// Overwriting of the default values should goes here.
+
+
+// Components (all optional)
+// 
+// Important: order of components shouldn't rearranged!
+
+// Vendor components
+
+@import 'vendor/normalize';
+@import 'vendor/grid';
+@import 'vendor/responsive-embed';
+@import 'vendor/media';
+@import 'vendor/utilities-responsive';
+
+// CSS Basics components
+
+@import 'images';
+@import 'layouts';
+@import 'orientations';
+@import 'menus';
+@import 'forms';
+@import 'positions';
+@import 'tables';
+@import 'typography';
+@import 'helpers';
+
+// Components for external resources
+
+// @import 'external/wordpress';
+// @import 'external/wordpress-gallery';

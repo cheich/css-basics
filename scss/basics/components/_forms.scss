@@ -1,0 +1,250 @@
+//  
+// Form elements
+// --------------------------------------------------
+// 
+// Make forms responsive and mobile first.
+// Label-Tags should surround the input field and it's label (no ID's needed).
+//
+
+#{$buttons},
+label,
+output,
+select {
+    // Same line-height for all form elements.
+    // Input fields are still reseted via normalize.
+    line-height: normal;
+}
+
+[type="email"],
+[type="number"],
+[type="password"],
+[type="search"],
+[type="tel"],
+[type="text"],
+[type="url"],
+output,
+select {
+    // Set same height for all form elements.
+    height: 1.5rem;
+}
+
+fieldset {
+    // Fix Chrome's and FF's `min-width: min-content;`.
+    min-width: 0; 
+    
+    // Remove default outline behavior.
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+legend {
+    display: block;
+    padding: 0;
+    line-height: inherit;
+    border: 0;
+}
+
+textarea {
+    vertical-align: top;
+    min-height: 3em;
+    
+    // Do not overflow it's parent.
+    max-width: 100%; 
+    
+    // There is no need to resize horizontally.
+    @include resizable(vertical);
+}
+
+select[multiple],
+select[size] {
+    // Make multiple select elements height not fixed.
+    height: auto;
+}
+
+// Fix FF opacity settings.
+::-moz-placeholder {
+    opacity: 1;
+    
+    // Expected default color.
+    color: #757575; 
+}
+
+[type="range"] {
+    // Fix vertical align
+    vertical-align: middle;
+}
+
+[type="color"] {
+    // Prevent very small input[type="color"] in FF.
+    min-width: 3rem; 
+}
+
+// Normalize uses `input[type='search']` as selector.
+// That has a higher priority as `[type='search']`.
+input[type='search'] {
+    // box-sizing for `[type='search']` is set to `content-box` in normalize.css.
+    box-sizing: inherit;
+    
+    // Remove iOS rounded corners.
+    -webkit-appearance: none;
+}
+
+#{$input-fields},
+output,
+select,
+textarea {        
+    // Make all form elements 100% width (mobile first).
+    width: 100%; 
+    
+    display: block;
+    margin-bottom: $spacer-y;
+}
+
+// All buttons
+%buttons,
+#{$buttons} {
+    // Add system style colors as default to start styling in each browser at the same point.
+    // Setting a border will reset many space issues.    
+    border: 1px outset ButtonFace; 
+    color: ButtonText;
+    background: ButtonFace;
+    
+    // Don't allow text selection on buttons
+    user-select: none;
+    
+    &:active {
+        border-color: ButtonHighlight;
+        border-style: inset;
+    }
+    
+    // Remove button appearance in webkit to take the same look at all buttons
+    -webkit-appearance: none;
+    
+    // Button should be in-line
+    display: inline-block;
+    
+    // Add some padding as default
+    padding-left: $button-padding-x;
+    padding-right: $button-padding-x;
+    
+    // Remove underline on links
+    text-decoration: none;
+    
+    text-align: center;
+    cursor: pointer;
+    width: auto;
+}
+
+label {
+    // Make all form elements 100% width (mobile first).
+    width: 100%;
+    
+    display: block;
+}
+
+// Button toggle
+// 
+// Add a button style to radio-buttons and check-boxes.
+.button-toggle {
+    [type="radio"]:checked,
+    [type="checkbox"]:checked {
+        @each $button in $buttons {
+            + #{$button} {
+                @extend %buttons:active;
+            }            
+        }
+    }
+}
+
+// IE 8 does not support CSS 3 selector `:not()`.
+// So we have to repeat this selectors and overwrite these styles.
+.label-text-inline {
+    #{$input-fields},
+    output,
+    select,
+    textarea {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+// Input groups
+// 
+// Set gutter to input groups.
+.input-group {
+    @include input-group();
+}
+
+// Horizontal
+// 
+// Add some spacing while using horizontal layout
+@include horizontal() {
+    > output,
+    > input,
+    > textarea,
+    > label,
+    > #{$buttons} {
+        margin-right: ( $spacer-x / 2);
+        margin-left: ( $spacer-x / 2);
+    
+        &:first-child {
+            margin-left: 0;
+        }
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// Enable labels as grid row
+label.row {
+    // Rows are greater than 100% (gutter left and right) -> reset max width
+    max-width: none; 
+    
+    width: auto;
+    display: block;
+    
+    // Gutter now applied to the row (`<label class="row">`)
+    margin-bottom: $spacer-y; 
+    
+    #{$input-fields},
+    output,
+    select,
+    textarea {
+        // Reset gutter after elements, this is now applied to the row
+        margin-bottom: 0; 
+    }
+}
+
+// Make input[type="file"] invisible but still functional
+// @see http://www.quirksmode.org/dom/inputfile.html
+.hidden-file-upload {
+    position: relative;
+    overflow: hidden;
+    
+    [type="file"] {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        cursor: pointer;
+    }    
+}
+
+// RTL fixes
+
+@if $enable-rtl {
+    [dir="rtl"] {
+        // Set gutter to the left on right-to-left languages
+        .input-group,
+        #{$buttons} {
+            margin-right: 0;
+            margin-left: $spacer-x;
+        }        
+    }    
+}

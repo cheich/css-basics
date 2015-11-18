@@ -1,0 +1,201 @@
+//
+// Theme
+// --------------------------------------------------
+//
+// This file is to set up your basic theme.
+// While other frameworks only allows to set a few variables,
+// we will allow the whole power of CSS and SCSS here!
+// There are many predefined selectors, but you can also delete all of them.
+//
+// To not include any styles/themes,
+// just leave everything empty (use `_theme-default.scss` to start anew).
+// If an element is not presented here, simple add it's selector.
+//
+// You will see a lot of variable selectors. It's recommended to use these.
+// If you're not familiar with interpolations, take a look at the Sass docu:
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+//
+// Table of content
+//  - Layout
+//  - Typography
+//  - Images
+//  - Forms
+//  - Menus
+//  - Tables
+// 
+
+@import 'basics/mixins';
+@import 'basics/selectors';
+
+// Layout
+// --------------------------------------------------
+
+// Body
+body {}
+
+// Header
+header {}
+
+// Footer
+footer {}
+
+// Section
+section {}
+
+// Article
+article {}
+
+// Aside
+aside {}
+
+// Overlay
+#{$overlay} {}
+
+// Typography
+// --------------------------------------------------
+
+// All headers (`<h1>` - `<h6>`)
+#{$headers} {}
+
+// All single headers
+
+#{$h1} {}
+
+#{$h2} {}
+
+#{$h3} {}
+
+#{$h4} {}
+
+#{$h5} {}
+
+#{$h6} {}
+
+// Paragraphs
+p {}
+
+// Block-quotes
+blockquote {}
+
+// Description lists
+dl {
+    dt {}
+    dd {}
+}
+
+// Lists
+ul,
+ol {}
+
+// Links
+//
+// Should be styled via `#{$links`. We will exclude all buttons for you.
+#{$links} {
+    &:link {}
+    &:visited {}
+    &:hover {}
+    &:active {}
+}
+
+// All lists (`<ul>` and `<ol>`)
+#{$lists} {
+    li {}
+}
+
+// `<hr />`
+hr {}
+
+// Selected text
+::selection {}
+
+// Images
+// --------------------------------------------------
+
+// All images
+img {}
+
+// Images in anchors
+a img {}
+
+// Figures
+#{$figure} {}
+
+// Caption of figure
+#{$figure-caption} {}
+
+// Image in figure
+#{$figure-image} {}
+
+
+// Menus
+// --------------------------------------------------
+
+// Selects all menus.
+// You can also replace `#{$menus` by a selector.
+#{$menus} {
+    li {
+        a {}
+        
+        .submenu,
+        ul {
+            li {
+                a {}
+            }
+        }
+    }
+}
+
+
+// Forms
+// --------------------------------------------------
+
+// All buttons
+#{$buttons} {
+    &:hover {}
+    &:active {}
+}
+
+// Only submit buttons
+#{$submit-buttons} {}
+
+// Only reset buttons
+#{$reset-buttons} {}
+
+// Text fields
+//
+// All text input fields (only with _realy_ text input), includes `<textarea>`
+#{$text-fields} {}
+
+// Input fields
+//
+// Input fields without buttons and without check-boxes/radio-buttons, includes `<textarea>`
+#{$input-fields} {}
+
+// Legend
+legend {}
+
+// Fieldset
+fieldset {}
+
+// Label
+label {}
+
+// Placeholder
+::placeholder {}
+
+// Tables
+// --------------------------------------------------
+
+table {
+    // Caption
+    caption {}
+    
+    // Table row
+    tr {
+        // Table head
+        th {}
+        
+        // Table data
+        td {}        
+    }
+}
