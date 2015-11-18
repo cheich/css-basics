@@ -1,0 +1,29 @@
+{
+  "name": "css-basics",
+  "version": "4.0.0-alpha16",
+  "description": "CSS Basics is built to start styling your page without worry about any position and behaviour problems.",
+  "main": "dist/basics.css",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "css",
+    "basics",
+    "framework",
+    "responsive",
+    "toolkit",
+    "mobile-first"
+  ],
+  "authors": [
+    "Christoph Heich"
+  ],
+  "license": "MIT",
+  "homepage": "http://christoph-heich.de/css-basics",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
