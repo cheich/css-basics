@@ -1,11 +1,14 @@
 {
   "name": "css-basics",
-  "version": "4.0.0-alpha16",
   "description": "CSS Basics is built to start styling your page without worry about any position and behaviour problems.",
-  "main": "dist/basics.css",
-  "moduleType": [
-    "node"
+  "main": [
+    "dist/basics.css",
+    "scss/theme.scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cheich/css-basics.git"
+  }
   "keywords": [
     "css",
     "basics",
@@ -25,5 +28,14 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-header": "^1.7.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0"
+  }
 }
