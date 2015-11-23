@@ -1,21 +1,22 @@
 # History
 
-## v4.0.0a1
- * Added `_theme.scss` to build your theme - Here are some selectors to easily start styling
+## v4.0.0-alpha17
+ * New main color and logo (yay!)
+ * Added `theme.scss` to build your theme - Here are some selectors to easily start styling
  * Added _Layouts_
  * Moved from Less to Sass
- * More options via `_setup.scss`
- * Improved _Orientations_ - now there are gutters between the columns (behaves just like the grid system)
+ * More options; Overwrite variables that come from `_variables.scss`
+ * Improved _Orientations_ - now there are gutters between the columns
  * Improved _Menus_
  * Improved _Forms_ - all elements have the same height by default; buttons now have a basic look with system colors
  * Improved _Typography_ - more resets and basic spacings; clearer class-names
  * Updated Bootstrap components to v4.0 (still in alpha - we will stay meanwhile in alpha too)
  * Added `-xl` keyword for extra large devices
- * Dropped support for IE<9 and FF<19 (use v3.0 if you have to support these browsers)
+ * Dropped support for IE<9 and FF<19 (use v3 if you have to support these browsers)
  * Added more Mixins
  * Better documentation; includes now the basics of vendor components
- * Many core code optimizations and bug fixes
- * __Changes__: There are to many changes. We'll list here only the important for update notices.
+ * Many core optimizations and bug fixes
+ * Update notices:
    * Class `.caption` renamed to `.figure-caption` (causing collision with table's `<caption>`)
    * Some text helpers are renamed (now all have a `text-` prefix)
    * Visibilities completely renamed and replaced with bootstraps components
