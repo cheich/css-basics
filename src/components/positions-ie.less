@@ -1,0 +1,65 @@
+// 
+// Positions for IE<9
+// --------------------------------------------------
+// 
+// Fix not supported `transform` for positions in IE<9
+// Just affected vertical and horizontal `center` position
+// Requires to set width/height
+// 
+// @requires positions.less
+// 
+
+.center-top,
+.center-outertop,
+.center-bottom,
+.center-outerbottom {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.left-center,
+.outerleft-center,
+.right-center,
+.outerright-center {
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.center-center,
+.center {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@media (max-width: @screen-xs-max) {
+    .position-reset-xs {
+        margin: 0;
+    }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .position-reset-sm {
+        margin: 0;
+    }
+}
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .position-reset-md {
+        margin: 0;
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .position-reset-lg {
+        margin: 0;
+    }
+}

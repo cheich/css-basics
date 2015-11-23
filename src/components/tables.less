@@ -1,0 +1,33 @@
+//  
+// Tables
+// --------------------------------------------------
+// 
+// Give tables a basic design and make it responsive via horizontal-scrolling.
+// 
+ 
+table {
+    width: 100%;
+    
+    th,
+    td {
+        vertical-align: top;
+        text-align: left;
+    }
+}
+
+[dir="rtl"] {
+    th,
+    td {
+        text-align: right;
+    }
+}
+
+// Wrap tables to make it responsive
+.table-responsive {
+    @media (max-width: @screen-xs-max) {
+        overflow-x: auto;
+        width: 100%;
+        max-width: 100%;
+        padding-bottom: 10px; // Prevent scrollbar overlap
+    }
+}

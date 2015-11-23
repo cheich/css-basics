@@ -1,0 +1,44 @@
+//  
+// WordPress
+// --------------------------------------------------
+// 
+// WordPress Core w/o style. This are the generated classes from the TinyMCE editor.
+// 
+// @see https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+// @requires helpers.less
+// 
+
+@import "helpers.less";
+
+.wp-caption:extend(.figure) {    
+    img:extend(.figure img) {}
+    
+    .wp-caption-text:extend(.figure .caption) {}
+}
+
+.screen-reader-text {
+    &:extend(.invisible all);
+
+    &:focus {
+        text-decoration: none;
+        z-index: 100000; // Above WP toolbar
+    }
+}
+
+// Alignments in WordPress are assigned to block-level elements
+// To align these, they have to be floated instead aligned
+.alignright {
+    &:extend(.float-right all);
+}
+
+.alignleft {
+    &:extend(.float-left all);
+}
+
+.aligncenter {
+    &:extend(.align-center all);
+}
+
+.alignnone {
+    &:extend(.float-none all);
+}

@@ -1,0 +1,83 @@
+// 
+// Orientations
+// --------------------------------------------------
+// 
+// Orientate elements horizontally or vertically.
+// All child elements will be orientated to the expected way with variable width (if not set).
+// 
+
+.horizontal-xs,
+.horizontal-sm,
+.horizontal-md,
+.horizontal-lg,
+.vertical-xs,
+.vertical-sm,
+.vertical-md,
+.vertical-lg {
+    display: inline-block;
+    
+    ul&,
+    ul {
+        .no-list();
+    }
+}
+
+.vertical-xs {
+    > * {
+        .vertical();
+    }
+}
+
+.vertical-sm {
+    @media (min-width: @screen-sm-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.vertical-md {
+    @media (min-width: @screen-md-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.vertical-lg {
+    @media (min-width: @screen-lg-min) {
+        > * {
+            .vertical();
+        }
+    }
+}
+
+.horizontal-xs {
+    > * {
+        .horizontal();
+    }
+}
+
+.horizontal-sm {
+    @media (min-width: @screen-sm-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}
+
+.horizontal-md {
+    @media (min-width: @screen-md-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}
+
+.horizontal-lg {
+    @media (min-width: @screen-lg-min) {
+        > * {
+            .horizontal();
+        }
+    }
+}
