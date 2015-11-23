@@ -1,6 +1,6 @@
  
 // Bootstrap the CSS Basics framework
-@import 'basics/bootstrap';
+@import 'bootstrap';
 
 
 // Set up your custom build.
@@ -8,7 +8,8 @@
 
 // Variables
 // 
-// Overwriting of the default values should goes here.
+// Overwriting of the default values should go here.
+
 
 
 // Components (all optional)
@@ -17,25 +18,25 @@
 
 // Vendor components
 
-@import 'vendor/normalize';
-@import 'vendor/grid';
-@import 'vendor/responsive-embed';
-@import 'vendor/media';
-@import 'vendor/utilities-responsive';
+@import 'components/vendor/normalize';
+@import 'components/vendor/grid';
+@import 'components/vendor/responsive-embed';
+@import 'components/vendor/media';
+@import 'components/vendor/utilities-responsive';
 
 // CSS Basics components
 
-@import 'images';
-@import 'layouts';
-@import 'orientations';
-@import 'menus';
-@import 'forms';
-@import 'positions';
-@import 'tables';
-@import 'typography';
-@import 'helpers';
+@import 'components/images';
+@import 'components/layouts';
+@import 'components/orientations';
+@import 'components/menus';
+@import 'components/forms';
+@import 'components/positions';
+@import 'components/tables';
+@import 'components/typography';
+@import 'components/helpers';
 
 // Components for external resources
 
-// @import 'external/wordpress';
-// @import 'external/wordpress-gallery';
+// @import 'components/external/wordpress';
+// @import 'components/external/wordpress-gallery';
