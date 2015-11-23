@@ -12,10 +12,11 @@ Take a look at the [project page](http://christoph-heich.de/css-basics) to see f
 
 Note that we are still in alpha. There are some things to-do:
 
+ * [ ] Add a better starting point (theme)
  * [ ] Update Documentation
- * [ ] Update Gulpfile
- * [ ] Update HISTORY
- * [ ] Update README
+ * [x] Update Gulpfile
+ * [x] Update HISTORY
+ * [x] Update README
 
 ## Features
 
@@ -27,12 +28,18 @@ Note that we are still in alpha. There are some things to-do:
  * Powered and inspirited by [Bootstrap](http://getbootstrap.com/)
  * Very lightweight
 
+## Install
+
+ * Bower: `bower install css-basics`
+ * npm: `npm install css-basics`
+ * zip: [download](https://github.com/cheich/CSS-Basics/archive/master.zip)
+ 
 ## Setup
 
-Just include [__basics.min.css__](/dist/basics.min.css) before all other Style Sheets and JavaScripts.
+Just include [__basics.css__](/dist/basics.css) before all other Style Sheets and JavaScripts.
 
 ```html
-<link rel="stylesheet" type="text/css" href="path/to/basics.min.css" />
+<link rel="stylesheet" type="text/css" href="path/to/basics.css" />
 ```
 
 ## Custom build
@@ -42,22 +49,16 @@ Check out the [custom dist](/dist/custom). Maybe there is a compiled version for
 
 If not, you can compile your custom _CSS Basics_ easily with all components that you need:
 
- 1. Setup your custom build via `scss/_setup.scss`
+ 1. Setup your custom build via `scss/basics.scss`
  2. Compile `scss/basics.scss` with Sass
-    `sass basics.scss basics.custom.css --autoprefix`<br />
-    _Note:_ [`--autoprefix`](https://github.com/less/less-plugin-autoprefix) 
+    _Note:_ You should use [Autoprefixer](https://github.com/postcss/autoprefixer)
  3. Link your new custom build
 
 ## Browser Support
 
 All major browsers like Chrome, Firefox and Safari are supported.
 
-Since v4.0, IE<9 and FF<19 support is dropped. If you want to support these you can still use the old v3.0 version.
-
-_CSS Basics_ is compiled with default [browserlist](https://github.com/ai/browserslist) configurations:
-```
-> 1%, last 2 versions, Firefox ESR, Opera 12.1
-```
+Since v4.0, IE<9 and FF<19 support is dropped. If you want to support these you can still use the old v3 version.
 
 ## Release notes
 
@@ -66,4 +67,4 @@ See the [history](https://github.com/cheich/CSS-Basics/blob/master/HISTORY.md) t
     
 ## License
 
-_CSS Basics_ is released under the [MIT license](https://github.com/cheich/CSS-Basics/blob/master/LICENSE.md)
+_CSS Basics_ is released under the [MIT license](https://github.com/cheich/CSS-Basics/blob/master/LICENSE)
