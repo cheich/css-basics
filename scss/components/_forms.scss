@@ -102,7 +102,6 @@ textarea {
 }
 
 // All buttons
-%buttons,
 #{$buttons} {
     // Add system style colors as default to start styling in each browser at the same point.
     // Setting a border will reset many space issues.    
@@ -151,7 +150,10 @@ label {
     [type="checkbox"]:checked {
         @each $button in $buttons {
             + #{$button} {
-                @extend %buttons:active;
+                &:active {
+                    border-color: ButtonHighlight;
+                    border-style: inset;
+                }
             }            
         }
     }
