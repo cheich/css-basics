@@ -87,4 +87,5 @@ gulp.task('theme', function() {
  */
 gulp.task('watch', function() {
     gulp.watch('scss/*.scss', ['default']);
+    gulp.watch('scss/theme.scss', ['theme']);
 });
