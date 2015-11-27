@@ -43,6 +43,11 @@
                 // Add some gutter
                 margin-top: ( $spacer-y / 2 );
                 margin-bottom: ( $spacer-y / 2 );
+                    
+                // Hide bottom border
+                &:not(:last-child) {
+                    border-bottom-color: transparent;
+                }
                 
                 &:first-child {
                     // Remove bottom border-radius 
@@ -67,6 +72,11 @@
                 // Add some gutter
                 margin-left: ( $spacer-x / 2 );
                 margin-right: ( $spacer-x / 2 );
+                    
+                // Hide right border
+                &:not(:last-child) {
+                    border-right-color: transparent;
+                }
                 
                 &:first-child {
                     // Remove right border-radius 
