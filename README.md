@@ -51,7 +51,9 @@ If not, you can compile your custom _CSS Basics_ easily with all components that
 
  1. Setup your custom build via `scss/basics.scss`
  2. Compile `scss/basics.scss` with Sass
+ 
     _Note:_ You should use [Autoprefixer](https://github.com/postcss/autoprefixer)
+    
  3. Link your new custom build
 
 ## Browser Support

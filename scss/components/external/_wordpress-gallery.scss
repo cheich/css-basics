@@ -1,87 +1,87 @@
-//  
-// WordPress - Responsive Gallery 
+//
+// WordPress - Responsive Gallery
 // --------------------------------------------------
-// 
+//
 // WordPress has a build-in gallery which generates some CSS classes.
 // This component will make this gallery responsive.
 // By default, the CSS code will be inserted into the `<body>`-tag.
 // That have to be removed with the following filter:
 //
-//     add_filter('gallery_style', create_function('$css', 'return preg_replace("/<style type=\'text\/css\'>(.*?)<\/style>/s", "", $css);'));
-// 
+//   add_filter('gallery_style', create_function('$css', 'return preg_replace("/<style type=\'text\/css\'>(.*?)<\/style>/s", "", $css);'));
+//
 // @see http://zeo.unic.net.my/remove-wordpress-gallery-shortcode-embedded-css/
 // @see http://www.elmastudio.de/wordpress/die-standard-bildergalerie-von-wordpress-nutzen/
 //
 
 .gallery {
 
-    @include clearfix();
-        
-    // Negative margins
-    margin-left: - ($grid-gutter-width / 2);
-    margin-right: - ($grid-gutter-width / 2);
+  @include clearfix();
 
-    // Remove left margin from default `<dd>` style.
-    .gallery-caption {
-        margin-left: 0;
-    }    
-    
-    // WordPress inserts line-breakers which should cut pictures into rows.
-    // This doesn't work with the grid-system. Remove these.    
-    > br {
-        display: none;
-    }
-    
-    .gallery-item {
-        position: relative;
-        
-        // Prevent columns from collapsing when empty
-        min-height: 1px;
-        
-        // Inner gutter via padding
-        padding-left: ($grid-gutter-width / 2);
-        padding-right: ($grid-gutter-width / 2);
-        
-        // Remove default margins
-        margin: 0;
-    }
-    
-    @if ($enable-flex) {    
-        display: flex;
-        flex-flow: row wrap;
-    } @else {
-        // Rows are set via `:nth-of-type()`
-    }
+  // Negative margins
+  margin-left: - ($grid-gutter-width / 2);
+  margin-right: - ($grid-gutter-width / 2);
+
+  // Remove left margin from default `<dd>` style.
+  .gallery-caption {
+    margin-left: 0;
+  }
+
+  // WordPress inserts line-breakers which should cut pictures into rows.
+  // This doesn't work with the grid-system. Remove these.
+  > br {
+    display: none;
+  }
+
+  .gallery-item {
+    position: relative;
+
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+
+    // Inner gutter via padding
+    padding-left: ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
+
+    // Remove default margins
+    margin: 0;
+  }
+
+  @if ($enable-flex) {
+    display: flex;
+    flex-flow: row wrap;
+  } @else {
+    // Rows are set via `:nth-of-type()`
+  }
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {    
-    // Load column-map of current breakpoint.
-    $columns-map: map-get($wordpress-gallery-columns-map, $breakpoint);
-    
-    @include media-breakpoint-only($breakpoint) {
-        // Loop through all column counts.
-        // This will generate a lot of selectors, but we have to do that this way,
-        // because the columns-map is variable.        
-        @for $i from 1 through 9 {    
-            // Map columns: They should not stick on a fixed number on responsive layouts.
-            $column: nth($columns-map, $i);
-            
-            .gallery-columns-#{$i} {
-                .gallery-item {
-                    @include make-col-span(1, $column);
-                
-                    @if $enable-flex {
-                        // Do nothing
-                    } @else {
-                        float: left;
-                        
-                        // Break to a new line
-                        &:nth-of-type(#{$column}n+1) {
-                            clear: left;
-                        }
-                    }
-                }
+@each $breakpoint in map-keys($grid-breakpoints) {
+  // Load column-map of current breakpoint.
+  $columns-map: map-get($wordpress-gallery-columns-map, $breakpoint);
+
+  @include media-breakpoint-only($breakpoint) {
+    // Loop through all column counts.
+    // This will generate a lot of selectors, but we have to do that this way,
+    // because the columns-map is variable.
+    @for $i from 1 through 9 {
+      // Map columns: They should not stick on a fixed number on responsive layouts.
+      $column: nth($columns-map, $i);
+
+      .gallery-columns-#{$i} {
+        .gallery-item {
+          @include make-col-span(1, $column);
+
+          @if $enable-flex {
+            // Do nothing
+          } @else {
+            float: left;
+
+            // Break to a new line
+            &:nth-of-type(#{$column}n+1) {
+              clear: left;
             }
-        }        
+          }
+        }
+      }
     }
+  }
 }

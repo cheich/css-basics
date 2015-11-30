@@ -1,43 +1,43 @@
-//  
+//
 // WordPress
 // --------------------------------------------------
-// 
+//
 // WordPress Core w/o style. This are the generated classes from the TinyMCE editor.
-// 
+//
 // @see https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 
 .wp-caption {
-    @include figure();
-    
-    .wp-caption-text {
-        @include figure-caption();
-    }
+  @include figure();
+
+  .wp-caption-text {
+    @include figure-caption();
+  }
 }
 
 .screen-reader-text {
-    @include sr-only();
-    @include sr-only-focusable();
-    
-    &:focus {
-        text-decoration: none;
-        z-index: 100000; // Above WP toolbar
-    }
+  @include sr-only();
+  @include sr-only-focusable();
+
+  &:focus {
+    text-decoration: none;
+    z-index: 100000; // Above WP toolbar
+  }
 }
 
 // Alignments in WordPress are assigned to block-level elements
 // To align these, they have to be floated instead of aligned
 .alignright {
-    @include float-right();
+  @include float-right();
 }
 
 .alignleft {
-    @include float-left();
+  @include float-left();
 }
 
 .aligncenter {
-    @include align-center();
+  @include align-center();
 }
 
 .alignnone {
-    @include float-none();
+  @include float-none();
 }

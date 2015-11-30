@@ -1,14 +1,14 @@
-// 
+//
 // Typography
 // --------------------------------------------------
-// 
+//
 // All about texts, lists, headers, etc.
 // Below are some helper classes for text formating.
 //
 
 html {
-    // Init reset to set child's relative font-size relative to this one
-    font-size: 100%;
+  // Init reset to set child's relative font-size relative to this one
+  font-size: 100%;
 }
 
 // Gutters
@@ -18,55 +18,55 @@ ul,
 ol,
 p,
 pre {
-    // Remove top margins
-    margin-top: 0;
+  // Remove top margins
+  margin-top: 0;
 
-    // Add some space after it
-    margin-bottom: $spacer-y;
+  // Add some space after it
+  margin-bottom: $spacer-y;
 }
 
 // Lists
 
 ul,
 ol {
-    ul,
-    ol {
-        margin-bottom: 0;
-    }
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
 }
 
 dd,
 blockquote {
-    // Remove browser default left margin
-    margin-left: 0; 
-    
-    margin-bottom: $spacer-y;
+  // Remove browser default left margin
+  margin-left: 0;
+
+  margin-bottom: $spacer-y;
 }
 
 // Line break
 
 hr {
-    // box-sizing for `hr` is set to `content-box` in normalize.css
-    box-sizing: inherit;
-    
-    border-width: 0;
-    border-top-width: 1px;
-    margin-top: $spacer-y;
-    margin-bottom: $spacer-y;
+  // box-sizing for `hr` is set to `content-box` in normalize.css
+  box-sizing: inherit;
+
+  border-width: 0;
+  border-top-width: 1px;
+  margin-top: $spacer-y;
+  margin-bottom: $spacer-y;
 }
 
 // Some print styles
 @media print {
-    // Add phrase after abbreviation
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    
-    // Mark links
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
+  // Add phrase after abbreviation
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  // Mark links
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 }
 
 // Typography helpers
@@ -75,83 +75,83 @@ hr {
 // Transformations
 
 .text-uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .text-lowercase {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .text-capitalize {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .text-small-caps {
-    font-variant: small-caps;
+  font-variant: small-caps;
 }
 
 // Text sizing
 
 small,
 .text-smaller {
-    font-size: 80%;
+  font-size: 80%;
 }
 
 .text-larger {
-    // Fixed value to apply in all browsers the same value
-    font-size: 120%; 
+  // Fixed value to apply in all browsers the same value
+  font-size: 120%;
 }
 
 // Effects
 
 .text-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .text-underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .text-italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 // Wrap
 
 .text-pre {
-    white-space: pre;
+  white-space: pre;
 }
 
 .text-nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .text-pre-wrap {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .text-pre-line {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 .text-truncate {
-    @include text-truncate();
+  @include text-truncate();
 }
 
 // Alignments
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }

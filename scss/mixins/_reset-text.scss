@@ -1,25 +1,24 @@
- 
-// 
-// Reset text
+
+//// Reset text
 //
 // This is a copy from bootstraps `_reset-text.scss`, but we removed the variables.
 // This will not reset font-family and font-size.
-// 
+//
 
 @mixin reset-text() {
-    // We deliberately do NOT reset font-size.
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: normal;
-    line-break: auto;
-    line-height: normal;
-    text-align: left; // Fallback for where `start` is not supported
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    white-space: normal;
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
+  // We deliberately do NOT reset font-size.
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: normal;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
 }

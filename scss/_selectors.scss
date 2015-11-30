@@ -1,7 +1,7 @@
 //
 // Selectors
 // --------------------------------------------------
-// 
+//
 // Some selectors used within the framework.
 // Not all selectors are used in the framework,
 // but there are very helpful to start styling your theme.
@@ -47,20 +47,20 @@ $lists: 'ul, ol' !default;
 
 // Figures
 $figure: (
-    '.figure',
-    'figure',
+  '.figure',
+  'figure',
 ) !default;
 
 // Caption of figure
 $figure-caption: (
-    '.figure .figure-caption',
-    'figure figcaption',
+  '.figure .figure-caption',
+  'figure figcaption',
 ) !default;
 
 // Image in figure
 $figure-image: (
-    '.figure img',
-    'figure img',
+  '.figure img',
+  'figure img',
 ) !default;
 
 
@@ -76,57 +76,57 @@ $menus: '.menu' !default;
 
 // All buttons
 $buttons: (
-    '.button',
-    '.submit-button',
-    '.reset-button',
-    '[role="button"]',
-    '[type="button"]',
-    '[type="submit"]',
-    '[type="reset"]',
-    '[type="image"]',
-    'button',
+  '.button',
+  '.submit-button',
+  '.reset-button',
+  '[role="button"]',
+  '[type="button"]',
+  '[type="submit"]',
+  '[type="reset"]',
+  '[type="image"]',
+  'button',
 ) !default;
 
 // Only submit buttons
 $submit-buttons: (
-    '.submit-button',
-    '[type="submit"]',
+  '.submit-button',
+  '[type="submit"]',
 ) !default;
 
 // Only reset buttons
 $reset-buttons: (
-    '.reset-button',
-    '[type="reset"]',
+  '.reset-button',
+  '[type="reset"]',
 ) !default;
 
 // Text fields
 //
 // All text input fields (only with _realy_ text input), includes `<textarea>`.
 $text-fields: (
-    'textarea',
-    '[type="email"]',
-    '[type="number"]',
-    '[type="password"]',
-    '[type="search"]',
-    '[type="tel"]',
-    '[type="text"]',
-    '[type="url"]',
+  'textarea',
+  '[type="email"]',
+  '[type="number"]',
+  '[type="password"]',
+  '[type="search"]',
+  '[type="tel"]',
+  '[type="text"]',
+  '[type="url"]',
 ) !default;
 
 // Input fields
 //
 // Input fields without buttons and without check-boxes/radio-buttons, includes `<textarea>`.
 $input-fields: (
-    '#{$text-fields}',
-    '.hidden-file-upload',
-    '[type="color"]',
-    '[type="date"]',
-    '[type="datetime"]',
-    '[type="datetime-local"]',
-    '[type="file"]',
-    '[type="month"]',
-    '[type="range"]',
-    '[type="time"]',
-    '[type="week"]',
-    'select',
+  '#{$text-fields}',
+  '.hidden-file-upload',
+  '[type="color"]',
+  '[type="date"]',
+  '[type="datetime"]',
+  '[type="datetime-local"]',
+  '[type="file"]',
+  '[type="month"]',
+  '[type="range"]',
+  '[type="time"]',
+  '[type="week"]',
+  'select',
 ) !default;

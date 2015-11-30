@@ -1,6 +1,6 @@
 //
 // Variables
-// 
+//
 // This are the default values of all variables.
 //
 
@@ -26,19 +26,19 @@ $button-padding-x: ( $spacer-x / 2 ) !default;
 // Will also rename the class names.
 
 $x-positions: (
-    'outerleft':    'outerleft',
-    'left':         'left',
-    'center':       'center',
-    'right':        'right',
-    'outerright':   'outerright'
+  'outerleft':    'outerleft',
+  'left':         'left',
+  'center':       'center',
+  'right':        'right',
+  'outerright':   'outerright'
 ) !default;
 
 $y-positions: (
-    'outertop':     'outertop',
-    'top':          'top',
-    'center':       'center',
-    'bottom':       'bottom',
-    'outerbottom':  'outerbottom'
+  'outertop':     'outertop',
+  'top':          'top',
+  'center':       'center',
+  'bottom':       'bottom',
+  'outerbottom':  'outerbottom'
 ) !default;
 
 // Support RTL
@@ -49,7 +49,7 @@ $y-positions: (
 $enable-rtl: true !default;
 
 // Class contain selector
-// 
+//
 // Enable the [class*=value] selector.
 // This will safe a lot of space but can be buggy when u are using class names with
 // syntaxes used in this framework.
@@ -59,7 +59,7 @@ $enable-rtl: true !default;
 $enable-class-contain: true !default;
 
 // Grid breakpoints
-// 
+//
 // Define the minimum and maximum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
@@ -121,9 +121,9 @@ $zindex-overlay: 10000 !default;
 // Default map is `(1, 2, 3, 4, 5, 6, 7, 8, 9)`.
 
 $wordpress-gallery-columns-map: (
-    xs: (1, 1, 1, 1, 1, 1, 1, 1, 1),
-    sm: (1, 1, 1, 2, 2, 2, 2, 3, 3),
-    md: (1, 1, 2, 2, 3, 4, 5, 6, 6),
-    lg: (1, 2, 3, 4, 4, 5, 6, 7, 8),
-    xl: (1, 2, 3, 4, 5, 6, 7, 8, 9)
+  xs: (1, 1, 1, 1, 1, 1, 1, 1, 1),
+  sm: (1, 1, 1, 2, 2, 2, 2, 3, 3),
+  md: (1, 1, 2, 2, 3, 4, 5, 6, 6),
+  lg: (1, 2, 3, 4, 4, 5, 6, 7, 8),
+  xl: (1, 2, 3, 4, 5, 6, 7, 8, 9)
 ) !default;

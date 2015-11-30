@@ -1,12 +1,12 @@
-// 
+//
 // Load a font
-// 
+//
 
 @mixin load-font($name, $src) {
-    @at-root {
-        @font-face {
-            font-family: $name;
-            src: url($src);
-        }
+  @at-root {
+    @font-face {
+      font-family: $name;
+      src: url($src);
     }
+  }
 }

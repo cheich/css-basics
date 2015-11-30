@@ -1,59 +1,59 @@
-//  
+//
 // Images
 // --------------------------------------------------
-// 
+//
 // Default behavior of images.
 // Images in anchors and figures.
-// 
+//
 
 img {
-    // Images should not overflow it's parent.
-    max-width: 100%;
-    max-height: 100%;
-    
-    // Proportional scaling - now, we only have to set the width.
-    height: auto;
-    
-    // Prettify IE image scaling.
-    -ms-interpolation-mode: bicubic;
-    
-    // Remove gap after images inside of anchors.
-    // Makes it easier to handle icons in-line of text.
-    vertical-align: top; 
+  // Images should not overflow it's parent.
+  max-width: 100%;
+  max-height: 100%;
+
+  // Proportional scaling - now, we only have to set the width.
+  height: auto;
+
+  // Prettify IE image scaling.
+  -ms-interpolation-mode: bicubic;
+
+  // Remove gap after images inside of anchors.
+  // Makes it easier to handle icons in-line of text.
+  vertical-align: top;
 }
 
 a {
-    img {    
-        // Prevent border on click-able images .
-        border: 0; 
-    }
+  img {
+    // Prevent border on click-able images .
+    border: 0;
+  }
 }
 
 // Figure classes
 .figure {
-    @include figure();
-    
-    img {
-        @include figure-image();
-    }
-    
-    .figure-caption {
-        @include figure-caption();
-    }
+  @include figure();
+
+  img {
+    @include figure-image();
+  }
+
+  .figure-caption {
+    @include figure-caption();
+  }
 }
 
 // Figure HTML-tags
-figure {  
-    // Remove default margins
-    margin: 0; 
-    
-    @include figure();
-    
-    img {
-        @include figure-image();
-    }
-    
-    figcaption {
-        @include figure-caption();
-    }
+figure {
+  // Remove default margins
+  margin: 0;
+
+  @include figure();
+
+  img {
+    @include figure-image();
+  }
+
+  figcaption {
+    @include figure-caption();
+  }
 }

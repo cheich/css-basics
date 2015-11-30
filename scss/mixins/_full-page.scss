@@ -1,17 +1,16 @@
-// 
+//
 // Full page
-// 
+//
 
 @mixin full-page-width() {
-    @include viewport-unit(width, 100vw);
+  @include viewport-unit(width, 100vw);
 }
 
 @mixin full-page-height() {
-    @include viewport-unit(height, 100vh);   
+  @include viewport-unit(height, 100vh);
 }
 
 @mixin full-page() {
-    @include full-page-width();
-    @include full-page-height();
+  @include full-page-width();
+  @include full-page-height();
 }
- 

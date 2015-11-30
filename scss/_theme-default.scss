@@ -22,7 +22,7 @@
 //  - Forms
 //  - Menus
 //  - Tables
-// 
+//
 
 // Bootstrap the CSS Basics framework
 @import 'bootstrap';
@@ -79,8 +79,8 @@ blockquote {}
 
 // Description lists
 dl {
-    dt {}
-    dd {}
+  dt {}
+  dd {}
 }
 
 // Lists
@@ -91,15 +91,15 @@ ol {}
 //
 // Should be styled via `#{$links`. We will exclude all buttons for you.
 #{$links} {
-    &:link {}
-    &:visited {}
-    &:hover {}
-    &:active {}
+  &:link {}
+  &:visited {}
+  &:hover {}
+  &:active {}
 }
 
 // All lists (`<ul>` and `<ol>`)
 #{$lists} {
-    li {}
+  li {}
 }
 
 // `<hr />`
@@ -133,16 +133,16 @@ a img {}
 // Selects all menus.
 // You can also replace `#{$menus` by a selector.
 #{$menus} {
-    li {
+  li {
+    a {}
+
+    .submenu,
+    ul {
+      li {
         a {}
-        
-        .submenu,
-        ul {
-            li {
-                a {}
-            }
-        }
+      }
     }
+  }
 }
 
 
@@ -151,8 +151,8 @@ a img {}
 
 // All buttons
 #{$buttons} {
-    &:hover {}
-    &:active {}
+  &:hover {}
+  &:active {}
 }
 
 // Only submit buttons
@@ -187,15 +187,15 @@ label {}
 // --------------------------------------------------
 
 table {
-    // Caption
-    caption {}
-    
-    // Table row
-    tr {
-        // Table head
-        th {}
-        
-        // Table data
-        td {}        
-    }
+  // Caption
+  caption {}
+
+  // Table row
+  tr {
+    // Table head
+    th {}
+
+    // Table data
+    td {}
+  }
 }
