@@ -49,7 +49,7 @@ article {}
 aside {}
 
 // Overlay
-#{$overlay} {}
+.overlay {}
 
 // Typography
 // --------------------------------------------------
@@ -83,13 +83,9 @@ dl {
   dd {}
 }
 
-// Lists
-ul,
-ol {}
-
 // Links
 //
-// Should be styled via `#{$links`. We will exclude all buttons for you.
+// Should be styled via `#{$links}`. We will exclude all buttons for you.
 #{$links} {
   &:link {}
   &:visited {}
@@ -130,12 +126,11 @@ a img {}
 // Menus
 // --------------------------------------------------
 
-// Selects all menus.
-// You can also replace `#{$menus` by a selector.
-#{$menus} {
+// `#{$menus}` selects all menus.
+// You should replace `#{$menus}` by your menu selector (like `.main-menu`).
+.menu {
   li {
     a {}
-
     .submenu,
     ul {
       li {
