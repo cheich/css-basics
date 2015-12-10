@@ -7,12 +7,6 @@
 // but there are very helpful to start styling your theme.
 //
 
-// Layout
-// --------------------------------------------------
-
-// Overlay
-$overlay: '.overlay' !default;
-
 // Typography
 // --------------------------------------------------
 
@@ -62,13 +56,6 @@ $figure-image: (
   '.figure img',
   'figure img',
 ) !default;
-
-
-// Menus
-// --------------------------------------------------
-
-// Select all menus.
-$menus: '.menu' !default;
 
 
 // Forms
