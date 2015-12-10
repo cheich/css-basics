@@ -92,12 +92,12 @@
 @each $bp in map-keys($grid-breakpoints) {
   .invisible-#{$bp}-up {
     @include media-breakpoint-up($bp) {
-      opacity: 0 !important;
+      @include invisible();
     }
   }
   .invisible-#{$bp}-down {
     @include media-breakpoint-down($bp) {
-      opacity: 0 !important;
+      @include invisible();
     }
   }
 }

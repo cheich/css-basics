@@ -75,63 +75,62 @@ hr {
 // Transformations
 
 .text-uppercase {
-  text-transform: uppercase;
+  @include text-uppercase();
 }
 
 .text-lowercase {
-  text-transform: lowercase;
+  @include text-lowercase();
 }
 
 .text-capitalize {
-  text-transform: capitalize;
+  @include text-capitalize();
 }
 
 .text-small-caps {
-  font-variant: small-caps;
+  @include text-small-caps();
 }
 
 // Text sizing
 
 small,
 .text-smaller {
-  font-size: 80%;
+  @include text-smaller();
 }
 
 .text-larger {
-  // Fixed value to apply in all browsers the same value
-  font-size: 120%;
+  @include text-larger();
 }
 
 // Effects
 
 .text-bold {
-  font-weight: bold;
+  @include text-bold();
 }
 
 .text-underline {
-  text-decoration: underline;
+  @include text-underline();
 }
 
 .text-italic {
-  font-style: italic;
+  @include text-italic();
 }
 
 // Wrap
 
 .text-pre {
-  white-space: pre;
+  @include text-pre();
 }
 
 .text-nowrap {
-  white-space: nowrap;
+  @include text-nowrap();
 }
 
 .text-pre-wrap {
-  white-space: pre-wrap;
+  @include text-pre-wrap();
 }
 
 .text-pre-line {
-  white-space: pre-line;
+  @include text-pre-line();
 }
 
 .text-truncate {
@@ -141,17 +140,17 @@ small,
 // Alignments
 
 .text-right {
-  text-align: right;
+  @include text-right();
 }
 
 .text-left {
-  text-align: left;
+  @include text-left();
 }
 
 .text-center {
-  text-align: center;
+  @include text-center();
 }
 
 .text-justify {
-  text-align: justify;
+  @include text-justify();
 }

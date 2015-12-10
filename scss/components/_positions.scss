@@ -10,7 +10,7 @@
 // Styles should set just one time, we will extend all selectors
 
 .position-container {
-  position: relative;
+  @include position-container();
 }
 
 %position-base-style {

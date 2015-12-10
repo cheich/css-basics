@@ -1,0 +1,13 @@
+//
+// Label text inline
+//
+
+@mixin label-text-inline() {
+  #{$input-fields},
+  output,
+  select,
+  textarea {
+    display: inline-block;
+    width: auto;
+  }
+}

@@ -11,9 +11,12 @@
 @import 'mixins/figure';
 @import 'mixins/floating';
 @import 'mixins/full-page';
+@import 'mixins/hidden-file-upload';
 @import 'mixins/horizontal-list';
 @import 'mixins/image-block';
 @import 'mixins/input-group';
+@import 'mixins/invisible';
+@import 'mixins/label-text-inline';
 @import 'mixins/layout';
 @import 'mixins/orientation';
 @import 'mixins/overlay';
@@ -21,7 +24,7 @@
 @import 'mixins/remove-list-appearance';
 @import 'mixins/row-eq-height';
 @import 'mixins/sticky';
-@import 'mixins/text-truncate';
+@import 'mixins/typography';
 @import 'mixins/vertical-list';
 
 
@@ -41,7 +44,7 @@
 
 
 // Unused in components
-// 
+//
 // This mixins are not used in any component.
 
 @import 'mixins/vendor/gradients';

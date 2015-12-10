@@ -1,0 +1,16 @@
+//
+// Button toggle
+//
+
+@mixin button-toggle($btns: $buttons) {
+  [type="radio"]:checked,
+  [type="checkbox"]:checked {
+    @each $button in $btns {
+      + #{$button} {
+        &:active {
+          @content;
+        }
+      }
+    }
+  }
+}

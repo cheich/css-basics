@@ -145,30 +145,15 @@ label {
 // Button toggle
 //
 // Add a button style to radio-buttons and check-boxes.
-.button-toggle {
-  [type="radio"]:checked,
-  [type="checkbox"]:checked {
-    @each $button in $buttons {
-      + #{$button} {
-        &:active {
-          border-color: ButtonHighlight;
-          border-style: inset;
-        }
-      }
-    }
-  }
+
+@include button-toggle() {
+  border-color: ButtonHighlight;
+  border-style: inset;
 }
 
-// IE 8 does not support CSS 3 selector `:not()`.
-// So we have to repeat this selectors and overwrite these styles.
+// Set label text inline
 .label-text-inline {
-  #{$input-fields},
-  output,
-  select,
-  textarea {
-    display: inline-block;
-    width: auto;
-  }
+  @include label-text-inline();
 }
 
 // Input groups
@@ -223,19 +208,7 @@ label.row {
 // Make input[type="file"] invisible but still functional
 // @see http://www.quirksmode.org/dom/inputfile.html
 .hidden-file-upload {
-  position: relative;
-  overflow: hidden;
-
-  [type="file"] {
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    cursor: pointer;
-  }
+  @include hidden-file-upload();
 }
 
 // RTL fixes
