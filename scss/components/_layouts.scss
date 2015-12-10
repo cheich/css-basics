@@ -64,7 +64,7 @@ body {
 }
 
 // Overlay
-#{$overlay} {
+.overlay {
   @include overlay();
 }
 
