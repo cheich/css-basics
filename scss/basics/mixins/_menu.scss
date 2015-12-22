@@ -1,0 +1,125 @@
+//
+// Menu
+//
+
+@mixin menu($item: 'li', $submenu: 'ul, .submenu') {
+  z-index: $zindex-menu;
+  position: relative;
+
+  // Remove menu on prints
+  @media print {
+    display: none;
+  }
+
+  // @include remove-list-appearance();
+
+  #{$item} {
+    position: relative;
+
+    // > ul {
+    //   @include remove-list-appearance();
+    // }
+
+    > {
+      // Make anchors as block-level element
+      // So paddings will expand the hit-box
+      a {
+        display: block;
+      }
+
+      // Hide sub-menu
+      #{$submenu} {
+        display: none;
+      }
+    }
+  }
+
+  #{$item} {
+    // Show sub-menu via `.active` or `:hover` of its parent
+    &:hover {
+      > {
+        #{$submenu} {
+          display: block;
+        }
+      }
+    }
+
+    // Force it with `.active` class
+    &:hover {
+      > {
+        #{$submenu} {
+          display: block !important;
+        }
+      }
+    }
+  }
+
+  // Breakpoints
+  //
+  // _Menu_ works create with _Orientations_,
+  // but there are a few settings to correct
+  @at-root {
+    @include vertical(&) {
+      > {
+        #{$item} {
+          #{$submenu} {
+            @include vertical-sublist();
+          }
+        }
+      }
+    }
+
+    @include horizontal(&) {
+      > {
+        #{$item} {
+          #{$submenu} {
+            @include horizontal-sublist();
+
+            #{$submenu} {
+              @include vertical-sublist();
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Unbind hover
+  //
+  // Disable the ':hover'-effect. Use JavaScript instead.
+  // Now, this can be set to sublists (in v3, this could only set to the whole menu)
+  @at-root {
+    .unbind-hover {
+      #{$item} {
+        &:hover {
+          > {
+            #{$submenu} {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// RTL menu
+@mixin menu-rtl($item: 'li', $submenu: 'ul, .submenu') {
+  @include menu();
+
+  @include vertical(&) {
+    #{submenu} {
+      @include vertical-sublist-rtl();
+    }
+  }
+
+  @include horizontal(&) {
+    #{submenu} {
+      @include horizontal-sublist-rtl();
+
+      #{submenu} {
+        @include vertical-sublist-rtl();
+      }
+    }
+  }
+}

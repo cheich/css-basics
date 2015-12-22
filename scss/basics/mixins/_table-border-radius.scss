@@ -1,0 +1,51 @@
+//
+// Table border radius
+//
+
+@mixin table-border-radius($top-left, $top-right: null, $bottom-right: null, $bottom-left: null) {
+  // top-right, bottom-right and bottom-left are optional
+  $top-right:    if($top-right, $top-right, $top-left);
+  $bottom-right: if($bottom-right, $bottom-right, $top-left);
+  $bottom-left:  if($bottom-left, $bottom-left, if($top-right, $top-right, $top-left));
+
+  // If `border-collapse` is set to `collapse`, this border won't work.
+  // Table cells will still have a border-radius.
+  border-radius: $top-left $top-right $bottom-right $bottom-left;
+
+  tr:last-child {
+    td:first-child {
+      border-bottom-left-radius: $bottom-left;
+    }
+    td:last-child {
+      border-bottom-right-radius: $bottom-right;
+    }
+  }
+
+  tr:first-child {
+    th:first-child,
+    td:first-child {
+      border-top-left-radius: $top-left;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-top-right-radius: $top-right;
+    }
+  }
+
+  // Resets
+  // This will not work for `tbody + tfoot` (tfoot as sibling of tbody). This
+  // is allowed since HTML5.
+
+  tfoot tr td,
+  thead + tbody tr td,
+  tfoot + tbody tr td {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  tfoot + tbody tr td {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}

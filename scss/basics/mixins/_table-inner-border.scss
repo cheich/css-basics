@@ -1,0 +1,17 @@
+//
+// Table border
+//
+
+@mixin table-inner-border($border) {
+  tr th:not(:first-child),
+  tr td:not(:first-child) {
+    border-left: $border;
+  }
+
+  thead + tbody tr td,
+  thead + tfoot tr td,
+  tr:not(:first-child) th,
+  tr:not(:first-child) td {
+    border-top: $border;
+  }
+}

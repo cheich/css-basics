@@ -24,22 +24,18 @@ table {
 }
 
 // RTL tables
-
 @if $enable-rtl {
-
   [dir="rtl"] {
     th,
     td {
       text-align: right;
     }
   }
-
 }
 
 // Responsive table
 //
 // Wrap tables to make it responsive.
-
 .table-responsive {
   overflow-x: auto;
   width: 100%;

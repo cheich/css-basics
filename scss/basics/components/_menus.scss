@@ -1,0 +1,27 @@
+//
+// Menus
+// --------------------------------------------------
+//
+// Build simple menus/navigations with unordered lists.
+// Ready for multi-dimensional menus with `:hover` effect.
+//
+
+.menu {
+  @include remove-list-appearance();
+  @include menu();
+
+  li {
+    > ul {
+      @include remove-list-appearance();
+    }
+  }
+}
+
+// RTL support
+@if $enable-rtl {
+  [dir="rtl"] {
+    .menu {
+      @include menu-rtl();
+    }
+  }
+}

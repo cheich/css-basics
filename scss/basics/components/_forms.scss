@@ -117,7 +117,7 @@ textarea {
     border-style: inset;
   }
 
-  // Remove button appearance in webkit to take the same look at all buttons
+  // Remove button appearance in webkit to get the same look on all buttons
   -webkit-appearance: none;
 
   // Button should be in-line
@@ -145,7 +145,6 @@ label {
 // Button toggle
 //
 // Add a button style to radio-buttons and check-boxes.
-
 @include button-toggle() {
   border-color: ButtonHighlight;
   border-style: inset;
@@ -212,7 +211,6 @@ label.row {
 }
 
 // RTL fixes
-
 @if $enable-rtl {
   [dir="rtl"] {
     // Set gutter to the left on right-to-left languages

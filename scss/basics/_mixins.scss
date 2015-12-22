@@ -8,6 +8,7 @@
 // CSS Basics mixins
 
 @import 'mixins/alignment';
+@import 'mixins/button-toggle';
 @import 'mixins/figure';
 @import 'mixins/floating';
 @import 'mixins/full-page';
@@ -18,6 +19,7 @@
 @import 'mixins/invisible';
 @import 'mixins/label-text-inline';
 @import 'mixins/layout';
+@import 'mixins/menu';
 @import 'mixins/orientation';
 @import 'mixins/overlay';
 @import 'mixins/position';
@@ -49,6 +51,8 @@
 
 @import 'mixins/vendor/gradients';
 @import 'mixins/vendor/reset-filter';
-@import 'mixins/arrows';
 @import 'mixins/load-font';
 @import 'mixins/reset-text';
+@import 'mixins/table-border-radius';
+@import 'mixins/table-inner-border';
+@import 'mixins/triangle';

@@ -59,7 +59,7 @@ hr {
 @media print {
   // Add phrase after abbreviation
   abbr[title]:after {
-    content: " (" attr(title) ")";
+    content: " ("attr(title)")";
   }
 
   // Mark links
