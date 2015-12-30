@@ -2,10 +2,9 @@
 // Position
 //
 
-@mixin position-container {
+@mixin position-container() {
   position: relative;
 }
-
 
 @mixin position($x: map-get($x-positions, 'center'), $y: map-get($y-positions, 'center')) {
   @include x-position($x);
