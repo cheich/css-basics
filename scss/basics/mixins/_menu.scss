@@ -3,7 +3,6 @@
 //
 
 @mixin menu($item: 'li', $submenu: 'ul, .submenu') {
-  z-index: $zindex-menu;
   position: relative;
 
   // Remove menu on prints
@@ -11,14 +10,8 @@
     display: none;
   }
 
-  // @include remove-list-appearance();
-
   #{$item} {
     position: relative;
-
-    // > ul {
-    //   @include remove-list-appearance();
-    // }
 
     > {
       // Make anchors as block-level element
@@ -27,15 +20,13 @@
         display: block;
       }
 
-      // Hide sub-menu
       #{$submenu} {
+        z-index: $zindex-menu;
         display: none;
       }
     }
-  }
 
-  #{$item} {
-    // Show sub-menu via `.active` or `:hover` of its parent
+    // Show sub-menu via `:hover`
     &:hover {
       > {
         #{$submenu} {
@@ -45,7 +36,7 @@
     }
 
     // Force it with `.active` class
-    &:hover {
+    &.active {
       > {
         #{$submenu} {
           display: block !important;
@@ -56,8 +47,7 @@
 
   // Breakpoints
   //
-  // _Menu_ works create with _Orientations_,
-  // but there are a few settings to correct
+  // _Menu_ should work great with _Orientations_
   @at-root {
     @include vertical(&) {
       > {
@@ -105,19 +95,19 @@
 
 // RTL menu
 @mixin menu-rtl($item: 'li', $submenu: 'ul, .submenu') {
-  @include menu();
+  @include menu($item, $submenu);
 
   @include vertical(&) {
-    #{submenu} {
+    #{$submenu} {
       @include vertical-sublist-rtl();
     }
   }
 
   @include horizontal(&) {
-    #{submenu} {
+    #{$submenu} {
       @include horizontal-sublist-rtl();
 
-      #{submenu} {
+      #{$submenu} {
         @include vertical-sublist-rtl();
       }
     }
