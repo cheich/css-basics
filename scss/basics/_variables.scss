@@ -20,6 +20,19 @@ $spacer-y: $spacer !default;
 $button-padding-x: ( $spacer-x / 2 ) !default;
 
 
+// Form colors
+//
+// To start in each browser on the same thing, we define some default colors.
+
+$border-color:                #bbb !default;
+$border-color-hover:          #bbb !default;
+$border-color-highlight:      #999 !default;
+
+$button-background:           #f5f5f5 !default;
+$button-background-hover:     #eaeaea !default;
+$button-background-highlight: #dfdfdf !default;
+
+
 // Position names
 //
 // Rename position names.
