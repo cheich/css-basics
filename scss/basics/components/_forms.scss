@@ -6,26 +6,26 @@
 // Label-Tags should surround the input field and it's label (no ID's needed).
 //
 
-#{$buttons},
-label,
-output,
-select {
-  // Same line-height for all form elements.
-  // Input fields are still reseted via normalize.
-  line-height: normal;
+// Set minimal border
+#{$input-fields} {
+  border: 1px solid $border-color;
+
+  &:hover {
+    border-color: $border-color-hover;
+  }
+
+  &:focus {
+    border-color: $border-color-highlight;
+  }
 }
 
-[type="email"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="url"],
-output,
-select {
-  // Set same height for all form elements.
-  height: 1.5rem;
+#{$form-fields} {
+  // Make all form elements 100% width (mobile first).
+  width: 100%;
+
+  line-height: normal;
+  display: block;
+  margin-bottom: $spacer-y;
 }
 
 fieldset {
@@ -90,46 +90,40 @@ input[type='search'] {
   -webkit-appearance: none;
 }
 
-#{$input-fields},
-output,
-select,
-textarea {
-  // Make all form elements 100% width (mobile first).
-  width: 100%;
-
-  display: block;
-  margin-bottom: $spacer-y;
-}
-
 // All buttons
 #{$buttons} {
-  // Add system style colors as default to start styling in each browser at the same point.
+  // Add some default colors to start styling in each browser at the same point.
   // Setting a border will reset many space issues.
-  border: 1px outset ButtonFace;
-  color: ButtonText;
-  background: ButtonFace;
+  border: 1px solid $border-color;
+  background: $button-background;
+
+  &:hover {
+    border-color: $border-color-hover;
+    background: $button-background-hover;
+  }
+
+  &:active {
+    border-color: $border-color-highlight;
+    background: $button-background-highlight;
+  }
 
   // Don't allow text selection on buttons
   user-select: none;
 
-  &:active {
-    border-color: ButtonHighlight;
-    border-style: inset;
-  }
-
-  // Remove button appearance in webkit to get the same look on all buttons
+  // Remove button appearance in webkit
   -webkit-appearance: none;
 
-  // Button should be in-line
-  display: inline-block;
+  // Add some paddings
+  // 1px on top and bottom 'cause text fields uses this by default.
+  padding: 1px $button-padding-x;
 
-  // Add some padding as default
-  padding-left: $button-padding-x;
-  padding-right: $button-padding-x;
-
-  // Remove underline on links
+  // Remove anchor styles
   text-decoration: none;
+  color: inherit;
 
+  margin-bottom: $spacer-y;
+  display: inline-block;
+  line-height: normal;
   text-align: center;
   cursor: pointer;
   width: auto;
@@ -144,10 +138,9 @@ label {
 
 // Button toggle
 //
-// Add a button style to radio-buttons and check-boxes.
-@include button-toggle() {
-  border-color: ButtonHighlight;
-  border-style: inset;
+// Add active button style to button after checked radio-buttons and check-boxes.
+.button-toggle {
+  @include button-toggle();
 }
 
 // Set label text inline
@@ -166,10 +159,7 @@ label {
 //
 // Add some spacing while using horizontal layout
 @include horizontal() {
-  > output,
-  > input,
-  > textarea,
-  > label,
+  > #{$form-fields},
   > #{$buttons} {
     margin-right: ( $spacer-x / 2);
     margin-left: ( $spacer-x / 2);
@@ -195,10 +185,7 @@ label.row {
   // Gutter now applied to the row (`<label class="row">`)
   margin-bottom: $spacer-y;
 
-  #{$input-fields},
-  output,
-  select,
-  textarea {
+  #{$form-fields} {
     // Reset gutter after elements, this is now applied to the row
     margin-bottom: 0;
   }
