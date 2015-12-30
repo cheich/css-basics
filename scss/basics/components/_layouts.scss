@@ -9,7 +9,7 @@
 html,
 body {
   // Set to full height of the browser window
-  height: 100%;
+  min-height: 100%;
 
   // (Re-)set everything to border-box, 'cause border-box rockz!
   box-sizing: border-box;
