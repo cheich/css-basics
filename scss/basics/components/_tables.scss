@@ -37,7 +37,5 @@ table {
 //
 // Wrap tables to make it responsive.
 .table-responsive {
-  overflow-x: auto;
-  width: 100%;
-  max-width: 100%;
+  @include table-responsive();
 }

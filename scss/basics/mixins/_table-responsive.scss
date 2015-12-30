@@ -1,0 +1,9 @@
+//
+// Responsive table
+//
+//
+@mixin table-responsive() {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+}
