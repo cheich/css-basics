@@ -2,11 +2,8 @@
 // Label text inline
 //
 
-@mixin label-text-inline() {
-  #{$input-fields},
-  output,
-  select,
-  textarea {
+@mixin label-text-inline($fields: $form-fields) {
+  #{$fields} {
     display: inline-block;
     width: auto;
   }
