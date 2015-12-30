@@ -31,20 +31,20 @@ var themeBanner = '/*!\n' +
                   ' * Theme - build on CSS Basics v<%= pkg.version %>>\n' +
                   ' */';
 
-/**
- * Default task
- */
+// 
+// Default task
+// 
 gulp.task('default', function() {
   gulp.start('basics');
   gulp.start('theme');
 });
 
-/**
- * Compile CSS Basics framework
- *
- * Options:
- *   --custom: Safe as custom build. Optional with keyword.
- */
+//
+// Compile CSS Basics framework
+//
+// Options:
+//   --custom: Safe as custom build. Optional with keyword.
+//
 gulp.task('basics', function() {
   var renameOptions = {};
 
@@ -70,9 +70,9 @@ gulp.task('basics', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-/**
- * Compile Theme
- */
+//
+// Compile Theme
+//
 gulp.task('theme', function() {
   return gulp.src('scss/theme.scss')
     .pipe(sourcemaps.init())
@@ -84,9 +84,9 @@ gulp.task('theme', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-/**
- * Watch all changes
- */
+//
+// Watch all changes
+//
 gulp.task('watch', function() {
   gulp.watch('scss/*.scss', ['default']);
   gulp.watch('scss/theme.scss', ['theme']);
