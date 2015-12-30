@@ -2,18 +2,18 @@
 // Figure
 //
 
-@mixin figure {
+@mixin figure() {
   max-width: 100%;
 
   // Do not wrap to 100% width, if not necessary.
   display: table;
 }
 
-@mixin figure-caption {
+@mixin figure-caption() {
   display: block;
   margin: 0;
 }
 
-@mixin figure-image {
+@mixin figure-image() {
   @include image-block();
 }
