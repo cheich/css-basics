@@ -12,17 +12,17 @@
 
 // All single headers
 
-$h1: 'h1, .h1' !default;
+$h1: unquote('h1, .h1') !default;
 
-$h2: 'h2, .h2' !default;
+$h2: unquote('h2, .h2') !default;
 
-$h3: 'h3, .h3' !default;
+$h3: unquote('h3, .h3') !default;
 
-$h4: 'h4, .h4' !default;
+$h4: unquote('h4, .h4') !default;
 
-$h5: 'h5, .h5' !default;
+$h5: unquote('h5, .h5') !default;
 
-$h6: 'h6, .h6' !default;
+$h6: unquote('h6, .h6') !default;
 
 // All headers (`<h1>` - `<h6>` and classes)
 $headers: ($h1, $h2, $h3, $h4, $h5, $h6) !default;
@@ -30,39 +30,44 @@ $headers: ($h1, $h2, $h3, $h4, $h5, $h6) !default;
 // Links
 //
 // Exclude all button classes.
-$links: 'a:not(.button):not(.submit-button):not(.reset-button):not([role="button"])' !default;
+$links: select-without('a', (
+  '.button',
+  '.submit-button',
+  '.reset-button',
+  '[role="button"]',
+)) !default;
 
 // All lists (`<ul>` and `<ol>`)
-$lists: 'ul, ol' !default;
+$lists: unquote('ul, ol') !default;
 
 
 // Images
 // --------------------------------------------------
 
 // Figures
-$figure: (
+$figure: unquote-list((
   '.figure',
   'figure',
-) !default;
+)) !default;
 
 // Caption of figure
-$figure-caption: (
+$figure-caption: unquote-list((
   '.figure .figure-caption',
   'figure figcaption',
-) !default;
+)) !default;
 
 // Image in figure
-$figure-image: (
+$figure-image: unquote-list((
   '.figure img',
   'figure img',
-) !default;
+)) !default;
 
 
 // Forms
 // --------------------------------------------------
 
 // All buttons
-$buttons: (
+$buttons: unquote-list((
   '.button',
   '.submit-button',
   '.reset-button',
@@ -72,48 +77,75 @@ $buttons: (
   '[type="reset"]',
   '[type="image"]',
   'button',
-) !default;
+)) !default;
 
 // Only submit buttons
-$submit-buttons: (
+$submit-buttons: unquote-list((
   '.submit-button',
   '[type="submit"]',
-) !default;
+)) !default;
 
 // Only reset buttons
-$reset-buttons: (
+$reset-buttons: unquote-list((
   '.reset-button',
   '[type="reset"]',
-) !default;
+)) !default;
 
-// Text fields
-//
-// All text input fields (only with _realy_ text input), includes `<textarea>`.
-$text-fields: (
-  'textarea',
-  '[type="email"]',
-  '[type="number"]',
-  '[type="password"]',
-  '[type="search"]',
-  '[type="tel"]',
-  '[type="text"]',
-  '[type="url"]',
-) !default;
-
-// Input fields
-//
-// Input fields without buttons and without check-boxes/radio-buttons, includes `<textarea>`.
-$input-fields: (
-  '#{$text-fields}',
-  '.hidden-file-upload',
-  '[type="color"]',
+// Date and time input fields
+$date-time-fields: unquote-list((
   '[type="date"]',
   '[type="datetime"]',
   '[type="datetime-local"]',
-  '[type="file"]',
-  '[type="month"]',
-  '[type="range"]',
   '[type="time"]',
   '[type="week"]',
-  'select',
-) !default;
+  '[type="month"]',
+));
+
+// Contact input fields
+$contact-fields: unquote-list((
+  '[type="email"]',
+  '[type="tel"]',
+  '[type="url"]',
+));
+
+// Text input fields
+//
+// All text input fields (only with _really_ text input), includes `<textarea>`.
+// Excluded are all buttons, check-boxes/radio-buttons and [type="range"].
+$text-fields: join(
+  select-without('input', (
+    '[type="button"]',
+    '[type="submit"]',
+    '[type="reset"]',
+    '[type="image"]',
+    '[type="checkbox"]',
+    '[type="radiobutton"]',
+    '[type="range"]'
+  )),
+  'textarea',
+comma) !default;
+
+// Input fields
+//
+// All form fields where user can input some data.
+// Excluded are check-boxes/radio-buttons and [type="range"].
+$input-fields: join(
+  unquote-list((
+    'select',
+    'keygen'
+  )),
+  $text-fields,
+comma) !default;
+
+// All form fields without check-boxes/radio-buttons and without buttons.
+$form-fields: join(
+  unquote-list((
+    'select',
+    'output',
+    '[type="range"]',
+    'keygen',
+    'label',
+    '.button-toggle'
+  )),
+  $text-fields,
+comma) !default;
