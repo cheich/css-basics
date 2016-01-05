@@ -113,7 +113,7 @@ input[type='search'] {
   // Remove button appearance in webkit
   -webkit-appearance: none;
 
-  // Add some paddings
+  // Add some paddings.
   // 1px on top and bottom 'cause text fields uses this by default.
   padding: 1px $button-padding-x;
 
@@ -127,13 +127,6 @@ input[type='search'] {
   text-align: center;
   cursor: pointer;
   width: auto;
-}
-
-label {
-  // Make all form elements 100% width (mobile first).
-  width: 100%;
-
-  display: block;
 }
 
 // Button toggle
@@ -174,19 +167,17 @@ label {
   }
 }
 
-// Enable labels as grid row
+// Enable labels as grid row (`<label class="row">`)
 label.row {
-  // Rows are greater than 100% (gutter left and right) -> reset max width
+  // Rows are greater than 100% (gutter left and right) -> reset max width.
   max-width: none;
-
   width: auto;
-  display: block;
 
-  // Gutter now applied to the row (`<label class="row">`)
+  // Gutter now applied to the row.
   margin-bottom: $spacer-y;
 
-  #{$form-fields} {
-    // Reset gutter after elements, this is now applied to the row
+  #{$input-fields} {
+    // Reset gutter after elements, this is now applied to the row.
     margin-bottom: 0;
   }
 }
@@ -200,7 +191,7 @@ label.row {
 // RTL fixes
 @if $enable-rtl {
   [dir="rtl"] {
-    // Set gutter to the left on right-to-left languages
+    // Set gutter to the left languages
     .input-group,
     #{$buttons} {
       margin-right: 0;
