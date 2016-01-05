@@ -43,15 +43,12 @@ blockquote {
   margin-bottom: $spacer-y;
 }
 
-// Line break
-
 hr {
   // box-sizing for `hr` is set to `content-box` in normalize.css
   box-sizing: inherit;
 
   border-width: 0;
   border-top-width: 1px;
-  margin-top: $spacer-y;
   margin-bottom: $spacer-y;
 }
 
