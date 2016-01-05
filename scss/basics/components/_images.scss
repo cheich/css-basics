@@ -29,20 +29,6 @@ a {
   }
 }
 
-// Figure classes
-.figure {
-  @include figure();
-
-  img {
-    @include figure-image();
-  }
-
-  .figure-caption {
-    @include figure-caption();
-  }
-}
-
-// Figure HTML-tags
 figure {
   // Remove default margins
   margin: 0;
