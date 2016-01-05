@@ -48,6 +48,7 @@ Note that we are still in alpha. There are some things to-do:
 - [x] Optimize selectors
 - [x] Set figure width not to 100% (via `display: table`)
 - [ ] Reset border in `.button-toggle` with `input-group`
+- [ ] Input group label
 
 ## Features
 
