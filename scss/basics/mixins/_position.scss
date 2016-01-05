@@ -2,6 +2,10 @@
 // Position
 //
 
+%position-base-style {
+  position: absolute;
+}
+
 @mixin position-container() {
   position: relative;
 }
@@ -16,6 +20,8 @@
 }
 
 @mixin x-position($x: map-get($x-positions, 'center')) {
+  @extend %position-base-style;
+
   @if $x == 'outerleft' {
     left: auto;
     right: 100%;
@@ -33,6 +39,8 @@
 }
 
 @mixin y-position($y: map-get($y-positions, 'center')) {
+  @extend %position-base-style;
+
   @if $y == 'outertop' {
     top: auto;
     bottom: 100%;

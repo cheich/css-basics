@@ -5,17 +5,8 @@
 // Position an element relative to it's parent.
 //
 
-// Styles
-//
-// Styles should set just one time, we will extend all selectors
-
 .position-container {
   @include position-container();
-}
-
-%position-base-style {
-  position: absolute;
-  display: block;
 }
 
 // Build placeholder
@@ -42,7 +33,6 @@
 
   @each $y, $y-name in $y-positions {
     .#{$x-name}-#{$y-name} {
-      @extend %position-base-style;
       @extend %y-position-#{$y};
       @extend %x-position-#{$x};
 
