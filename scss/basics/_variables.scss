@@ -8,7 +8,7 @@
 //
 // Control the default styling of most Components by modifying these variables.
 
-$spacer: 1rem !default;
+$spacer:   1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 
@@ -31,6 +31,13 @@ $border-color-highlight:      #999 !default;
 $button-background:           #f5f5f5 !default;
 $button-background-hover:     #eaeaea !default;
 $button-background-highlight: #dfdfdf !default;
+
+
+// Input groups
+//
+// Input groups are set via negative margins which correspond with the border width.
+
+$input-group-border-width: 1px !default;
 
 
 // Position names
@@ -106,7 +113,7 @@ $container-max-widths: (
 //
 // Set the number of columns and specify the width of the gutters.
 
-$grid-columns: 12 !default;
+$grid-columns:      12 !default;
 $grid-gutter-width: 1.875rem !default; // 30px
 
 
@@ -120,18 +127,22 @@ $enable-flex: false !default;
 
 // Z-Indices
 
-$zindex-sticky-top: 100 !default;
-$zindex-sticky-bottom: 100 !default;
-$zindex-menu: ($zindex-sticky-bottom + 1) !default;
-$zindex-overlay: 10000 !default;
+$zindex-sticky-top:             100 !default;
+$zindex-sticky-bottom:          100 !default;
+$zindex-menu:                   ($zindex-sticky-bottom + 1) !default;
+$zindex-overlay:                10000 !default;
+$zindex-input-group-hover:      1 !default;
+$zindex-input-group-highlight:  2 !default;
 
 
 // WordPress gallery columns
 //
-// Define how much columns are displayed on the specific breakpoints.
-// You can select up to 9 columns in WordPress by default.
-// The index defines the selected columns count.
-// Default map is `(1, 2, 3, 4, 5, 6, 7, 8, 9)`.
+// Define how much columns are displayed on the specific breakpoints. You can
+// select up to 9 columns in WordPress by default. The index defines the
+// selected columns count.
+//
+// Default map is `(1, 2, 3, 4, 5, 6, 7, 8, 9)` - this will keep the selected
+// column count.
 
 $wordpress-gallery-columns-map: (
   xs: (1, 1, 1, 1, 1, 1, 1, 1, 1),
