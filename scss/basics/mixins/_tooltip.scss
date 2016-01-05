@@ -1,0 +1,18 @@
+//
+// Tooltip
+//
+
+@mixin tooltip($x: map-get($x-positions, 'center'), $y: map-get($y-positions, 'outertop'), $tltp-content: '.tooltip-content') {
+  @include position-container();
+
+  #{$tltp-content} {
+    @include position($x, $y);
+    @content;
+  }
+
+  &:not(:hover) {
+    #{$tltp-content} {
+      display: none;
+    }
+  }
+}
