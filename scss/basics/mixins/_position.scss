@@ -1,16 +1,19 @@
-//
-// Position
-//
-
-%position-base-style {
-  position: absolute;
-}
-
+/// Position container
+///
+/// Just sets `position: relative;` as this is required for positions.
+///
+/// @group position
 @mixin position-container() {
   position: relative;
 }
 
-@mixin position($x: map-get($x-positions, 'center'), $y: map-get($y-positions, 'center')) {
+/// Position
+///
+/// @param {string} $x ['center']
+/// @param {string} $y ['center']
+///
+/// @group position
+@mixin position($x: 'center', $y: 'center') {
   @include x-position($x);
   @include y-position($y);
 
@@ -19,8 +22,13 @@
   }
 }
 
-@mixin x-position($x: map-get($x-positions, 'center')) {
-  @extend %position-base-style;
+/// X-Position
+///
+/// @param {string} $x ['center']
+///
+/// @group position
+@mixin x-position($x: 'center') {
+  position: absolute;
 
   @if $x == 'outerleft' {
     left: auto;
@@ -38,8 +46,13 @@
   }
 }
 
-@mixin y-position($y: map-get($y-positions, 'center')) {
-  @extend %position-base-style;
+/// Y-Position
+///
+/// @param {string} $y ['center']
+///
+/// @group position
+@mixin y-position($y: 'center') {
+  position: absolute;
 
   @if $y == 'outertop' {
     top: auto;
@@ -57,6 +70,11 @@
   }
 }
 
+/// Position reset
+///
+/// Reset all position settings
+///
+/// @group position
 @mixin position-reset() {
   position: static;
   top: auto;

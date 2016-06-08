@@ -1,7 +1,11 @@
-//
-// Table border radius
-//
-
+/// Table border radius
+/// 
+/// @param {number} $top-left
+/// @param {number} $top-right    [null] Optional; Default is $top-left
+/// @param {number} $bottom-right [null] Optional; Default is $top-left
+/// @param {number} $bottom-left  [null] Optional; Default is $top-right or $top-left
+///
+/// @group tables
 @mixin table-border-radius($top-left, $top-right: null, $bottom-right: null, $bottom-left: null) {
   // top-right, bottom-right and bottom-left are optional
   $top-right:    if($top-right, $top-right, $top-left);

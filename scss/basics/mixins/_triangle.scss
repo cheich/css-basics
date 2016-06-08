@@ -1,7 +1,10 @@
-//
-// Triangle
-//
+////
+/// Triangle
+///
+/// @group triangle
+////
 
+/// Triangle base style
 %triangle-base {
   content: '';
   width: 0;
@@ -12,6 +15,11 @@
   display: block;
 }
 
+/// Triangle up
+///
+/// @param {color}  $color      [#fff
+/// @param {number} $size       [1em]
+/// @param {string} $x-position [map-get($x-positions, 'center')]
 @mixin triangle-up($color: #fff, $size: 1em, $x-position: map-get($x-positions, 'center')) {
   position: relative;
 
@@ -26,6 +34,11 @@
   }
 }
 
+/// Triangle down
+///
+/// @param {color}  $color      [#fff
+/// @param {number} $size       [1em]
+/// @param {string} $x-position [map-get($x-positions, 'center')]
 @mixin triangle-down($color: #fff, $size: 1em, $x-position: map-get($x-positions, 'center')) {
   position: relative;
 
@@ -40,6 +53,11 @@
   }
 }
 
+/// Triangle left
+///
+/// @param {color}  $color      [#fff
+/// @param {number} $size       [1em]
+/// @param {string} $x-position [map-get($y-positions, 'center')]
 @mixin triangle-left($color: #fff, $size: 1em, $y-position: map-get($y-positions, 'center')) {
   position: relative;
 
@@ -54,6 +72,11 @@
   }
 }
 
+/// Triangle right
+///
+/// @param {color}  $color      [#fff
+/// @param {number} $size       [1em]
+/// @param {string} $x-position [map-get($y-positions, 'center')]
 @mixin triangle-right($color: #fff, $size: 1em, $y-position: map-get($y-positions, 'center')) {
   position: relative;
 

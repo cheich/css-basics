@@ -1,0 +1,10 @@
+/// Resize anything
+///
+/// @param {string} $direction horizontal, vertical or both
+///
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_resize.scss
+/// @group helpers
+@mixin resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+}

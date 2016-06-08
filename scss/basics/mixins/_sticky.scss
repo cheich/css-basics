@@ -1,20 +1,26 @@
-//
-// Sticky
-//
-
+/// Top-fixed element
+///
+/// @param {string} $zindex [$zindex-sticky-top]
+///
+/// @group layouts
 @mixin sticky-top($zindex: $zindex-sticky-top) {
   position: fixed;
   z-index: $zindex;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
 }
 
+/// Bottom-fixed element
+///
+/// @param {string} $zindex [$zindex-sticky-top]
+/// 
+/// @group layouts
 @mixin sticky-bottom($zindex: $zindex-sticky-bottom) {
   position: fixed;
   z-index: $zindex;
   top: auto;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
 }

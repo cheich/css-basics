@@ -1,7 +1,18 @@
-//
-// Tooltip
-//
-
+/// Tooltip
+///
+/// @example
+///   ```html
+///   <span class="tooltip">
+///     This line requires some tooltip
+///     <span class="tooltip-content">Tooltip goes here</span>
+///   </span>
+///   ```
+///
+/// @param {string} $x            [map-get($x-positions, 'center')]
+/// @param {string} $y            [map-get($y-positions, 'center')]
+/// @param {string} $tltp-content ['.tooltip-content']
+///
+/// @group tooltip
 @mixin tooltip($x: map-get($x-positions, 'center'), $y: map-get($y-positions, 'outertop'), $tltp-content: '.tooltip-content') {
   @include position-container();
 

@@ -1,7 +1,8 @@
-//
-// Table border
-//
-
+/// Table inner border
+/// 
+/// @param {string} $border
+///
+/// @group tables
 @mixin table-inner-border($border) {
   tr th:not(:first-child),
   tr td:not(:first-child) {

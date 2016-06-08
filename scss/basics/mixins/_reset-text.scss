@@ -1,11 +1,9 @@
-//
-// Reset text
-//
-// This is a copy from bootstraps `_reset-text.scss`, but we removed the variables.
-// This will not reset font-family and font-size.
-//
-
-@mixin reset-text() {
+/// Reset text
+///
+/// This will not reset font-family and font-size.
+///
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_reset-text.scss
+@mixin reset-text {
   // We deliberately do NOT reset font-size.
   font-style: normal;
   font-weight: normal;

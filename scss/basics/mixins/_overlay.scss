@@ -1,12 +1,27 @@
-//
-// Overlay
-//
-
-@mixin overlay($zindex: $zindex-overlay) {
+/// Overlay that wraps over the whole page or parent container
+///
+/// Using as page-overlay you should add `aria-hidden="true"` if this is hidden.
+/// Add `overflow: hidden` to body via javascript to prevent scrollbar.
+///
+/// Using as page-overlay, add this to the bottom (before closing `</body>`) to make this above all other
+/// overlays with same z-index.
+///
+/// @param {boolean} $fixed  [true]            `position: fixed;` if true otherwise `position: absolute;`
+///                                            If false, parent should be `position: relative;`
+/// @param {string}  $zindex [$zindex-overlay]
+///
+/// @group layouts
+@mixin overlay($fixed: true, $zindex: $zindex-overlay) {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  position: absolute;
   z-index: $zindex;
+  overflow-y: auto;
+
+  @if $fixed {
+    position: fixed;
+  } @else {
+    position: absolute;
+  }
 }
