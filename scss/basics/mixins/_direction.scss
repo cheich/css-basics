@@ -1,0 +1,17 @@
+/// Insert content only if `$direction` is `rtl`
+///
+/// @see $direction
+@mixin rtl-only() {
+  @if $direction == 'rtl' {
+    @content;
+  }
+}
+
+/// Insert content only if `$direction` is `ltr`
+///
+/// @see $direction
+@mixin ltr-only() {
+  @if $direction == 'ltr' {
+    @content;
+  }
+}
