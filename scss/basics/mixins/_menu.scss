@@ -1,115 +1,96 @@
-//
-// Menu
-//
+/// Menu
+///
+/// Set this to an ordered or unordered list
+///
+/// @group menu
+@mixin menu() {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
 
-@mixin menu($item: 'li', $submenu: 'ul, .submenu') {
-  position: relative;
+  ul,
+  ol {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   // Remove menu on prints
   @media print {
     display: none;
   }
+}
 
-  #{$item} {
-    position: relative;
+/// Menu item
+///
+/// @group menus
+@mixin menu-item() {
+  position: relative;
+  cursor: default;
 
-    > {
-      // Make anchors as block-level element
-      // So paddings will expand the hit-box
-      a {
-        display: block;
-      }
-
-      #{$submenu} {
-        z-index: $zindex-menu;
-        display: none;
-      }
-    }
-
-    // Show sub-menu via `:hover`
-    &:hover {
-      > {
-        #{$submenu} {
-          display: block;
-        }
-      }
-    }
-
-    // Force it with `.active` class
-    &.active {
-      > {
-        #{$submenu} {
-          display: block !important;
-        }
-      }
-    }
-  }
-
-  // Breakpoints
-  //
-  // _Menu_ should work great with _Orientations_
-  @at-root {
-    @include vertical(&) {
-      > {
-        #{$item} {
-          #{$submenu} {
-            @include vertical-sublist();
-          }
-        }
-      }
-    }
-
-    @include horizontal(&) {
-      > {
-        #{$item} {
-          #{$submenu} {
-            @include horizontal-sublist();
-
-            #{$submenu} {
-              @include vertical-sublist();
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Unbind hover
-  //
-  // Disable the ':hover'-effect. Use JavaScript instead.
-  // Now, this can be set to sublists (in v3, this could only set to the whole menu)
-  @at-root {
-    .unbind-hover {
-      #{$item} {
-        &:hover {
-          > {
-            #{$submenu} {
-              display: none;
-            }
-          }
-        }
-      }
-    }
+  a {
+    // Make anchors as block-level element
+    display: block;
   }
 }
 
-// RTL menu
-@mixin menu-rtl($item: 'li', $submenu: 'ul, .submenu') {
-  @include menu($item, $submenu);
+/// Submenu
+///
+/// @param {boolean} $hidden [true] Whether to hide the submenu or not.
+///                                 This will set the submenu to screen-reader-only mode.
+///
+/// @group menus
+@mixin menu-submenu($hidden: true) {
+  @if $hidden {
+    @include sr-only();
+  } @else {
+    position: static;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+}
 
-  @include vertical(&) {
-    #{$submenu} {
-      @include vertical-sublist-rtl();
-    }
+/// Menu dropdown
+///
+/// Set this to the submenu selector
+///
+/// @group menus
+@mixin menu-submenu-dropdown() {
+  position: absolute !important;
+  z-index: $zindex-menu;
+
+  @include ltr-only() {
+    top: 100%;
+    left: 0;
   }
 
-  @include horizontal(&) {
-    #{$submenu} {
-      @include horizontal-sublist-rtl();
+  @include rtl-only() {
+    left: auto;
+    right: 0;
+  }
+}
 
-      #{$submenu} {
-        @include vertical-sublist-rtl();
-      }
-    }
+/// Vertical menu flyout
+///
+/// Set this to the submenu selector
+///
+/// @group menus
+@mixin menu-submenu-flyout() {
+  // Most styles have to be `!important` to overwrite settings from groups
+  position: absolute !important;
+  z-index: $zindex-menu;
+  top: 0 !important;
+
+  @include ltr-only() {
+    left: 100% !important;
+  }
+
+  @include rtl-only() {
+    left: auto !important;
+    right: 100% !important;
   }
 }

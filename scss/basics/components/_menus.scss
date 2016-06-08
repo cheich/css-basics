@@ -1,27 +1,48 @@
-//
-// Menus
-// --------------------------------------------------
-//
-// Build simple menus/navigations with unordered lists.
-// Ready for multi-dimensional menus with `:hover` effect.
-//
-
 .menu {
-  @include remove-list-appearance();
   @include menu();
 
   li {
-    > ul {
-      @include remove-list-appearance();
+    @include menu-item();
+  }
+
+  ul,
+  .submenu {
+    @include menu-submenu();
+  }
+
+  // Menus should work great with inline groups
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      &.group.group-inline-#{$breakpoint} {
+        ul,
+        .submenu {
+          @include menu-submenu-dropdown();
+        }
+      }
+    }
+  }
+
+  // Show submenu on mouseover (if `.unbind-hover` is not set).
+  // Show submenu if `.active` is set.
+  li.active,
+  &:not(.unbind-hover) li:hover {
+    > ul,
+    > .submenu {
+      @include menu-submenu(false);
     }
   }
 }
 
-// RTL support
-@if $enable-rtl {
-  [dir="rtl"] {
-    .menu {
-      @include menu-rtl();
+// Menu flyout
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    .menu-flyout-#{$breakpoint} {
+      display: inline-block;
+
+      ul,
+      .submenu {
+        @include menu-submenu-flyout();
+      }
     }
   }
 }
