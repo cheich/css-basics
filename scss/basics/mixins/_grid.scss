@@ -1,0 +1,102 @@
+////
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_grid.scss
+////
+
+/// Grid system
+///
+/// Generate semantic grid columns with these mixins.
+///
+/// @param {number} $gutter [$grid-gutter-width] Gutter between columns
+///
+/// @group grid
+@mixin make-container($gutter: $grid-gutter-width) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+/// For each breakpoint, define the maximum width of the container in a media query
+///
+/// @param {number} $gutter [$grid-gutter-width] Gutter between columns
+///
+/// @group grid
+@mixin make-container-max-widths($max-widths: $container-max-widths) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+/// Grid row
+///
+/// @param {number} $gutter [$grid-gutter-width] Gutter between columns
+///
+/// @group grid
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left:  ($gutter / -2);
+  margin-right: ($gutter / -2);
+}
+
+/// Grid column
+///
+/// @param {number} $gutter [$grid-gutter-width] Gutter between columns
+///
+/// @group grid
+@mixin make-col($gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+/// @param {number} $size
+/// @param {number} $columns [$grid-columns]
+///
+/// @group grid
+@mixin make-col-span($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+}
+
+/// @param {number} $size
+/// @param {number} $columns [$grid-columns]
+///
+/// @group grid
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  margin-left: percentage($size / $columns);
+}
+
+/// @param {number} $size
+/// @param {number} $columns [$grid-columns]
+///
+/// @group grid
+@mixin make-col-push($size, $columns: $grid-columns) {
+  left: if($size > 0, percentage($size / $columns), auto);
+}
+
+/// @param {number} $size
+/// @param {number} $columns [$grid-columns]
+///
+/// @group grid
+@mixin make-col-pull($size, $columns: $grid-columns) {
+  right: if($size > 0, percentage($size / $columns), auto);
+}
+
+/// @param {string} $type
+/// @param {number} $size
+/// @param {number} $columns
+///
+/// @group grid
+@mixin make-col-modifier($type, $size, $columns) {
+  // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
+  @if $type == push {
+    @include make-col-push($size, $columns);
+  } @else if $type == pull {
+    @include make-col-pull($size, $columns);
+  } @else if $type == offset {
+    @include make-col-offset($size, $columns);
+  }
+}

@@ -1,0 +1,52 @@
+////
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_border-radius.scss
+////
+
+/// Border radius for all four corners
+///
+/// @param {number} $radius
+///
+/// @group helpers
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+/// Border radius for the upper-sided corners
+///
+/// @param {number} $radius
+///
+/// @group helpers
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+/// Border radius for the right-handed corners
+///
+/// @param {number} $radius
+///
+/// @group helpers
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+/// Border radius for the lower-sided corners
+///
+/// @param {number} $radius
+///
+/// @group helpers
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+/// Border radius for the left-handed corners
+///
+/// @param {number} $radius
+///
+/// @group helpers
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+}

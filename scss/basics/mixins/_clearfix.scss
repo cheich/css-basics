@@ -1,0 +1,11 @@
+/// Clearfix
+///
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_clearfix.scss
+/// @group helpers
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

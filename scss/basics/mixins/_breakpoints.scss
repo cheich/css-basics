@@ -1,0 +1,149 @@
+////
+/// Breakpoint viewport sizes and media queries.
+///
+/// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+///
+///    (xs: 0, sm: 544px, md: 768px)
+///
+/// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+///
+/// @link https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_breakpoints.scss
+////
+
+/// Name of the next breakpoint, or null for the last breakpoint.
+///
+/// @example
+///    >> breakpoint-next(sm)
+///    md
+///    >> breakpoint-next(sm, (xs: 0, sm: 544px, md: 768px))
+///    md
+///    >> breakpoint-next(sm, $breakpoint-names: (xs sm md))
+///    md
+///
+/// @param {string} $name
+/// @param {string} $breakpoints      [$grid-breakpoints]
+/// @param {string} $breakpoint-names [map-keys($breakpoints)]
+///
+/// @group responsive-utilities
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+/// Name of the previous breakpoint, or null for the first breakpoint.
+///
+/// @example
+///    >> breakpoint-prev(sm)
+///    xs
+///    >> breakpoint-prev(sm, (xs: 0, sm: 544px, md: 768px))
+///    xs
+///    >> breakpoint-prev(sm, $breakpoint-names: (xs sm md))
+///    xs
+///
+/// @param {string} $name
+/// @param {string} $breakpoints      [$grid-breakpoints]
+/// @param {string} $breakpoint-names [map-keys($breakpoints)]
+///
+/// @group responsive-utilities
+@function breakpoint-prev($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n > 1, nth($breakpoint-names, $n - 1), null);
+}
+
+/// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+///
+/// @example
+///    >> breakpoint-min(sm, (xs: 0, sm: 544px, md: 768px))
+///    544px
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+/// Maximum breakpoint width. Null for the largest (last) breakpoint.
+/// The maximum value is calculated as the minimum of the next one less 0.1.
+///
+/// @example
+///    >> breakpoint-max(sm, (xs: 0, sm: 544px, md: 768px))
+///    767px
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+/// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+/// Makes the @content apply to the given breakpoint and wider.
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+/// Makes the @content apply to the given breakpoint and narrower.
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/// Media between the breakpoint's minimum and maximum widths.
+/// No minimum for the smallest breakpoint, and no maximum for the largest one.
+/// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($name, $breakpoints) {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+/// Media that spans multiple breakpoint widths.
+/// Makes the @content apply between the min and max breakpoints
+///
+/// @param {string} $name
+/// @param {string} $breakpoints [$grid-breakpoints]
+///
+/// @group responsive-utilities
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($lower, $breakpoints) {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
