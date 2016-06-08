@@ -1,0 +1,120 @@
+/// Group wrapper for vertical-merged items
+///
+/// Reset left and right margin. Group items are streched to 100% width.
+///
+/// @group groups
+@mixin group-merge() {
+  margin-left: 0;
+  margin-right: 0;
+  // Stretch vertical items to 100% width
+  align-items: stretch;
+}
+
+/// Vertical-merged items
+///
+/// Reset inner border radius and collapse border.
+///
+/// @param {number} $collapse-border-width [$group-collapse-border-width] Border width of group items
+///
+/// @group groups
+@mixin group-merge-item($collapse-border-width: $group-collapse-border-width) {
+  position: relative;
+  margin: 0;
+
+  // Reset inner border radius
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0 !important;
+  }
+
+  &:first-child:not(:last-child) {
+    @include border-bottom-radius(0 !important);
+  }
+
+  &:last-child:not(:first-child) {
+    @include border-top-radius(0 !important);
+  }
+
+  // Collapse border
+  &:not(:last-child) {
+    margin-bottom: - $collapse-border-width !important;
+  }
+
+  // Fix border overlapping via z-index
+  &:hover {
+    z-index: $zindex-group-hover;
+  }
+
+  &:active,
+  &:focus {
+    z-index: $zindex-group-highlight;
+  }
+}
+
+/// Group wrapper for inline-merged items
+///
+/// Reset left and right margin
+///
+/// @group groups
+@mixin group-inline-merge() {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/// Inline-merged items
+///
+/// Reset inner border radius and collapse border
+///
+/// @param {number} $collapse-border-width [$group-collapse-border-width] Border width of group items
+///
+/// @group groups
+@mixin group-inline-merge-item($collapse-border-width: $group-collapse-border-width) {
+  position: relative;
+  margin: 0 !important;
+
+  // Reset inner border radius and collapse border
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0 !important;
+  }
+
+  // Resets for ltr only
+  @include ltr-only() {
+    &:first-child:not(:last-child) {
+      @include border-right-radius(0 !important);
+    }
+
+    &:last-child:not(:first-child) {
+      @include border-left-radius(0 !important);
+    }
+
+    // Collapse border
+    &:not(:last-child) {
+      margin-right: - $collapse-border-width !important;
+    }
+  }
+
+  // Resets for rtl only
+  @include rtl-only() {
+    &:first-child {
+      @include border-left-radius(0 !important);
+    }
+
+    &:last-child {
+      @include border-right-radius(0 !important);
+    }
+
+    // Collapse border
+    &:not(:last-child) {
+      margin-left: - $collapse-border-width !important;
+    }
+  }
+
+  // Fix border overlapping via z-index
+  &:hover {
+    z-index: $zindex-group-hover;
+  }
+
+  &:active,
+  &:focus {
+    z-index: $zindex-group-highlight;
+  }
+}
