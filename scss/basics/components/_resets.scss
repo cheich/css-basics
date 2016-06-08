@@ -1,0 +1,166 @@
+//
+// Resets
+//
+
+html,
+body {
+  // Set to full height of the browser window.
+  min-height: 100%;
+  // (Re-)set everything to border-box, 'cause border-box rockz!
+  box-sizing: border-box;
+  // Remove gray highlight when tapping links in Webkit browsers.
+  // @see https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  // Init reset to set children font-size relative to this one.
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  // Let the magic begin.
+  box-sizing: inherit;
+}
+
+*:focus {
+  // Remove outline in Chrome
+  outline-width: 0;
+}
+
+// Typography
+// --------------------------------------------------
+
+#{$headers},
+blockquote,
+dd,
+ul,
+ol,
+p,
+hr,
+pre {
+  // Remove default spacing
+  margin: 0;
+}
+
+hr {
+  // box-sizing for `hr` is set to `content-box` in normalize.css
+  box-sizing: inherit;
+}
+
+// Tables
+// --------------------------------------------------
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  caption {
+    // Center captions by default.
+    text-align: center;
+    // Table caption should be under the tables
+    caption-side: bottom;
+  }
+
+  th,
+  td {
+    padding: 0;
+    vertical-align: top;
+
+    @include rtl-only() {
+      text-align: right;
+    }
+    @include ltr-only() {
+      text-align: left;
+    }
+  }
+}
+
+// Forms
+// --------------------------------------------------
+
+#{$input-fields} {
+  color: inherit;
+  // Set minimal border to start in each browser at the same point
+  border: 1px solid #ccc;
+  // Enough space for touch-devices and for same height of buttons and input-fields
+  padding: .5rem;
+}
+
+fieldset {
+  // Fix Chrome's and FF's `min-width: min-content;`.
+  min-width: 0;
+  // Remove default outline behavior.
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+select[multiple],
+select[size] {
+  // Make multiple select elements height not fixed.
+  height: auto;
+}
+
+[type="range"] {
+  // Fix vertical align
+  vertical-align: middle;
+}
+
+#{$buttons} {
+  // Don't allow text selection on buttons
+  user-select: none;
+  // Remove button appearance in WebKit
+  -webkit-appearance: none;
+  // Remove anchor styles
+  text-decoration: none;
+  color: inherit;
+  // Make all button classes behave like buttons
+  cursor: pointer;
+  display: inline-block;
+  // Set minimal style to start in each browser at the same point
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  // Enough space for touch-devices
+  // Top and bottom padding correspond to input padding
+  padding: .5rem;
+}
+
+select {
+  // Remove 1px padding on top and bottom to catch the same height
+  // as input fields and buttons
+  padding-top: calc(.5rem - 1px);
+  padding-bottom: calc(.5rem - 1px);
+}
+
+[disabled] {
+  cursor: default;
+}
+
+// Images
+// --------------------------------------------------
+
+img {
+  // Images should not overflow its parent.
+  max-width: 100%;
+  max-height: 100%;
+  // Proportional scaling - now, we only have to set the width.
+  height: auto;
+  // Remove gap after images inside of anchors.
+  // Makes it easier to handle icons in-line of text.
+  vertical-align: top;
+}
+
+figure {
+  // Remove default margin.
+  margin: 0;
+  // Do not wrap to 100% width, if not necessary.
+  display: inline-block;
+  max-width: 100%;
+
+  img {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+}

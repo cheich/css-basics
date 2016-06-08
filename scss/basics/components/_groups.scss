@@ -1,0 +1,228 @@
+// Merge groups vertical by default.
+.group {
+  @include group();
+
+  > .item,
+  &.group-all > * {
+    @include group-item();
+  }
+}
+
+// This selector will exclude all inline classes
+$group-merge-selector: '.group-merge';
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $group-merge-selector: selector-append($group-merge-selector, ':not(.group-inline-#{$breakpoint})');
+
+  $breakpoint-prev: breakpoint-prev($breakpoint);
+
+  // Inline group on breakpoint and above
+  @include media-breakpoint-up($breakpoint) {
+    .group-inline-#{$breakpoint} {
+      @include group-inline();
+
+      > .item,
+      &.group-all > * {
+        @include group-inline-item();
+      }
+
+      // Vertical alignment
+      &.group-top      { align-items: flex-start; }
+      &.group-bottom   { align-items: flex-end;   }
+      &.group-middle   { align-items: center;     }
+      &.group-baseline { align-items: baseline;   }
+
+      // Single item vertical alignment
+      > .item-top      { align-self: flex-start; }
+      > .item-bottom   { align-self: flex-end;   }
+      > .item-middle   { align-self: center;     }
+      > .item-baseline { align-self: baseline;   }
+
+      // Equal width of group items
+      // Only supported by inline-groups
+      &.group-eq-width {
+        > .item,
+        &.group-all > * {
+          flex: 1;
+        }
+      }
+
+      // Equal height of group items
+      // Only supported by inline-groups
+      &.group-eq-height {
+        align-items: stretch !important;
+      }
+
+      // Inline merged group
+      &.group-merge {
+        @include group-inline-merge();
+        margin-bottom: $spacer-y;
+
+        > .item,
+        &.group-all > * {
+          @include group-inline-merge-item();
+        }
+      }
+    }
+  }
+
+  // Merge group vertically on previous breakpoint and beneath
+  @if $breakpoint-prev {
+    @include media-breakpoint-down($breakpoint-prev) {
+      .group-inline-#{$breakpoint}.group-merge {
+        @include group-merge();
+        margin-bottom: $spacer-y;
+
+        > .item,
+        &.group-all > * {
+          @include group-merge-item();
+        }
+      }
+    }
+  }
+}
+
+// Merge group vertically. Excludes all inline classes.
+#{$group-merge-selector} {
+  @include group-merge();
+  margin-bottom: $spacer-y;
+
+  > .item,
+  &.group-all > * {
+    @include group-merge-item();
+  }
+}
+
+// Horizontal alignments
+.group-start  { justify-content: flex-start; }
+.group-end    { justify-content: flex-end;   }
+.group-center { justify-content: center;     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Merge groups vertical by default.
+// .group {
+//   @include group();
+//
+//   > * {
+//     @include group-item();
+//   }
+// }
+//
+// // This selector will exclude all inline classes
+// $group-merge-selector: '.group-merge';
+//
+// @each $breakpoint in map-keys($grid-breakpoints) {
+//   $group-merge-selector: selector-append($group-merge-selector, ':not(.group-inline-#{$breakpoint})');
+//
+//   $breakpoint-prev: breakpoint-prev($breakpoint);
+//
+//   // Inline group on breakpoint and above
+//   @include media-breakpoint-up($breakpoint) {
+//     .group-inline-#{$breakpoint} {
+//       @include group-inline();
+//
+//       > * {
+//         @include group-inline-item();
+//       }
+//
+//       @if $enable-flex {
+//         // Vertical alignment
+//         &.group-top    { align-items: flex-start; }
+//         &.group-bottom { align-items: flex-end;   }
+//         &.group-middle { align-items: center;     }
+//
+//         // Signle item vertical alignment
+//         > .item-top    { align-self: flex-start; }
+//         > .item-bottom { align-self: flex-end;   }
+//         > .item-middle { align-self: center;     }
+//
+//         // Equal width of group items
+//         // Only supported by inline-groups
+//         &.group-eq-width {
+//           > * {
+//             flex: 1;
+//           }
+//         }
+//
+//         // Equal height of group items
+//         // Only supported by inline-groups
+//         &.group-eq-height {
+//           align-items: stretch !important;
+//         }
+//       } @else {
+//         // Vertical alignment
+//         &.group-top > *    { vertical-align: top;    }
+//         &.group-bottom > * { vertical-align: bottom; }
+//         &.group-middle > * { vertical-align: middle; }
+//
+//         // Signle item vertical alignment
+//         > .item-top    { vertical-align: top;    }
+//         > .item-bottom { vertical-align: bottom; }
+//         > .item-middle { vertical-align: middle; }
+//       }
+//
+//       // Inline merged group
+//       &.group-merge {
+//         @include group-inline-merge();
+//         margin-bottom: $spacer-y;
+//
+//         > * {
+//           @include group-inline-merge-item();
+//         }
+//       }
+//     }
+//   }
+//
+//   // Merge group vertically on previous breakpoint and beneath
+//   @if $breakpoint-prev {
+//     @include media-breakpoint-down($breakpoint-prev) {
+//       .group-inline-#{$breakpoint}.group-merge {
+//         @include group-merge();
+//         margin-bottom: $spacer-y;
+//
+//         > * {
+//           @include group-merge-item();
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// // Merge group vertically. Excludes all inline classes.
+// #{$group-merge-selector} {
+//   @include group-merge();
+//   margin-bottom: $spacer-y;
+//
+//   > * {
+//     @include group-merge-item();
+//   }
+// }
+//
+// // Horizontal alignments
+// @if $enable-flex {
+//   .group-start  { justify-content: flex-start; }
+//   .group-end    { justify-content: flex-end;   }
+//   .group-center { justify-content: center;     }
+// } @else {
+//   @if $direction == 'rtl' {
+//     .group-start { text-align: right; }
+//     .group-end   { text-align: left;  }
+//   } @else {
+//     .group-start { text-align: left;  }
+//     .group-end   { text-align: right; }
+//   }
+//   .group-center { text-align: center; }
+// }
