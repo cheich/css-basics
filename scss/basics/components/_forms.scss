@@ -1,170 +1,18 @@
-//
-// Form elements
-// --------------------------------------------------
-//
-// Make forms responsive and mobile first.
-// Label-Tags should surround the input field and it's label (no ID's needed).
-//
-
-// Set minimal border
-#{$input-fields} {
-  border: 1px solid $border-color;
-
-  &:hover {
-    border-color: $border-color-hover;
-  }
-
-  &:focus {
-    border-color: $border-color-highlight;
-  }
-}
-
 #{$form-fields} {
   // Make all form elements 100% width (mobile first).
   width: 100%;
-
-  line-height: normal;
   display: block;
+
   margin-bottom: $spacer-y;
 }
 
-fieldset {
-  // Fix Chrome's and FF's `min-width: min-content;`.
-  min-width: 0;
-
-  // Remove default outline behavior.
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-legend {
-  display: block;
-  padding: 0;
-  line-height: inherit;
-  border: 0;
+#{$buttons} {
+  margin-bottom: $spacer-y;
 }
 
 textarea {
-  vertical-align: top;
-  min-height: 3em;
-
-  // Do not overflow it's parent.
-  max-width: 100%;
-
   // There is no need to resize horizontally.
   @include resizable(vertical);
-}
-
-select[multiple],
-select[size] {
-  // Make multiple select elements height not fixed.
-  height: auto;
-}
-
-// Fix FF opacity settings.
-::-moz-placeholder {
-  opacity: 1;
-
-  // Expected default color.
-  color: #757575;
-}
-
-[type="range"] {
-  // Fix vertical align
-  vertical-align: middle;
-}
-
-[type="color"] {
-  // Prevent very small input[type="color"] in FF.
-  min-width: 3rem;
-}
-
-// Normalize uses `input[type='search']` as selector.
-// That has a higher priority as `[type='search']`.
-input[type='search'] {
-  // box-sizing for `[type='search']` is set to `content-box` in normalize.css.
-  box-sizing: inherit;
-
-  // Remove iOS rounded corners.
-  -webkit-appearance: none;
-}
-
-// All buttons
-#{$buttons} {
-  // Add some default colors to start styling in each browser at the same point.
-  // Setting a border will reset many space issues.
-  border: 1px solid $border-color;
-  background: $button-background;
-
-  &:hover {
-    border-color: $border-color-hover;
-    background: $button-background-hover;
-  }
-
-  &:active {
-    border-color: $border-color-highlight;
-    background: $button-background-highlight;
-  }
-
-  // Don't allow text selection on buttons
-  user-select: none;
-
-  // Remove button appearance in webkit
-  -webkit-appearance: none;
-
-  // Add some paddings.
-  // 1px on top and bottom 'cause text fields uses this by default.
-  padding: 1px $button-padding-x;
-
-  // Remove anchor styles
-  text-decoration: none;
-  color: inherit;
-
-  margin-bottom: $spacer-y;
-  display: inline-block;
-  line-height: normal;
-  text-align: center;
-  cursor: pointer;
-  width: auto;
-}
-
-// Button toggle
-//
-// Add active button style to button after checked radio-buttons and check-boxes.
-.button-toggle {
-  @include button-toggle();
-}
-
-// Set label text inline
-.label-text-inline {
-  @include label-text-inline();
-}
-
-// Input groups
-//
-// Set gutter to input groups.
-.input-group {
-  @include input-group();
-}
-
-// Horizontal
-//
-// Add some spacing while using horizontal layout
-@include horizontal() {
-  > #{$form-fields},
-  > #{$buttons} {
-    margin-right: ( $spacer-x / 2);
-    margin-left: ( $spacer-x / 2);
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 }
 
 // Enable labels as grid row (`<label class="row">`)
@@ -172,30 +20,38 @@ label.row {
   // Rows are greater than 100% (gutter left and right) -> reset max width.
   max-width: none;
   width: auto;
+}
 
-  // Gutter now applied to the row.
-  margin-bottom: $spacer-y;
+label {
+  // Increase label hit-box
+  padding-top: $spacer-y / 4;
+  padding-bottom: $spacer-y / 4;
+  // Since label wraps input fields, bottom spacing isn't required.
+  margin-bottom: 0;
 
   #{$input-fields} {
-    // Reset gutter after elements, this is now applied to the row.
-    margin-bottom: 0;
+    margin-bottom: $spacer-y * 3 / 4;
   }
 }
 
-// Make input[type="file"] invisible but still functional
-// @see http://www.quirksmode.org/dom/inputfile.html
-.hidden-file-upload {
-  @include hidden-file-upload();
+// Remove padding on color input
+[type="color"] {
+  padding: 0 !important;
 }
 
-// RTL fixes
-@if $enable-rtl {
-  [dir="rtl"] {
-    // Set gutter to the left languages
-    .input-group,
-    #{$buttons} {
-      margin-right: 0;
-      margin-left: $spacer-x;
+// Block level button w/ 100% width
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    .button-block-#{$breakpoint}-up {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @include media-breakpoint-down($breakpoint) {
+    .button-block-#{$breakpoint}-down {
+      display: block;
+      width: 100%;
     }
   }
 }
