@@ -1,151 +1,119 @@
 //
 // Selectors
-// --------------------------------------------------
 //
-// Some selectors used within the framework.
-// Not all selectors are used in the framework,
-// but there are very helpful to start styling your theme.
+// Some selectors are used within the framework, some not. Anyway they are
+// very helpful to start styling your theme.
 //
 
+//
 // Typography
-// --------------------------------------------------
-
-// All single headers
-
-$h1: unquote('h1, .h1') !default;
-
-$h2: unquote('h2, .h2') !default;
-
-$h3: unquote('h3, .h3') !default;
-
-$h4: unquote('h4, .h4') !default;
-
-$h5: unquote('h5, .h5') !default;
-
-$h6: unquote('h6, .h6') !default;
-
-// All headers (`<h1>` - `<h6>` and classes)
-$headers: ($h1, $h2, $h3, $h4, $h5, $h6) !default;
-
-// Links
 //
-// Exclude all button classes.
-$links: select-without('a', (
-  '.button',
-  '.submit-button',
-  '.reset-button',
-  '[role="button"]',
-)) !default;
 
-// All lists (`<ul>` and `<ol>`)
+/// All headers (`<h1>` - `<h6>` and classes)
+///
+/// @type string
+/// @group selectors
+$headers: unquote('h1, h2, h3, h4, h5, h6') !default;
+
+/// Links
+///
+/// Exclude all button selectors.
+///
+/// @type string
+/// @group selectors
+$links: unquote('a:not(.button):not(.submit-button):not(.reset-button):not([role="button"])') !default;
+
+/// All lists (`<ul>` and `<ol>`)
+///
+/// @type string
+/// @group selectors
 $lists: unquote('ul, ol') !default;
 
 
-// Images
-// --------------------------------------------------
-
-// Figures
-$figure: unquote-list((
-  '.figure',
-  'figure',
-)) !default;
-
-// Caption of figure
-$figure-caption: unquote-list((
-  '.figure .figure-caption',
-  'figure figcaption',
-)) !default;
-
-// Image in figure
-$figure-image: unquote-list((
-  '.figure img',
-  'figure img',
-)) !default;
-
-
-// Forms
-// --------------------------------------------------
-
-// All buttons
-$buttons: unquote-list((
-  '.button',
-  '.submit-button',
-  '.reset-button',
-  '[role="button"]',
-  '[type="button"]',
-  '[type="submit"]',
-  '[type="reset"]',
-  '[type="image"]',
-  'button',
-)) !default;
-
-// Only submit buttons
-$submit-buttons: unquote-list((
-  '.submit-button',
-  '[type="submit"]',
-)) !default;
-
-// Only reset buttons
-$reset-buttons: unquote-list((
-  '.reset-button',
-  '[type="reset"]',
-)) !default;
-
-// Date and time input fields
-$date-time-fields: unquote-list((
-  '[type="date"]',
-  '[type="datetime"]',
-  '[type="datetime-local"]',
-  '[type="time"]',
-  '[type="week"]',
-  '[type="month"]',
-));
-
-// Contact input fields
-$contact-fields: unquote-list((
-  '[type="email"]',
-  '[type="tel"]',
-  '[type="url"]',
-));
-
-// Text input fields
 //
-// All text input fields (only with _really_ text input), includes `<textarea>`.
-// Excluded are all buttons, check-boxes/radio-buttons and [type="range"].
-$text-fields: join(
-  select-without('input', (
-    '[type="button"]',
-    '[type="submit"]',
-    '[type="reset"]',
-    '[type="image"]',
-    '[type="checkbox"]',
-    '[type="radio"]',
-    '[type="range"]'
-  )),
-  'textarea',
-comma) !default;
-
-// Input fields
+//  Forms
 //
-// All form fields where user can input some data.
-// Excluded are check-boxes/radio-buttons and [type="range"].
-$input-fields: join(
-  unquote-list((
-    'select',
-    'keygen'
-  )),
-  $text-fields,
-comma) !default;
 
-// All form fields without check-boxes/radio-buttons and without buttons.
+/// All buttons
+///
+/// @type string
+/// @group selectors
+$buttons: unquote('
+  .button,
+  [role="button"],
+  [type="button"],
+  [type="submit"],
+  [type="reset"],
+  [type="image"],
+  button
+') !default;
+
+/// Date and time input fields
+///
+/// @type string
+/// @group selectors
+$date-time-fields: unquote('
+  [type="date"],
+  [type="datetime"],
+  [type="datetime-local"],
+  [type="time"],
+  [type="week"],
+  [type="month"]
+');
+
+/// Contact input fields
+///
+/// @type string
+/// @group selectors
+$contact-fields: unquote('
+  [type="email"],
+  [type="tel"],
+  [type="url"]
+');
+
+/// Input fields
+///
+/// All form fields where the user can input some data. This is an opinionated
+/// list where at least the border is style-able.
+///
+/// Excluded are checkboxes, radio-buttons and [type="range"].
+///
+/// @type string
+/// @group selectors
+$input-fields: unquote('
+  [type="text"],
+  [type="password"],
+  [type="search"],
+  [type="date"],
+  [type="datetime"],
+  [type="datetime-local"],
+  [type="time"],
+  [type="week"],
+  [type="month"],
+  [type="email"],
+  [type="tel"],
+  [type="url"],
+  [type="file"],
+  [type="number"],
+  [type="color"],
+  select,
+  keygen,
+  textarea
+') !default;
+
+/// All form fields without checkboxes/radio-buttons and without buttons.
+///
+/// Checkboxes and radio-buttons are excluded because they are hardly style-able.
+///
+/// @type string
+/// @group selectors
 $form-fields: join(
-  unquote-list((
-    'select',
-    'output',
-    '[type="range"]',
-    'keygen',
-    'label',
-    '.button-toggle'
-  )),
-  $text-fields,
+  unquote('
+    [type="range"],
+    output,
+    keygen,
+    label,
+    legend
+  '),
+  $input-fields,
 comma) !default;

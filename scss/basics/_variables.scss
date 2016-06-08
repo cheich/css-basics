@@ -4,47 +4,119 @@
 // This are the default values of all variables.
 //
 
-// Spacing
 //
-// Control the default styling of most Components by modifying these variables.
+// Options
+//
 
+/// Enable grid classes (+ ~19.1 KB minified)
+///
+/// @group grid
+/// @type boolean
+$enable-grid-classes: true !default;
+
+/// Enable position classes (+ ~2.2 KB minified)
+///
+/// @group position
+/// @type boolean
+$enable-position-classes: false !default;
+
+/// Enable automatic direction changes
+///
+/// This will swap left-to-right to right-to-left if `$direction` is `rtl`.
+/// This way there is no need to change the HTML markup.
+///
+/// @example
+///   if `$direction` is `ltr`:
+///     .text-start { text-align: left }
+///
+///   if `$direction` is `rtl`:
+///     .text-start { text-align: right }
+///
+/// @type boolean
+$enable-auto-direction: true !default;
+
+/// Language direction
+///
+/// This will compile the framework for right-to-left or left-to-right languages.
+///
+/// Options: 'rtl', 'ltr'
+///
+/// @type string
+$direction: 'ltr' !default;
+
+
+//
+// Spacer
+//
+
+/// Control the default styling of most elements by modifying this variable.
+///
+/// @type number
 $spacer:   1rem !default;
+
+/// Horizintal spacing
+///
+/// @type number
 $spacer-x: $spacer !default;
+
+/// Vertical spacing
+///
+/// @type number
 $spacer-y: $spacer !default;
 
+/// Map of spacings
+///
+/// Used for spacing helper classes
+///
+/// @type map
+$spacers: (
+  0: (
+    x:   0,
+    y:   0
+  ),
+  1: (
+    x:   $spacer-x,
+    y:   $spacer-y
+  ),
+  2: (
+    x:   ($spacer-x * 1.5),
+    y:   ($spacer-y * 1.5)
+  ),
+  3: (
+    x:   ($spacer-x * 3),
+    y:   ($spacer-y * 3)
+  )
+) !default;
 
-// Form buttons
+
 //
-// Buttons should have some vertical padding.
-
-$button-padding-x: ( $spacer-x / 2 ) !default;
-
-
-// Form colors
+// Groups
 //
-// To start in each browser on the same thing, we define some default colors.
 
-$border-color:                #bbb !default;
-$border-color-hover:          #bbb !default;
-$border-color-highlight:      #999 !default;
+/// Group item border width
+///
+/// The collapsing border of merged groups are set via negative margins which correspond
+/// with the border width.
+///
+/// @type number
+/// @group groups
+$group-collapse-border-width: 1px !default;
 
-$button-background:           #f5f5f5 !default;
-$button-background-hover:     #eaeaea !default;
-$button-background-highlight: #dfdfdf !default;
+/// Gutter between group items
+///
+/// @type number
+/// @group groups
+$group-gutter-width: $spacer !default;
 
 
-// Input groups
 //
-// Input groups are set via negative margins which correspond with the border width.
-
-$input-group-border-width: 1px !default;
-
-
-// Position names
+// Positions
 //
-// Rename position names.
-// Will also rename the class names.
 
+/// Horizontal position names
+///
+/// @type map
+/// @group position
 $x-positions: (
   'outerleft':    'outerleft',
   'left':         'left',
@@ -53,6 +125,10 @@ $x-positions: (
   'outerright':   'outerright'
 ) !default;
 
+/// Vertical position names
+///
+/// @type map
+/// @group position
 $y-positions: (
   'outertop':     'outertop',
   'top':          'top',
@@ -61,89 +137,96 @@ $y-positions: (
   'outerbottom':  'outerbottom'
 ) !default;
 
-// Support RTL
+
 //
-// Enable right-to-left fixes. This will compile the framework with the ability to adapt
-// all components to RTL via `<body dir="rtl">`.
-
-$enable-rtl: true !default;
-
-// Class contain selector
+// Grid
 //
-// Enable the [class*=value] selector.
-// This will safe a lot of space but can be buggy when u are using class names with
-// syntaxes used in this framework.
-//
-// Affects: `horizontal-`, `vertical-`
 
-$enable-class-contain: true !default;
-
-// Grid breakpoints
-//
-// Define the minimum and maximum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
-
+/// Define the minimum and maximum dimensions at which your layout will change,
+/// adapting to different screen sizes, for use in media queries.
+///
+/// @type map
+/// @group grid
 $grid-breakpoints: (
-  // Extra small screen / phone
-  xs: 0,
-  // Small screen / phone
-  sm: 34em,
-  // Medium screen / tablet
-  md: 48em,
-  // Large screen / desktop
-  lg: 62em,
-  // Extra large screen / wide desktop
-  xl: 75em
+  xs: 0,     // Extra small screen / phone
+  sm: 544px, // Small screen / phone
+  md: 768px, // Medium screen / tablet
+  lg: 992px, // Large screen / desktop
+  xl: 1200px // Extra large screen / wide desktop
 ) !default;
 
-
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
-
+/// Grid container width
+///
+/// Define the maximum width of `.container` for different screen sizes.
+///
+/// @type map
+/// @group grid
 $container-max-widths: (
-  sm: 34rem,    // 480
-  md: 45rem,    // 720
-  lg: 60rem,    // 960
-  xl: 72.25rem  // 1140
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px
 ) !default;
 
-
-// Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
-
+/// Set the number of grid columns.
+///
+/// @type number
+/// @group grid
 $grid-columns:      12 !default;
+
+/// Specify the width of the gutters between grid columns.
+///
+/// @type number
+/// @group grid
 $grid-gutter-width: 1.875rem !default; // 30px
 
 
-// Flex
 //
-// Bootstrap 4.0 introduced an option for using `flex`. Now, we will support it as well.
-// Take note that this isn't supported by IE<10.
-
-$enable-flex: false !default;
-
-
 // Z-Indices
-
-$zindex-sticky-top:             100 !default;
-$zindex-sticky-bottom:          100 !default;
-$zindex-menu:                   ($zindex-sticky-bottom + 1) !default;
-$zindex-overlay:                10000 !default;
-$zindex-input-group-hover:      1 !default;
-$zindex-input-group-highlight:  2 !default;
-
-
-// WordPress gallery columns
 //
-// Define how much columns are displayed on the specific breakpoints. You can
-// select up to 9 columns in WordPress by default. The index defines the
-// selected columns count.
-//
-// Default map is `(1, 2, 3, 4, 5, 6, 7, 8, 9)` - this will keep the selected
-// column count.
 
+/// @type number
+/// @group layout
+$zindex-sticky-top:      101 !default;
+
+/// @type number
+/// @group layout
+$zindex-sticky-bottom:   ($zindex-sticky-top - 1) !default;
+
+/// @type number
+/// @group menus
+$zindex-menu:            ($zindex-sticky-top + 1) !default;
+
+/// @type number
+/// @group layout
+$zindex-overlay:         10000 !default;
+
+/// @type number
+/// @group groups
+$zindex-group-hover:     1 !default;
+
+/// @type number
+/// @group groups
+$zindex-group-highlight: 2 !default;
+
+
+//
+// WordPress
+//
+
+/// WordPress gallery columns
+///
+/// Define how much columns are displayed on the specific breakpoints. You can
+/// select up to 9 columns in WordPress by default. The index represents the
+/// selected columns count in WordPress.
+///
+/// `(1, 2, 3, 4, 5, 6, 7, 8, 9)` is the default map - this will keep the
+/// selected column count from WordPress. If you want to show maximum 5 images in
+/// a row on `xs`-devices you have to set the map `(1, 2, 3, 4, 5, 5, 5, 5, 5)`
+/// to the `xs` key.
+///
+/// @type map
+/// @group wordpress
 $wordpress-gallery-columns-map: (
   xs: (1, 1, 1, 1, 1, 1, 1, 1, 1),
   sm: (1, 1, 1, 2, 2, 2, 2, 3, 3),

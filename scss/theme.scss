@@ -57,19 +57,19 @@ aside {}
 // All headers (`<h1>` - `<h6>`)
 #{$headers} {}
 
-// All single headers
+// Single headers
 
-#{$h1} {}
+h1 {}
 
-#{$h2} {}
+h2 {}
 
-#{$h3} {}
+h3 {}
 
-#{$h4} {}
+h4 {}
 
-#{$h5} {}
+h5 {}
 
-#{$h6} {}
+h6 {}
 
 // Paragraphs
 p {}
@@ -101,6 +101,25 @@ dl {
 // `<hr />`
 hr {}
 
+// Paragraphs
+p {}
+
+// Block-quotes
+blockquote {}
+
+// Description lists
+dl {
+  dt {}
+
+  dd {}
+}
+
+// Inline code
+code {}
+
+// Codeblocks
+pre code {}
+
 // Selected text
 ::selection {}
 
@@ -114,13 +133,13 @@ img {}
 a img {}
 
 // Figures
-#{$figure} {}
+figure {}
 
 // Caption of figure
-#{$figure-caption} {}
+figcaption {}
 
 // Image in figure
-#{$figure-image} {}
+figure img {}
 
 
 // Menus
@@ -131,6 +150,7 @@ a img {}
 .menu {
   li {
     a {}
+
     .submenu,
     ul {
       li {
@@ -147,24 +167,24 @@ a img {}
 // All buttons
 #{$buttons} {
   &:hover {}
+
+  &.active,
   &:active {}
+
+  &[disabled] {}
 }
-
-// Only submit buttons
-#{$submit-buttons} {}
-
-// Only reset buttons
-#{$reset-buttons} {}
-
-// Text fields
-//
-// All text input fields (only with _realy_ text input), includes `<textarea>`
-#{$text-fields} {}
 
 // Input fields
 //
-// Input fields without buttons and without check-boxes/radio-buttons, includes `<textarea>`
-#{$input-fields} {}
+// All form fields where users can input some data.
+// Excluded are check-boxes/radio-buttons.
+#{$input-fields} {
+  &:hover {}
+
+  &:focus {}
+
+  &[disabled] {}
+}
 
 // Legend
 legend {}

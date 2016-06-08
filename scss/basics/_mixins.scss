@@ -1,60 +1,32 @@
 //
 // Mixins
-// --------------------------------------------------
 //
-// Load all available mixins
-//
-
-// CSS Basics mixins
 
 @import 'mixins/alignment';
-@import 'mixins/button-toggle';
-@import 'mixins/figure';
-@import 'mixins/floating';
+@import 'mixins/border-radius';
+@import 'mixins/breakpoints';
+@import 'mixins/clearfix';
+@import 'mixins/direction';
 @import 'mixins/full-page';
-@import 'mixins/hidden-file-upload';
-@import 'mixins/horizontal-list';
-@import 'mixins/image-block';
-@import 'mixins/input-group';
-@import 'mixins/invisible';
-@import 'mixins/label-text-inline';
-@import 'mixins/layout';
+@import 'mixins/gradients';
+@import 'mixins/grid-framework';
+@import 'mixins/grid';
+@import 'mixins/group-merge';
+@import 'mixins/group';
+@import 'mixins/screen-reader';
 @import 'mixins/menu';
-@import 'mixins/orientation';
 @import 'mixins/overlay';
+@import 'mixins/pull';
 @import 'mixins/position';
-@import 'mixins/remove-list-appearance';
-@import 'mixins/row-eq-height';
-@import 'mixins/sticky';
-@import 'mixins/table-responsive';
-@import 'mixins/typography';
-@import 'mixins/vertical-list';
-
-
-// Vendor mixins
-//
-// Note: These are also used within the CSS Basics framework
-
-@import 'mixins/vendor/border-radius';
-@import 'mixins/vendor/breakpoints';
-@import 'mixins/vendor/clearfix';
-@import 'mixins/vendor/grid-framework';
-@import 'mixins/vendor/grid';
-@import 'mixins/vendor/resize';
-@import 'mixins/vendor/responsive-visibility';
-@import 'mixins/vendor/screen-reader';
-@import 'mixins/vendor/viewport-units-ios';
-
-
-// Unused in components
-//
-// This mixins are not used in any component.
-
-@import 'mixins/vendor/gradients';
-@import 'mixins/vendor/reset-filter';
-@import 'mixins/load-font';
+@import 'mixins/reset-filter';
 @import 'mixins/reset-text';
+@import 'mixins/resize';
+@import 'mixins/sticky';
 @import 'mixins/table-border-radius';
 @import 'mixins/table-inner-border';
+@import 'mixins/table-responsive';
+@import 'mixins/text-align';
+@import 'mixins/text-truncate';
 @import 'mixins/tooltip';
 @import 'mixins/triangle';
+@import 'mixins/viewport-unit';

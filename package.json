@@ -1,7 +1,7 @@
 {
   "name": "css-basics",
-  "description": "CSS Basics is built to start styling your page without worry about any position and behaviour problems.",
-  "version": "4.0.0-alpha18",
+  "description": "New mobile-first CSS/SCSS framework, toolkit and opinionated reset.",
+  "version": "4.0.0-alpha19",
   "title": "CSS Basics",
   "keywords": [
     "css",
@@ -33,12 +33,15 @@
   },
   "homepage": "http://christoph-heich.de/css-basics/",
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.4",
     "gulp-header": "^1.7.1",
-    "gulp-minify-css": "^1.2.1",
+    "gulp-ignore": "^2.0.1",
+    "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^1.6.0",
+    "postcss-flexibility": "^1.0.3"
   }
 }

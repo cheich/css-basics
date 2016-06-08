@@ -1,41 +1,26 @@
-
-// Bootstrap the CSS Basics framework
+// Bootstrap the framework
 @import 'basics/bootstrap';
 
+// Normalize and resets
+@import 'basics/components/normalize';
+@import 'basics/components/resets';
 
-// Set up your custom build.
-// --------------------------------------------------
-
-// Variables
-//
-// Overwriting of the default values should go here.
-
-
-
-// Components (all optional)
-//// Important: order of components shouldn't rearranged!
-
-// Vendor components
-
-@import 'basics/components/vendor/normalize';
-@import 'basics/components/vendor/grid';
-@import 'basics/components/vendor/responsive-embed';
-@import 'basics/components/vendor/media';
-@import 'basics/components/vendor/utilities-responsive';
-
-// CSS Basics components
-
-@import 'basics/components/images';
+// Main components
 @import 'basics/components/layouts';
-@import 'basics/components/orientations';
-@import 'basics/components/menus';
-@import 'basics/components/forms';
-@import 'basics/components/positions';
-@import 'basics/components/tables';
+@import 'basics/components/grid';
 @import 'basics/components/typography';
-@import 'basics/components/helpers';
+@import 'basics/components/forms';
+@import 'basics/components/menus';
+@import 'basics/components/tables';
+@import 'basics/components/groups';
 
-// Components for external resources
+// Utilities
+@import 'basics/components/responsive-embed';
+@import 'basics/components/positions';
 
-// @import 'basics/components/external/wordpress';
-// @import 'basics/components/external/wordpress-gallery';
+// Helpers
+@import 'basics/components/helpers-alignment';
+@import 'basics/components/helpers-print';
+@import 'basics/components/helpers-spacing';
+@import 'basics/components/helpers-typography';
+@import 'basics/components/helpers-visibility';
