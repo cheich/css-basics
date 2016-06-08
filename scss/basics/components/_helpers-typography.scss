@@ -1,0 +1,43 @@
+// Transformations
+.text-uppercase  { text-transform: uppercase;  }
+.text-lowercase  { text-transform: lowercase;  }
+.text-capitalize { text-transform: capitalize; }
+.text-small-caps { font-variant:   small-caps; }
+
+
+// Text sizing
+.text-small { font-size: 80%;  }
+.text-large { font-size: 120%; }
+
+// Effects
+.text-bold      { font-weight:     bolder;    }
+.text-underline { text-decoration: underline; }
+.text-italic    { font-style:      italic;    }
+
+// Wrap
+.text-pre      { white-space: pre;         }
+.text-nowrap   { white-space: nowrap;      }
+.text-pre-wrap { white-space: pre-wrap;    }
+.text-pre-line { white-space: pre-line;    }
+.text-truncate { @include text-truncate(); }
+
+// Alignments
+.text-start   { @include text-start(); }
+.text-end     { @include text-end();   }
+.text-center  { text-align: center;    }
+.text-justify { text-align: justify;   }
+
+@each $bp in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($bp) {
+    .text-start-#{$bp}  { @include text-start(); }
+    .text-end-#{$bp}    { @include text-end();   }
+    .text-center-#{$bp} { text-align: center;    }
+  }
+}
+
+// Removes list appearance
+.list-clean {
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}

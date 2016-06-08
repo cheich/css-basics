@@ -1,0 +1,22 @@
+// Pull
+.pull-start { @include pull-start(); }
+.pull-end   { @include pull-end();   }
+.pull-none  { float: none;           }
+
+@each $bp in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($bp) {
+    .pull-start-#{$bp} { @include pull-start(); }
+    .pull-end-#{$bp}   { @include pull-end();   }
+    .pull-none-#{$bp}  { float: none;           }
+  }
+}
+
+// Clearfix
+.clearfix {
+  @include clearfix();
+}
+
+// Block level alignments
+.align-center { @include align-center(); }
+.align-start  { @include align-start();  }
+.align-end    { @include align-end();    }
