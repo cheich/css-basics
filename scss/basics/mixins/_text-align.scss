@@ -1,0 +1,27 @@
+/// Text align left
+///
+/// @param {boolean} $auto-direction
+///
+/// @group helpers
+/// @see $enable-auto-direction
+@mixin text-start($auto-direction: $enable-auto-direction) {
+  @if $auto-direction and $direction == 'rtl' {
+    text-align: right;
+  } @else {
+    text-align: left;
+  }
+}
+
+/// Text align right
+///
+/// @param {boolean} $auto-direction
+///
+/// @group helpers
+/// @see $enable-auto-direction
+@mixin text-end($auto-direction: $enable-auto-direction) {
+  @if $auto-direction and $direction == 'rtl' {
+    text-align: left;
+  } @else {
+    text-align: right;
+  }
+}
