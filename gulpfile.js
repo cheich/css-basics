@@ -7,13 +7,15 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var header = require('gulp-header');
-var ignore = require('gulp-ignore');
 var sass = require('gulp-sass');
+var clone = require('gulp-clone');
+var merge = require('merge-stream');
 var postcss = require('gulp-postcss');
 var minify = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
-var flexibility = require('postcss-flexibility');
+var flexibility = require('postcss-flexibility'); // testing
+var sassdoc = require('sassdoc');
 
 var pkg = require('./package.json');
 pkg.year = String(new Date().getFullYear());
@@ -44,7 +46,7 @@ gulp.task('default', ['basics', 'theme', 'custom']);
 // Compile CSS Basics framework
 //
 gulp.task('basics', function() {
-  return gulp.src('scss/basics.scss')
+  var stream = gulp.src('scss/basics.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
       throw(error.message);
@@ -53,15 +55,18 @@ gulp.task('basics', function() {
       flexibility,
       autoprefixer({ browsers: browserlist })
     ]))
-    .pipe(header(banner, { pkg: pkg }))
+    .pipe(header(banner, { pkg: pkg }));
+
+  var main = stream.pipe(clone())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist'))
-    .pipe(ignore.exclude('*.map'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(gulp.dest('./dist'));
+
+  var min = stream.pipe(clone())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(minify())
     .pipe(gulp.dest('./dist'));
+
+  return merge(main, min);
 });
 
 //
@@ -71,7 +76,7 @@ gulp.task('custom', function() {
   var cpkg = pkg;
   cpkg.version = pkg.version + ' CUSTOM BUILD';
 
-  return gulp.src('scss/basics-*.scss')
+  var stream = gulp.src('scss/basics-*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
       throw(error.message);
@@ -80,22 +85,25 @@ gulp.task('custom', function() {
       flexibility,
       autoprefixer({ browsers: browserlist })
     ]))
-    .pipe(header(banner, { pkg: cpkg }))
+    .pipe(header(banner, { pkg: pkg }));
+
+  var main = stream.pipe(clone())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/custom'))
-    .pipe(ignore.exclude('*.map'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(gulp.dest('./dist'));
+
+  var min = stream.pipe(clone())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(minify())
-    .pipe(gulp.dest('./dist/custom'));
+    .pipe(gulp.dest('./dist'));
+
+  return merge(main, min);
 });
 
 //
-// Compile Theme
+// Compile documentation theme
 //
-gulp.task('theme', function() {
-  return gulp.src('scss/theme.scss')
+gulp.task('sass', function() {
+  var stream = gulp.src('docs/assets/_scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
       throw(error.message);
@@ -104,15 +112,28 @@ gulp.task('theme', function() {
       flexibility,
       autoprefixer({ browsers: browserlist })
     ]))
-    .pipe(header(themeBanner, { pkg: pkg }))
+    .pipe(header(banner, { pkg: pkg }));
+
+  var main = stream.pipe(clone())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist'))
-    .pipe(ignore.exclude('*.map'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(gulp.dest('./docs/'));
+
+  var min = stream.pipe(clone())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(minify())
     .pipe(gulp.dest('./dist'));
+
+  return merge(main, min);
+});
+
+//
+// Sass documentation
+//
+gulp.task('sassdoc', function() {
+  return gulp.src('./scss/basics/**/*.scss')
+    .pipe(sassdoc({
+      dest: 'docs/sassdoc'
+    }));
 });
 
 //
