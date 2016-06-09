@@ -1,14 +1,13 @@
 {
   "name": "css-basics",
-  "description": "CSS Basics is built to start styling your page without worry about any position and behaviour problems.",
+  "description": "New mobile-first CSS/SCSS framework, toolkit and opinionated reset.",
   "main": [
-    "dist/basics.css",
-    "scss/theme.scss"
+    "dist/basics.css"
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/cheich/css-basics.git"
-  }
+  },
   "keywords": [
     "css",
     "basics",
