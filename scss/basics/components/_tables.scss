@@ -1,36 +1,9 @@
 //
 // Tables
-// --------------------------------------------------
-//
-// Make tables responsive via horizontal-scrolling and 100% width.
 //
 
 table {
-  // Get the full width
-  width: 100%;
-
-  caption {
-    text-align: center;
-
-    // Table caption should be under the tables
-    caption-side: bottom;
-  }
-
-  th,
-  td {
-    vertical-align: top;
-    text-align: left;
-  }
-}
-
-// RTL tables
-@if $enable-rtl {
-  [dir="rtl"] {
-    th,
-    td {
-      text-align: right;
-    }
-  }
+  margin-bottom: $spacer-y;
 }
 
 // Responsive table
@@ -38,4 +11,10 @@ table {
 // Wrap tables to make it responsive.
 .table-responsive {
   @include table-responsive();
+
+  margin-bottom: $spacer-y;
+
+  table {
+    margin-bottom: 0;
+  }
 }
