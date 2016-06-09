@@ -25,7 +25,7 @@
   },
   "author": {
     "name": "Christoph Heich",
-    "url": "http://christoph-heich.de"
+    "url": "http://christophheich.de"
   },
   "license": "MIT",
   "bugs": {
@@ -42,6 +42,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
-    "postcss-flexibility": "^1.0.3"
+    "postcss-flexibility": "^1.0.3",
+    "merge-stream": "^1.0.0",
+    "gulp-clone": "^1.0.0",
+    "sassdoc": "^2.1.20"
   }
 }
