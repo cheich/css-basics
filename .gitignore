@@ -35,12 +35,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Eclipse
-
 # Sass cache
 **/.sass-cache
 **/.sass-cache/*
 
-# NodeJS and Bower components
-bower_components
+# Jekyll site
+**/_site
+
+# Node modules
 node_modules
