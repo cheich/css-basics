@@ -32,7 +32,7 @@ Take a look at the _project page [coming soon]_ to see the complete documentatio
 
 ## Setup
 
-Just include [basics.css](/dist/basics.css) before all other stylesheets. Your
+Just include [basics.min.css](/dist/basics.min.css) before all other stylesheets. Your
 template should have at least this markup:
 
 ```html
