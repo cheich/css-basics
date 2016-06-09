@@ -1,56 +1,42 @@
-//
-// Positions
-// --------------------------------------------------
-//
-// Position an element relative to it's parent.
-//
-
-.position-container {
-  @include position-container();
-}
-
-// Build placeholder
-//
-// We'll safe a lot of space by building placeholders.
-
-@each $x, $x-name in $x-positions {
-  %x-position-#{$x} {
-    @include x-position($x-name);
+@if $enable-position-classes {
+  .position-container {
+    @include position-container();
   }
-}
 
-@each $y, $y-name in $y-positions {
-  %y-position-#{$y} {
-    @include y-position($y-name);
+  // Build placeholder
+  @each $x, $x-name in $x-positions {
+    %x-position-#{$x} {
+      @include x-position($x-name);
+    }
   }
-}
-
-// The loop
-//
-// Loop trough all positions and build the classes.
-
-@each $x, $x-name in $x-positions {
 
   @each $y, $y-name in $y-positions {
-    .#{$x-name}-#{$y-name} {
-      @extend %y-position-#{$y};
-      @extend %x-position-#{$x};
+    %y-position-#{$y} {
+      @include y-position($y-name);
+    }
+  }
 
-      @if ($x == 'center') and ($y == 'center') {
-        transform: translate(-50%, -50%);
+  // Loop trough all positions and build classes
+  @each $x, $x-name in $x-positions {
+
+    @each $y, $y-name in $y-positions {
+      .#{$x-name}-#{$y-name} {
+        @extend %y-position-#{$y};
+        @extend %x-position-#{$x};
+
+        @if ($x == 'center') and ($y == 'center') {
+          transform: translate(-50%, -50%);
+        }
       }
     }
   }
-}
 
-// Resets
-//
-// Position resets with media queries.
-
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-only($breakpoint) {
-    .position-reset-#{$breakpoint} {
-      @include position-reset();
+  // Position resets with media queries.
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-only($breakpoint) {
+      .position-reset-#{$breakpoint} {
+        @include position-reset();
+      }
     }
   }
 }
