@@ -1,32 +1,19 @@
 //
 // Typography
-// --------------------------------------------------
-//
-// All about texts, lists, headers, etc.
-// Below are some helper classes for text formating.
 //
 
-html {
-  // Init reset to set child's relative font-size relative to this one
-  font-size: 100%;
-}
-
-// Gutters
-
+// Spacing
 #{$headers},
+blockquote,
+dd,
 ul,
 ol,
 p,
 pre {
-  // Remove top margins
-  margin-top: 0;
-
-  // Add some space after it
   margin-bottom: $spacer-y;
 }
 
-// Lists
-
+// Remove bottom-spacing on sublists
 ul,
 ol {
   ul,
@@ -35,28 +22,28 @@ ol {
   }
 }
 
-dd,
-blockquote {
-  // Remove browser default left margin
-  margin-left: 0;
-
-  margin-bottom: $spacer-y;
-}
-
 hr {
-  // box-sizing for `hr` is set to `content-box` in normalize.css
-  box-sizing: inherit;
-
   border-width: 0;
   border-top-width: 1px;
   margin-bottom: $spacer-y;
 }
 
+dt {
+  font-weight: bolder;
+}
+
 // Some print styles
 @media print {
   // Add phrase after abbreviation
-  abbr[title]:after {
-    content: " ("attr(title)")";
+  @include rtl-only() {
+    abbr[title]::before {
+      content: " ("attr(title)")";
+    }
+  }
+  @include ltr-only() {
+    abbr[title]::after {
+      content: " ("attr(title)")";
+    }
   }
 
   // Mark links
@@ -64,90 +51,4 @@ hr {
   a:visited {
     text-decoration: underline;
   }
-}
-
-// Typography helpers
-// --------------------------------------------------
-
-// Transformations
-
-.text-uppercase {
-  @include text-uppercase();
-}
-
-.text-lowercase {
-  @include text-lowercase();
-}
-
-.text-capitalize {
-  @include text-capitalize();
-}
-
-.text-small-caps {
-  @include text-small-caps();
-}
-
-// Text sizing
-
-small,
-.text-smaller {
-  @include text-smaller();
-}
-
-.text-larger {
-  @include text-larger();
-}
-
-// Effects
-
-.text-bold {
-  @include text-bold();
-}
-
-.text-underline {
-  @include text-underline();
-}
-
-.text-italic {
-  @include text-italic();
-}
-
-// Wrap
-
-.text-pre {
-  @include text-pre();
-}
-
-.text-nowrap {
-  @include text-nowrap();
-}
-
-.text-pre-wrap {
-  @include text-pre-wrap();
-}
-
-.text-pre-line {
-  @include text-pre-line();
-}
-
-.text-truncate {
-  @include text-truncate();
-}
-
-// Alignments
-
-.text-right {
-  @include text-right();
-}
-
-.text-left {
-  @include text-left();
-}
-
-.text-center {
-  @include text-center();
-}
-
-.text-justify {
-  @include text-justify();
 }
