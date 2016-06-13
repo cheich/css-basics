@@ -10,7 +10,7 @@
 ///                                            If false, parent should be `position: relative;`
 /// @param {string}  $zindex [$zindex-overlay]
 ///
-/// @group layouts
+/// @group layout
 @mixin overlay($fixed: true, $zindex: $zindex-overlay) {
   top: 0;
   right: 0;

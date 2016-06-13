@@ -22,6 +22,7 @@
 ///
 /// @link http://caniuse.com/#feat=viewport-units
 /// @link https://gist.github.com/BenMorel/e9e34c08360ebbbd0634
+/// @group helpers
 @mixin viewport-unit($property, $value) {
   #{$property}: $value;
 

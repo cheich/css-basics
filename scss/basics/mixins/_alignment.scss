@@ -1,4 +1,6 @@
 /// Center aligned block level element
+/// 
+/// @group helpers
 @mixin align-center() {
   display: block;
   margin-left: auto;

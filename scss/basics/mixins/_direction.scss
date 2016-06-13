@@ -1,6 +1,7 @@
 /// Insert content only if `$direction` is `rtl`
 ///
 /// @see $direction
+/// @group text-direction
 @mixin rtl-only() {
   @if $direction == 'rtl' {
     @content;
@@ -10,6 +11,7 @@
 /// Insert content only if `$direction` is `ltr`
 ///
 /// @see $direction
+/// @group text-direction
 @mixin ltr-only() {
   @if $direction == 'ltr' {
     @content;

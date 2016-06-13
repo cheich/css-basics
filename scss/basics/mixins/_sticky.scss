@@ -2,7 +2,7 @@
 ///
 /// @param {string} $zindex [$zindex-sticky-top]
 ///
-/// @group layouts
+/// @group layout
 @mixin sticky-top($zindex: $zindex-sticky-top) {
   position: fixed;
   z-index: $zindex;
@@ -14,8 +14,8 @@
 /// Bottom-fixed element
 ///
 /// @param {string} $zindex [$zindex-sticky-top]
-/// 
-/// @group layouts
+///
+/// @group layout
 @mixin sticky-bottom($zindex: $zindex-sticky-bottom) {
   position: fixed;
   z-index: $zindex;

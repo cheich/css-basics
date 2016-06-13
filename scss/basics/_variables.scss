@@ -32,6 +32,7 @@ $enable-position-classes: false !default;
 ///   if `$direction` is `rtl`:
 ///     .text-start { text-align: right }
 ///
+/// @group text-direction
 /// @type boolean
 $enable-auto-direction: true !default;
 
@@ -41,6 +42,7 @@ $enable-auto-direction: true !default;
 ///
 /// Options: 'rtl', 'ltr'
 ///
+/// @group text-direction
 /// @type string
 $direction: 'ltr' !default;
 
@@ -51,16 +53,19 @@ $direction: 'ltr' !default;
 
 /// Control the default styling of most elements by modifying this variable.
 ///
+/// @group helpers
 /// @type number
 $spacer:   1rem !default;
 
 /// Horizintal spacing
 ///
+/// @group helpers
 /// @type number
 $spacer-x: $spacer !default;
 
 /// Vertical spacing
 ///
+/// @group helpers
 /// @type number
 $spacer-y: $spacer !default;
 
@@ -68,6 +73,7 @@ $spacer-y: $spacer !default;
 ///
 /// Used for spacing helper classes
 ///
+/// @group helpers
 /// @type map
 $spacers: (
   0: (
