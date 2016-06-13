@@ -16,6 +16,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var flexibility = require('postcss-flexibility'); // testing
 var sassdoc = require('sassdoc');
+var cp = require('child_process'); // native
 
 var pkg = require('./package.json');
 pkg.year = String(new Date().getFullYear());
@@ -40,7 +41,7 @@ var themeBanner = '/*!\n' +
 //
 // Default task
 //
-gulp.task('default', ['basics', 'theme', 'custom']);
+gulp.task('default', ['basics', 'custom']);
 
 //
 // Compile CSS Basics framework
@@ -102,7 +103,7 @@ gulp.task('custom', function() {
 //
 // Compile documentation theme
 //
-gulp.task('sass', function() {
+gulp.task('doc-style', function() {
   var stream = gulp.src('docs/assets/_scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
@@ -115,13 +116,15 @@ gulp.task('sass', function() {
     .pipe(header(banner, { pkg: pkg }));
 
   var main = stream.pipe(clone())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./docs/'));
+    .pipe(sourcemaps.write('./', {
+      sourceRoot: './'
+    }))
+    .pipe(gulp.dest('./docs/assets/css'));
 
   var min = stream.pipe(clone())
     .pipe(rename({ suffix: '.min' }))
     .pipe(minify())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./docs/assets/css'));
 
   return merge(main, min);
 });
@@ -132,8 +135,18 @@ gulp.task('sass', function() {
 gulp.task('sassdoc', function() {
   return gulp.src('./scss/basics/**/*.scss')
     .pipe(sassdoc({
-      dest: 'docs/sassdoc'
+      dest: 'docs/_site/sassdoc'
     }));
+});
+
+//
+// Build HTML documentation
+//
+gulp.task('doc', ['doc-style'], function() {
+  return cp.spawn('jekyll.bat', ['build'], {
+    stdio: 'inherit',
+    cwd: 'docs'
+  });
 });
 
 //
@@ -142,5 +155,8 @@ gulp.task('sassdoc', function() {
 gulp.task('watch', function() {
   gulp.watch('scss/basics-*.scss', ['custom']);
   gulp.watch(['scss/basics.scss', 'scss/basics/**/*.scss'], ['basics']);
-  gulp.watch('scss/theme.scss', ['theme']);
+  cp.spawn('jekyll.bat', ['build', '--watch'], {
+    stdio: 'inherit',
+    cwd: 'docs'
+  });
 });
