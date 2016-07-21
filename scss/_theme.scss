@@ -2,29 +2,26 @@
 // Theme
 // --------------------------------------------------
 //
-// This file is to set up your basic theme.
+// Start styling your page with this empty theme file.
 // While other frameworks only allows to set a few variables,
-// we will allow the whole power of CSS and SCSS here!
+// this will allow the whole power of CSS and SCSS here!
 // There are many predefined selectors, but you can also delete all of them.
-//
-// To not include any styles/themes,
-// just leave everything empty (use `_theme-default.scss` to start anew).
 // If an element is not presented here, simple add it's selector.
 //
 // You will see a lot of variable selectors. It's recommended to use these.
-// If you're not familiar with interpolations, take a look at the Sass docu:
+// If you're not familiar with interpolations, take a look at the Sass doc:
 // http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
 //
 // Table of content
 //  - Layout
 //  - Typography
 //  - Images
-//  - Forms
 //  - Menus
+//  - Forms
 //  - Tables
 //
 
-// Bootstrap the CSS Basics framework
+// Bootstrap the framework
 @import 'basics/bootstrap';
 
 // Layout
@@ -176,8 +173,10 @@ figure img {}
 
 // Input fields
 //
-// All form fields where users can input some data.
-// Excluded are check-boxes/radio-buttons.
+// All form fields where the user can input some data. This is an opinionated
+// list where at least the border is style-able.
+//
+// Excluded are checkboxes, radio-buttons and [type="range"].
 #{$input-fields} {
   &:hover {}
 
@@ -197,6 +196,11 @@ label {}
 
 // Placeholder
 ::placeholder {}
+
+// All form fields without checkboxes/radio-buttons and without buttons.
+//
+// Checkboxes and radio-buttons are excluded because they are hardly style-able.
+#{$form-fields} {}
 
 // Tables
 // --------------------------------------------------
