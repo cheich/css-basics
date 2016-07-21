@@ -40,7 +40,6 @@ $lists: unquote('ul, ol') !default;
 /// @group selectors
 $buttons: unquote('
   .button,
-  [role="button"],
   [type="button"],
   [type="submit"],
   [type="reset"],
