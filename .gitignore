@@ -37,10 +37,7 @@ Temporary Items
 
 # Sass cache
 **/.sass-cache
-**/.sass-cache/*
-
-# Jekyll site
-**/_site
+**/.sass-cache/*ta
 
 # Node modules
 node_modules
