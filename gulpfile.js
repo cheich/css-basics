@@ -32,16 +32,16 @@ var banner = '/*!\n' +
              ' * Released under the <%= pkg.license %> license <https://github.com/cheich/css-basics/blob/master/LICENSE>\n' +
              ' */\n';
 
-var path = {
-  custom: ['scss/basics-*.scss', '!scss/basics-rtl.scss'],
-  default: ['scss/basics.scss', 'scss/basics-rtl.scss']
-};
+//
+// Default task
+//
+gulp.task('default', ['basics', 'custom']);
 
 //
 // Compile CSS Basics framework
 //
-gulp.task('default', function() {
-  var stream = gulp.src(path.default)
+gulp.task('basics', function() {
+  var stream = gulp.src('scss/basics.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
       throw(error.message);
@@ -71,7 +71,7 @@ gulp.task('custom', function() {
   var cpkg = pkg;
   cpkg.version = pkg.version + ' CUSTOM BUILD';
 
-  var stream = gulp.src(path.custom)
+  var stream = gulp.src('scss/basics-*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', function(error) {
       throw(error.message);
@@ -98,5 +98,6 @@ gulp.task('custom', function() {
 // Watch all changes
 //
 gulp.task('watch', function() {
-  gulp.watch(['scss/**/*.scss'], ['basics', 'custom']);
+  gulp.watch('scss/basics-*.scss', ['custom']);
+  gulp.watch(['scss/basics.scss', 'scss/basics/**/*.scss'], ['basics']);
 });
