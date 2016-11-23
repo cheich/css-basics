@@ -11,7 +11,7 @@ Take a look at the _project page [coming soon]_ to see the complete documentatio
 ## To-do
 
 - [ ] Update Bootstraps components (waiting for Bootstrap 4 release)
-- [ ] Add pre-compiled rtl-versions
+- [x] Add pre-compiled rtl-versions
 - [ ] Update documentation
 
 ## Features
@@ -71,7 +71,7 @@ _IE9 doesn't support Flexbox - I'm looking for workarounds or a pollyfill._
 
 ## Release notes
 
-Each main version is mostly backward-compatible. See the [history](HISTORY.md) to
+Each main version is mostly backward-compatible. See the [changelog](CHANGELOG.md) to
 see all changes and fixes.
 
 ## License
