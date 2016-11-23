@@ -45,3 +45,4 @@ node_modules
 # Jekyll
 docs/_site
 docs/.jekyll-metadata
+docs/_sass/.basics-tmp

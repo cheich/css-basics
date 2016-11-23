@@ -34,6 +34,7 @@
   "homepage": "http://christoph-heich.de/css-basics/",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "fs-extra": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.10",
     "gulp-clone": "^1.0.0",
@@ -42,9 +43,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
+    "js-yaml": "^3.7.0",
     "merge-stream": "^1.0.0",
     "postcss-flexibility": "^1.0.3",
-    "js-yaml": "^3.7.0",
     "sassdoc": "^2.1.20"
   }
 }
