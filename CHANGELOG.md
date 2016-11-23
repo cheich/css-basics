@@ -1,7 +1,9 @@
 # History
 
 ## v4.0.0
+
 ### Added
+
 - New main color and logo (yay!)
 - Added `theme.scss` to build your theme - Here are some selectors to easily start styling
 - Added _Layouts_
@@ -11,6 +13,7 @@
 - More options; Overwrite variables that come from `_variables.scss`
 
 ### Changed
+
 - Moved from Less to Sass
 - Replaced _Orientations_ with _Groups_ - mobile first means everything is vertical
 - All resets are now in one file called `_resets.scss`
@@ -20,10 +23,12 @@
 - Split helpers into separated components
 
 ### Updated
+
 - Updated Bootstrap components to v4.0.0-alpha.2
 - Updated Normalize to v4.1.1
 
 ### Update notices
+
 - Dropped figure classes - use HTML5 tags instead
 - Some text helpers are renamed (now all text helpers are prefixed with `text-`)
 - Visibilities completely renamed and replaced with bootstraps components
@@ -32,16 +37,19 @@
 - `.label-text-inline` dropped, use groups instead
 
 ## v3.0.1
+
 - Fixed sub-menus z-index
 - Fixed compiled version (options were included)
 
 ## v3.0.0
+
 - Removed new print classes (it's included in bootstraps responsive utilities - my bad xD)
 - New file structure (to not repeat mixins)
 - WordPress is not included by default (use the custom compiled versions or compile your own version instead)
 - Removed keyword `!important` in the base reset to `box-sizing: border-box;`, it's no longer necessary
 
 ## v3.0.0b2
+
 - Image styles separated
 - New helpers
   - Alignments (align block-level elements left, right or center)
@@ -66,6 +74,7 @@ Some helper classes are renamed:
 - Text alignments helper classes renamed: `.right` to `.text-align-right`, `.center` to `.text-align-center` etc.
 
 ## v3.0.0b1
+
 - Source files with [{less}](http://lesscss.org/)
 - Added less-variables and mixins
 - All features separated in components
@@ -73,7 +82,9 @@ Some helper classes are renamed:
 - Despite all the new features 1 KB smaller than v2.1.x
 
 ## v2.1.6
+
 - Removed padding on image caption-text
 
 ## v2.0.0
+
 - First official release
