@@ -41,3 +41,7 @@ Temporary Items
 
 # Node modules
 node_modules
+
+# Jekyll
+docs/_site
+docs/.jekyll-metadata
