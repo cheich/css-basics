@@ -64,6 +64,11 @@ you can still use version 3.x.
 
 _IE9 doesn't support Flexbox - I'm looking for workarounds or a pollyfill._
 
+## Dev dependencies
+
+- Jekyll
+- NodeJS
+
 ## Release notes
 
 Each main version is mostly backward-compatible. See the [history](HISTORY.md) to
