@@ -37,7 +37,5 @@
 
 // Removes list appearance
 .list-clean {
-  padding-left: 0;
-  padding-right: 0;
-  list-style: none;
+  @include list-clean();
 }
