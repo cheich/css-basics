@@ -111,6 +111,9 @@ gulp.task('docs', ['sassdoc'], function (done) {
     }
   });
 
+  fs.createReadStream('./dist/basics.min.css')
+    .pipe(fs.createWriteStream('./docs/assets/css/basics.min.css'));
+
   return cp.spawn(jekyll, ['build'], {
       stdio: 'inherit',
       cwd: srcPath.docs
@@ -133,6 +136,6 @@ gulp.task('sassdoc', function() {
 //
 gulp.task('watch', function () {
   gulp.watch(['scss/**/*.scss'], ['default', 'custom']);
-  gulp.watch(['**/*.html', '**/*.md', '!README.md', '_sass/_theme.scss', 'assets/**/*'], ['doc']);
+  gulp.watch(['**/*.html', '**/*.md', '!README.md', '_sass/_theme.scss', 'assets/**/*'], ['docs']);
   gulp.watch(['_sass/basics/**/*.scss'], ['sassdoc']);
 });
