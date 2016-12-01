@@ -38,16 +38,6 @@
   &:not(:last-child) {
     margin-bottom: - $collapse-border-width !important;
   }
-
-  // Fix border overlapping via z-index
-  &:hover {
-    z-index: $zindex-group-hover;
-  }
-
-  &:active,
-  &:focus {
-    z-index: $zindex-group-highlight;
-  }
 }
 
 /// Group wrapper for inline-merged items
@@ -107,8 +97,13 @@
       margin-left: - $collapse-border-width !important;
     }
   }
-
-  // Fix border overlapping via z-index
+}
+/// Fix border overlapping
+///
+/// This will fix overlapping border of group items via z-index
+///
+/// @group groups
+@mixin group-item-merge-borderfix() {
   &:hover {
     z-index: $zindex-group-hover;
   }
