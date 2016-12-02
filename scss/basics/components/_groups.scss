@@ -85,11 +85,6 @@ $exclude-inline-groups: '';
     }
   }
 
-  // Equal width of vertical groups
-  &.group-eq-width {
-    align-items: stretch;
-  }
-
   // Merge group vertically on previous breakpoint and beneath
   @if $breakpoint-prev {
     @include media-breakpoint-down($breakpoint-prev) {
@@ -124,6 +119,11 @@ $group-merge-selector: '.group-merge' + $exclude-inline-groups;
   &.group-all > * {
     @include group-item-merge-borderfix();
   }
+}
+
+// Equal width of vertical groups
+&.group-eq-width {
+  align-items: stretch;
 }
 
 // Horizontal alignments
