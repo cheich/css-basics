@@ -27,7 +27,6 @@
   "license": "MIT",
   "bugs": {
   },
-  "homepage": "http://christoph-heich.de/css-basics/",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "fs-extra": "^1.0.0",
