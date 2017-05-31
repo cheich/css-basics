@@ -20,7 +20,6 @@
   "sass": "scss/basics.scss",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cheich/CSS-Basics.git"
   },
   "author": {
     "name": "Christoph Heich",
@@ -28,7 +27,6 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cheich/CSS-Basics/issues"
   },
   "homepage": "http://christoph-heich.de/css-basics/",
   "devDependencies": {
