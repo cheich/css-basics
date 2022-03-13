@@ -1,4 +1,4 @@
-# [CSS Basics](http://christoph-heich.de/css-basics)
+# CSS Basics
 
 The CSS framework that won't restrict your artistry.
 
