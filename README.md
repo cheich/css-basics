@@ -8,12 +8,6 @@ create a new issue via the [issue tracker](https://github.com/cheich/css-basics/
 
 Take a look at the _project page [coming soon]_ to see the complete documentation.
 
-## To-do
-
-- [ ] Update Bootstraps components (waiting for Bootstrap 4 release)
-- [x] Add pre-compiled rtl-versions
-- [ ] Update documentation
-
 ## Features
 
 - No styles included - or maybe a few as opinionated reset 😁
